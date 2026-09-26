@@ -3,35 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MHBSFUT - Consola</title>
+  <title>MHBSFUT</title>
   
-  <!-- Fuente Nunito desde Google Fonts (y fallback local) -->
+  <!-- Tipografía Nunito desde CDN -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
   <style>
-    /* Tipografía y Variables */
-    @font-face {
-      font-family: 'NunitoVariable';
-      src: url('./assets/fonts/nuto-varialble.ttf') format('truetype');
-      font-weight: 100 900;
-      font-display: swap;
-    }
-
     :root {
       --bg-header: #213037;
       --bg-main: #141f25;
+      --card-bg: #1a2730;
+      --card-border: #2a3a46;
       --input-bg: #38464f;
       --input-bg-focus: #41515b;
       --input-placeholder: #c4d0d8;
       --input-text: #ffffff;
       --btn-bg: #93d334;
-      --btn-hover: #a1e23d;
+      --btn-hover: #a2e43b;
       --btn-text: #111a1e;
       --text-white: #ffffff;
-      --font-family: 'NunitoVariable', 'Nunito', system-ui, -apple-system, sans-serif;
+      --text-muted: #8c9da8;
+      --border-radius-card: 16px;
       --border-radius-input: 12px;
+      --font-family: 'Nunito', system-ui, -apple-system, sans-serif;
     }
 
     * {
@@ -50,7 +46,7 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Barra Superior / Header */
+    /* Header / Navbar */
     .header {
       background-color: var(--bg-header);
       height: 72px;
@@ -59,6 +55,7 @@
       justify-content: space-between;
       padding: 0 48px;
       width: 100%;
+      z-index: 10;
     }
 
     .brand-title {
@@ -67,6 +64,7 @@
       font-weight: 800;
       letter-spacing: 0.5px;
       text-decoration: none;
+      cursor: pointer;
     }
 
     .nav-links {
@@ -80,6 +78,11 @@
       text-decoration: none;
       font-size: 1.05rem;
       font-weight: 700;
+      cursor: pointer;
+      background: none;
+      border: none;
+      font-family: inherit;
+      padding: 0;
       transition: opacity 0.2s ease;
     }
 
@@ -93,16 +96,34 @@
       opacity: 0.85;
     }
 
-    /* Área Central / Login */
+    /* Contenedor de Pantallas */
     .main-content {
       flex: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 2rem 1.5rem;
+      padding: 2.5rem 1.5rem;
     }
 
+    .screen {
+      display: none;
+      width: 100%;
+      animation: fadeIn 0.25s ease forwards;
+    }
+
+    .screen.active {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Pantalla 1: Tarjeta Login (Imagen Original) */
     .login-card {
       display: flex;
       flex-direction: column;
@@ -111,12 +132,11 @@
       max-width: 440px;
     }
 
-    /* Logo Badge */
     .app-icon-wrap {
       width: 110px;
       height: 110px;
       margin-bottom: 26px;
-      filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.3));
+      filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.35));
     }
 
     .app-icon-wrap svg {
@@ -134,7 +154,6 @@
       letter-spacing: -0.2px;
     }
 
-    /* Formulario e Inputs */
     .login-form {
       width: 100%;
       display: flex;
@@ -168,7 +187,6 @@
       background-color: var(--input-bg-focus);
     }
 
-    /* Botón Acceder */
     .btn-submit {
       width: 100%;
       height: 52px;
@@ -196,6 +214,79 @@
       transform: scale(0.99);
     }
 
+    /* Pantallas de contenido (Dashboard, App, Privacy, Support) */
+    .page-container {
+      max-width: 860px;
+      width: 100%;
+      margin: 1rem auto;
+      padding: 2.5rem;
+      background-color: var(--card-bg);
+      border-radius: var(--border-radius-card);
+      border: 1px solid var(--card-border);
+    }
+
+    .page-container h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 1.2rem;
+      color: var(--text-white);
+    }
+
+    .page-container h2 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-top: 1.8rem;
+      margin-bottom: 0.8rem;
+      color: var(--btn-bg);
+    }
+
+    .page-container p, .page-container li {
+      line-height: 1.7;
+      color: #d1dde5;
+      margin-bottom: 1rem;
+      font-size: 1.05rem;
+    }
+
+    .page-container ul {
+      padding-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Footer */
+    .site-footer {
+      background-color: var(--bg-header);
+      padding: 20px 48px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      gap: 16px;
+    }
+
+    .footer-nav {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+    }
+
+    .footer-btn {
+      background: none;
+      border: none;
+      color: #b0bec5;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: inherit;
+      padding: 0;
+      transition: color 0.2s;
+    }
+
+    .footer-btn:hover {
+      color: var(--btn-bg);
+    }
+
     @media (max-width: 640px) {
       .header {
         padding: 0 20px;
@@ -203,58 +294,165 @@
       .brand-title {
         font-size: 1.25rem;
       }
+      .page-container {
+        padding: 1.5rem;
+      }
+      .site-footer {
+        padding: 20px;
+        flex-direction: column;
+        text-align: center;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- Barra de Navegación -->
+  <!-- Barra Superior -->
   <header class="header">
-    <a href="index.html" class="brand-title">MHBSFUT</a>
+    <span class="brand-title" onclick="showScreen('screen-login')">MHBSFUT</span>
     <nav class="nav-links">
-      <a href="./screens/console.html" class="nav-link active">Consola</a>
-      <a href="./screens/app.html" class="nav-link">APP</a>
+      <button id="nav-consola" class="nav-link active" onclick="showScreen('screen-login')">Consola</button>
+      <button id="nav-app" class="nav-link" onclick="showScreen('screen-app')">APP</button>
     </nav>
   </header>
 
-  <!-- Contenedor Principal de Login -->
+  <!-- Área Principal -->
   <main class="main-content">
-    <div class="login-card">
-      
-      <!-- Icono Oficial en SVG Integrado (idéntico al de la imagen, sin requerir archivo externo) -->
-      <div class="app-icon-wrap">
-        <svg viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="160" height="160" rx="38" fill="#0155B7"/>
-          <!-- Jugador y pelota en verde lima -->
-          <circle cx="120" cy="111" r="13" fill="#93D334"/>
-          <circle cx="90" cy="56" r="14.5" fill="#93D334"/>
-          <path d="M72 55C58 55 49 66 46 80C51 77 58 73 64 73C60 78 57 84 57 88L71 81C69 88 62 95 54 97L34 87L22 96L50 114C60 114 71 106 79 95L88 126L104 118L89 89C100 95 113 95 122 90C122 83 120 77 117 73C104 77 93 72 82 61C79 56 76 55 72 55Z" fill="#93D334"/>
-        </svg>
+
+    <!-- 1. Pantalla Login / Consola (Exacta a la imagen) -->
+    <div id="screen-login" class="screen active">
+      <div class="login-card">
+        <div class="app-icon-wrap">
+          <svg viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="160" height="160" rx="38" fill="#0155B7"/>
+            <circle cx="120" cy="111" r="13" fill="#93D334"/>
+            <circle cx="90" cy="56" r="14.5" fill="#93D334"/>
+            <path d="M72 55C58 55 49 66 46 80C51 77 58 73 64 73C60 78 57 84 57 88L71 81C69 88 62 95 54 97L34 87L22 96L50 114C60 114 71 106 79 95L88 126L104 118L89 89C100 95 113 95 122 90C122 83 120 77 117 73C104 77 93 72 82 61C79 56 76 55 72 55Z" fill="#93D334"/>
+          </svg>
+        </div>
+
+        <h1 class="login-title">Benvingut a MHBASFUT</h1>
+
+        <form class="login-form" onsubmit="event.preventDefault(); showScreen('screen-dashboard');">
+          <input type="text" name="usuari" class="input-field" placeholder="usuari" required>
+          <input type="password" name="contrasenya" class="input-field" placeholder="contrasenya" required>
+          <button type="submit" class="btn-submit">acceder</button>
+        </form>
       </div>
-
-      <h1 class="login-title">Benvingut a MHBASFUT</h1>
-
-      <form class="login-form" action="./screens/console.html" method="get">
-        <input 
-          type="text" 
-          name="usuari" 
-          class="input-field" 
-          placeholder="usuari" 
-          autocomplete="username" 
-          required
-        >
-        <input 
-          type="password" 
-          name="contrasenya" 
-          class="input-field" 
-          placeholder="contrasenya" 
-          autocomplete="current-password" 
-          required
-        >
-        <button type="submit" class="btn-submit">acceder</button>
-      </form>
     </div>
+
+    <!-- 2. Pantalla Consola Dashboard (Al pulsar 'acceder') -->
+    <div id="screen-dashboard" class="screen">
+      <div class="page-container">
+        <h1>Panell d'Administració (Consola)</h1>
+        <p style="color: #93d334; font-weight: 700; margin-bottom: 24px;">Sessió iniciada correctament.</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 28px;">
+          <div style="background: #213037; padding: 20px; border-radius: 12px; border: 1px solid #2a3a46;">
+            <p style="color: #93d334; font-weight: 700;">Equips</p>
+            <p style="font-size: 2rem; font-weight: 800; margin: 0;">24</p>
+          </div>
+          <div style="background: #213037; padding: 20px; border-radius: 12px; border: 1px solid #2a3a46;">
+            <p style="color: #93d334; font-weight: 700;">Partits Avui</p>
+            <p style="font-size: 2rem; font-weight: 800; margin: 0;">8</p>
+          </div>
+          <div style="background: #213037; padding: 20px; border-radius: 12px; border: 1px solid #2a3a46;">
+            <p style="color: #93d334; font-weight: 700;">Àrbitres</p>
+            <p style="font-size: 2rem; font-weight: 800; margin: 0;">6</p>
+          </div>
+        </div>
+
+        <h2>Gestió Oficial</h2>
+        <ul>
+          <li>Control de jornades, resultats i classificacions.</li>
+          <li>Assignació d'actes arbitrals en temps real.</li>
+        </ul>
+
+        <button class="btn-submit" style="width: auto; padding: 0 28px; margin-top: 1.5rem;" onclick="showScreen('screen-login')">Tancar Sessió</button>
+      </div>
+    </div>
+
+    <!-- 3. Pantalla APP -->
+    <div id="screen-app" class="screen">
+      <div class="login-card" style="max-width: 520px; text-align: center;">
+        <div class="app-icon-wrap" style="width: 120px; height: 120px;">
+          <svg viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="160" height="160" rx="38" fill="#0155B7"/>
+            <circle cx="120" cy="111" r="13" fill="#93D334"/>
+            <circle cx="90" cy="56" r="14.5" fill="#93D334"/>
+            <path d="M72 55C58 55 49 66 46 80C51 77 58 73 64 73C60 78 57 84 57 88L71 81C69 88 62 95 54 97L34 87L22 96L50 114C60 114 71 106 79 95L88 126L104 118L89 89C100 95 113 95 122 90C122 83 120 77 117 73C104 77 93 72 82 61C79 56 76 55 72 55Z" fill="#93D334"/>
+          </svg>
+        </div>
+        <h1 class="login-title" style="margin-bottom: 12px;">Descarrega l'APP MHBASFUT</h1>
+        <p style="color: #c4d0d8; line-height: 1.6; margin-bottom: 24px;">
+          Segueix tots els resultats, estadístiques i classificacions en directe des del mòbil.
+        </p>
+        <div style="display: flex; flex-direction: column; gap: 12px; width: 100%;">
+          <button class="btn-submit" onclick="alert('Disponible aviat a Google Play Store')">Descarregar per a Android</button>
+          <button class="btn-submit" style="background-color: #213037; color: #fff; border: 1px solid #38464f;" onclick="alert('Disponible aviat a Apple App Store')">Descarregar per a iOS</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. Pantalla Política de Privacitat -->
+    <div id="screen-privacy" class="screen">
+      <div class="page-container">
+        <h1>Política de Privadesa</h1>
+        <h2>1. Tractament de Dades</h2>
+        <p>Aquesta plataforma compleix les normatives esportives vigents per a la gestió de clubs, jugadors i competicions.</p>
+        <h2>2. Ús de la Informació</h2>
+        <p>Les dades personals i esportives s'utilitzen exclusivament per a la validació d'actes oficials i classificacions públiques.</p>
+        <button class="btn-submit" style="width: auto; padding: 0 28px; margin-top: 1.5rem;" onclick="showScreen('screen-login')">Tornar al Login</button>
+      </div>
+    </div>
+
+    <!-- 5. Pantalla Suport -->
+    <div id="screen-support" class="screen">
+      <div class="page-container">
+        <h1>Suport Tècnic</h1>
+        <p>Tens alguna incidència tècnica o dubte sobre l'ús de la plataforma MHBASFUT?</p>
+        <form class="login-form" style="margin-top: 1.5rem;" onsubmit="event.preventDefault(); alert('Missatge enviat correctament!'); showScreen('screen-login');">
+          <input type="text" class="input-field" placeholder="El teu nom" required>
+          <input type="email" class="input-field" placeholder="Correu electrònic" required>
+          <textarea class="input-field" style="height: 100px; padding-top: 14px; resize: vertical;" placeholder="Descriu la incidència..." required></textarea>
+          <button type="submit" class="btn-submit" style="width: auto; padding: 0 32px; align-self: flex-start;">Enviar Consulta</button>
+        </form>
+      </div>
+    </div>
+
   </main>
+
+  <!-- Peu de pàgina (Footer) -->
+  <footer class="site-footer">
+    <span>&copy; 2026 MHBSFUT. Tots els drets reservats.</span>
+    <ul class="footer-nav">
+      <li><button class="footer-btn" onclick="showScreen('screen-privacy')">Privadesa</button></li>
+      <li><button class="footer-btn" onclick="showScreen('screen-support')">Suport</button></li>
+    </ul>
+  </footer>
+
+  <script>
+    // Navegació interna entre vistes (SPA) sense fitxers externs
+    function showScreen(screenId) {
+      document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+      const target = document.getElementById(screenId);
+      if (target) target.classList.add('active');
+
+      // Actualitzar subratllat al menú superior
+      const navConsola = document.getElementById('nav-consola');
+      const navApp = document.getElementById('nav-app');
+
+      if (screenId === 'screen-app') {
+        navConsola.classList.remove('active');
+        navApp.classList.add('active');
+      } else {
+        navConsola.classList.add('active');
+        navApp.classList.remove('active');
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
 
 </body>
 </html>
