@@ -4,29 +4,237 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MHBSFUT - Consola</title>
-  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+  
+  <!-- Fuente Nunito desde Google Fonts (y fallback local) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
+
+  <style>
+    /* Tipografía y Variables */
+    @font-face {
+      font-family: 'NunitoVariable';
+      src: url('./assets/fonts/nuto-varialble.ttf') format('truetype');
+      font-weight: 100 900;
+      font-display: swap;
+    }
+
+    :root {
+      --bg-header: #213037;
+      --bg-main: #141f25;
+      --input-bg: #38464f;
+      --input-bg-focus: #41515b;
+      --input-placeholder: #c4d0d8;
+      --input-text: #ffffff;
+      --btn-bg: #93d334;
+      --btn-hover: #a1e23d;
+      --btn-text: #111a1e;
+      --text-white: #ffffff;
+      --font-family: 'NunitoVariable', 'Nunito', system-ui, -apple-system, sans-serif;
+      --border-radius-input: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-white);
+      font-family: var(--font-family);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Barra Superior / Header */
+    .header {
+      background-color: var(--bg-header);
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      width: 100%;
+    }
+
+    .brand-title {
+      color: var(--text-white);
+      font-size: 1.45rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav-link {
+      color: var(--text-white);
+      text-decoration: none;
+      font-size: 1.05rem;
+      font-weight: 700;
+      transition: opacity 0.2s ease;
+    }
+
+    .nav-link.active {
+      text-decoration: underline;
+      text-underline-offset: 6px;
+      text-decoration-thickness: 2px;
+    }
+
+    .nav-link:hover {
+      opacity: 0.85;
+    }
+
+    /* Área Central / Login */
+    .main-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.5rem;
+    }
+
+    .login-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      max-width: 440px;
+    }
+
+    /* Logo Badge */
+    .app-icon-wrap {
+      width: 110px;
+      height: 110px;
+      margin-bottom: 26px;
+      filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.3));
+    }
+
+    .app-icon-wrap svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .login-title {
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: var(--text-white);
+      margin-bottom: 26px;
+      text-align: center;
+      letter-spacing: -0.2px;
+    }
+
+    /* Formulario e Inputs */
+    .login-form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .input-field {
+      width: 100%;
+      height: 52px;
+      background-color: var(--input-bg);
+      border: 1.5px solid transparent;
+      border-radius: var(--border-radius-input);
+      padding: 0 20px;
+      font-size: 1.05rem;
+      font-family: inherit;
+      font-weight: 600;
+      color: var(--input-text);
+      outline: none;
+      transition: border-color 0.2s, background-color 0.2s;
+    }
+
+    .input-field::placeholder {
+      color: var(--input-placeholder);
+      opacity: 1;
+      font-weight: 600;
+    }
+
+    .input-field:focus {
+      border-color: rgba(147, 211, 52, 0.5);
+      background-color: var(--input-bg-focus);
+    }
+
+    /* Botón Acceder */
+    .btn-submit {
+      width: 100%;
+      height: 52px;
+      background-color: var(--btn-bg);
+      color: var(--btn-text);
+      border: none;
+      border-radius: var(--border-radius-input);
+      font-size: 1.1rem;
+      font-weight: 800;
+      font-family: inherit;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.2s, transform 0.1s;
+      margin-top: 4px;
+      text-decoration: none;
+    }
+
+    .btn-submit:hover {
+      background-color: var(--btn-hover);
+    }
+
+    .btn-submit:active {
+      transform: scale(0.99);
+    }
+
+    @media (max-width: 640px) {
+      .header {
+        padding: 0 20px;
+      }
+      .brand-title {
+        font-size: 1.25rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Top Navigation Header -->
+  <!-- Barra de Navegación -->
   <header class="header">
     <a href="index.html" class="brand-title">MHBSFUT</a>
     <nav class="nav-links">
-      <a href="screens/console.html" class="nav-link active">Consola</a>
-      <a href="screens/app.html" class="nav-link">APP</a>
+      <a href="./screens/console.html" class="nav-link active">Consola</a>
+      <a href="./screens/app.html" class="nav-link">APP</a>
     </nav>
   </header>
 
-  <!-- Main Login Screen -->
+  <!-- Contenedor Principal de Login -->
   <main class="main-content">
     <div class="login-card">
-      <img src="assets/images/logo.png" alt="MHBASFUT Logo" class="app-icon">
+      
+      <!-- Icono Oficial en SVG Integrado (idéntico al de la imagen, sin requerir archivo externo) -->
+      <div class="app-icon-wrap">
+        <svg viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="160" height="160" rx="38" fill="#0155B7"/>
+          <!-- Jugador y pelota en verde lima -->
+          <circle cx="120" cy="111" r="13" fill="#93D334"/>
+          <circle cx="90" cy="56" r="14.5" fill="#93D334"/>
+          <path d="M72 55C58 55 49 66 46 80C51 77 58 73 64 73C60 78 57 84 57 88L71 81C69 88 62 95 54 97L34 87L22 96L50 114C60 114 71 106 79 95L88 126L104 118L89 89C100 95 113 95 122 90C122 83 120 77 117 73C104 77 93 72 82 61C79 56 76 55 72 55Z" fill="#93D334"/>
+        </svg>
+      </div>
+
       <h1 class="login-title">Benvingut a MHBASFUT</h1>
-      <form class="login-form" action="screens/console.html" method="get">
+
+      <form class="login-form" action="./screens/console.html" method="get">
         <input 
           type="text" 
           name="usuari" 
