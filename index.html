@@ -1,68 +1,52 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="ca">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>mhbasfut – Información legal</title>
-  <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      max-width: 680px;
-      margin: 60px auto;
-      padding: 0 24px;
-      line-height: 1.6;
-      color: #1C262B;
-      background: #f8f9fa;
-    }
-    h1 {
-      font-size: 1.8rem;
-      margin-bottom: 8px;
-    }
-    .subtitle {
-      color: #555;
-      margin-bottom: 40px;
-    }
-    .card {
-      background: white;
-      border-radius: 12px;
-      padding: 24px;
-      margin-bottom: 16px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-    }
-    a {
-      color: #007AFF;
-      text-decoration: none;
-      font-weight: 500;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    .footer {
-      margin-top: 48px;
-      font-size: 0.9rem;
-      color: #777;
-    }
-  </style>
+  <title>MHBSFUT - Consola</title>
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <h1>mhbasfut</h1>
-  <p class="subtitle">Información legal y soporte</p>
 
-  <div class="card">
-    <h2>Política de Privacidad</h2>
-    <p>Cómo tratamos los datos de la aplicación (todo se almacena solo en tu dispositivo).</p>
-    <p><a href="privacy-policy.html">Ver Política de Privacidad →</a></p>
-  </div>
+  <!-- Top Navigation Header -->
+  <header class="header">
+    <a href="index.html" class="brand-title">MHBSFUT</a>
+    <nav class="nav-links">
+      <a href="screens/console.html" class="nav-link active">Consola</a>
+      <a href="screens/app.html" class="nav-link">APP</a>
+    </nav>
+  </header>
 
-  <div class="card">
-    <h2>Soporte</h2>
-    <p>¿Necesitas ayuda o tienes alguna pregunta sobre la app?</p>
-    <p><a href="support.html">Ir a Soporte →</a></p>
-  </div>
+  <!-- Main Login Screen -->
+  <main class="main-content">
+    <div class="login-card">
+      <img src="assets/images/logo.png" alt="MHBASFUT Logo" class="app-icon">
+      <h1 class="login-title">Benvingut a MHBASFUT</h1>
+      <form class="login-form" action="screens/console.html" method="get">
+        <input 
+          type="text" 
+          name="usuari" 
+          class="input-field" 
+          placeholder="usuari" 
+          autocomplete="username" 
+          required
+        >
+        <input 
+          type="password" 
+          name="contrasenya" 
+          class="input-field" 
+          placeholder="contrasenya" 
+          autocomplete="current-password" 
+          required
+        >
+        <button type="submit" class="btn-submit">acceder</button>
+      </form>
+    </div>
+  </main>
 
-  <div class="footer">
-    <p>Absurd Studio · mhbasfut</p>
-    <p>Última actualización: septiembre 2026</p>
-  </div>
 </body>
 </html>
