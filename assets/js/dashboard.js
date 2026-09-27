@@ -39,7 +39,7 @@ window.MHBSFUT = (function () {
        manera que el llistat ha de ser explícit.
        Per afegir un alumne nou: creeu users/<username>.json i afegiu el
        username a aquesta llista. */
-    alumnes: ['EloiRomero', 'GonzaloSchiavo', 'HugoMartinez', 'MarcVilanova', 'DavidHernandez', 'marcel', 'hector'],
+    alumnes: ['EloiRomero', 'GonzaloSchiavo', 'HugoMartinez', 'MarcVilanova', 'DavidHernandez'],
 
     /* Comptes d'administració de la demostració. */
     comptes: [
@@ -257,34 +257,27 @@ window.MHBSFUT = (function () {
      Lectures dels fitxers de dades
      ------------------------------------------------------------------------ */
 
-  /* Fitxers heretats en minúscules (demo inicial: eloi.json, etc.).
-     L'APP actual puja users/EloiRomero.json; si el fitxer nou encara no
-     existeix (l'alumne no ha sincronitzat mai), es mostra la demo antiga
-     com a reserva perquè la consola no quedi buida. */
-  var FITXER_ALIAS = {
-    'EloiRomero': ['eloi'],
-    'GonzaloSchiavo': ['gonzalo'],
-    'HugoMartinez': ['hugo'],
-    'MarcVilanova': ['marc'],
-    'DavidHernandez': ['david']
-  };
+   function demanaFitxer(nom) {
+     var adreça = CONFIG.dataPath + encodeURIComponent(nom) + '.json';
+     return window.fetch(adreça, { cache: 'no-store' }).then(function (resposta) {
+       if (resposta.status === 404) return null;
+       if (!resposta.ok) throw new Error('HTTP ' + resposta.status);
+       return resposta.json();
+     });
+   }
 
-  function demanaFitxer(nom) {
-    var adreça = CONFIG.dataPath + encodeURIComponent(nom) + '.json';
-    return window.fetch(adreça, { cache: 'no-store' }).then(function (resposta) {
-      if (resposta.status === 404) return null;
-      if (!resposta.ok) throw new Error('HTTP ' + resposta.status);
-      return resposta.json();
-    });
-  }
-
-  /* Demana un únic fitxer d'alumne (amb reserva a l'àlies heretat).
-     Resol sempre amb { username, dades } o { username, tipus, error },
-     de manera que un fitxer trencat no pugui aturar la càrrega de la resta. */
-  function carregaAlumne(username) {
-    var candidats = [username].concat(FITXER_ALIAS[username] || []);
-    var cadena = Promise.resolve(null);
-    candidats.forEach(function (nom) {
+   /* Demanda un únic fitxer d'alumne (només el que puja l'APP iOS).
+      Resol sempre amb { username, dades } o { username, tipus, error }. */
+   function carregaAlumne(username) {
+     var cadena = Promise.resolve(null);
+     cadena = cadena.then(function (trobat) {
+       if (trobat) return trobat;
+       return demanaFitxer(username).then(function (dades) {
+         if (!dades) return null;
+         return { dades: dades };
+       });
+     });
+     return cadena.then(function (trobat) {
       cadena = cadena.then(function (trobat) {
         if (trobat) return trobat;
         return demanaFitxer(nom).then(function (dades) {
