@@ -27,18 +27,12 @@ window.MHBSFUT = (function () {
     /* Clau de sessionStorage on es desa la sessió oberta. */
     sessionKey: 'mhbasfut.consola',
 
-    /* Adreça base dels fitxers de dades, relativa a dashboard.html. */
-    dataPath: 'users/',
+    /* Adreça base dels fitxers de dades. Utilitzem raw.githubusercontent.com
+       per evitar el cau (cache) de GitHub Pages i que les dades de l'APP
+       es vegin a l'instant després de sincronitzar. */
+    dataPath: 'https://raw.githubusercontent.com/adriahermoso/mhbasfut/main/users/',
 
-    /* Llistat d'alumnes que es mostren a la consola.
-       IMPORTANT: el nom ha de coincidir EXACTAMENT (majúscules incloses)
-       amb el fitxer que puja l'APP iOS: users/<username>.json.
-       L'APP autentica amb StudentAccounts (p. ex. `EloiRomero`) i el
-       GitHubSyncService puja a users/EloiRomero.json — `eloi.json` ja
-       no s'actualitza. GitHub Pages no permet llistar carpetes, de
-       manera que el llistat ha de ser explícit.
-       Per afegir un alumne nou: creeu users/<username>.json i afegiu el
-       username a aquesta llista. */
+    /* Llistat d'alumnes que es mostren a la consola. */
     alumnes: ['EloiRomero', 'GonzaloSchiavo', 'HugoMartinez', 'MarcVilanova', 'DavidHernandez'],
 
     /* Comptes d'administració de la demostració. */
@@ -258,49 +252,50 @@ window.MHBSFUT = (function () {
      ------------------------------------------------------------------------ */
 
    function demanaFitxer(nom) {
-     var adreça = CONFIG.dataPath + encodeURIComponent(nom) + '.json';
-     return window.fetch(adreça, { cache: 'no-store' }).then(function (resposta) {
-       if (resposta.status === 404) return null;
-       if (!resposta.ok) throw new Error('HTTP ' + resposta.status);
-       return resposta.json();
+     /* Cache-busting amb timestamp per forçar la càrrega de dades reals. */
+     var adreça = CONFIG.dataPath + encodeURIComponent(nom) + '.json?t=' + new Date().getTime();
+     
+     /* Timeout manual per compatibilitat total. */
+     return new Promise(function (resolve, reject) {
+       var timeoutId = setTimeout(function () {
+         reject(new Error('Timeout carregant ' + nom));
+       }, 10000);
+
+       window.fetch(adreça, { cache: 'no-store' })
+         .then(function (resposta) {
+           clearTimeout(timeoutId);
+           if (resposta.status === 404) resolve(null);
+           else if (!resposta.ok) reject(new Error('HTTP ' + resposta.status));
+           else resolve(resposta.json());
+         })
+         .catch(function (err) {
+           clearTimeout(timeoutId);
+           reject(err);
+         });
      });
    }
 
    /* Demanda un únic fitxer d'alumne (només el que puja l'APP iOS).
       Resol sempre amb { username, dades } o { username, tipus, error }. */
    function carregaAlumne(username) {
-     var cadena = Promise.resolve(null);
-     cadena = cadena.then(function (trobat) {
-       if (trobat) return trobat;
-       return demanaFitxer(username).then(function (dades) {
-         if (!dades) return null;
-         return { dades: dades };
-       });
+     return demanaFitxer(username).then(function (dades) {
+       if (!dades) return { username: username, tipus: 'absent' };
+       var n = normalitza(username, dades);
+       n.username = username;
+       return { username: username, dades: n };
+     }).catch(function (error) {
+       return { username: username, tipus: 'error', error: descriuError(error) };
      });
-     return cadena.then(function (trobat) {
-      cadena = cadena.then(function (trobat) {
-        if (trobat) return trobat;
-        return demanaFitxer(nom).then(function (dades) {
-          if (!dades) return null;
-          return { dades: dades };
-        });
-      });
-    });
-    return cadena.then(function (trobat) {
-      if (!trobat) return { username: username, tipus: 'absent' };
-      var dades = normalitza(username, trobat.dades);
-      /* Slug estable per al rail i el hash (#estudiant/...): les dades
-         heretades porten username en minúscules i trencarien la cerca. */
-      dades.username = username;
-      return { username: username, dades: dades };
-    }).catch(function (error) {
-      return { username: username, tipus: 'error', error: descriuError(error) };
-    });
-  }
+   }
 
-  function carregaTots() {
-    return Promise.all(CONFIG.alumnes.map(carregaAlumne));
-  }
+   /* Carrega tots els alumnes. En lloc de Promise.all, utilitza una càrrega
+      progressiva per mostrar les dades a mesura que arriben i no bloquejar
+      la UI si un fitxer triga massa. */
+   function carregaTots(onResultat) {
+     CONFIG.alumnes.forEach(function (usuari) {
+       carregaAlumne(usuari).then(onResultat);
+     });
+   }
 
   /* ------------------------------------------------------------------------
      Adaptador del snapshot iOS (UserDataExporter, schemaVersion 1) al
@@ -1128,8 +1123,6 @@ window.MHBSFUT = (function () {
       buildRail([], alumneActiu);
       estatCarregant(arrel);
 
-      /* Obert amb file:// no hi ha servidor: fetch fallaria i el missatge
-         d'error seria confús, així que s'explica el problema real. */
       if (window.location.protocol === 'file:') {
         neteja();
         estatError(arrel,
@@ -1140,51 +1133,39 @@ window.MHBSFUT = (function () {
         return;
       }
 
-      carregaTots().then(function (resultats) {
-        var carregats = resultats.filter(function (r) { return r.dades; });
-        var absents = resultats.filter(function (r) { return r.tipus === 'absent'; });
-        var errors = resultats.filter(function (r) { return r.tipus === 'error'; });
+      var resultats = [];
+      var rebuts = 0;
 
-        neteja();
+      carregaTots(function (r) {
+        resultats.push(r);
+        rebuts += 1;
 
-        /* Sense cap fitxer: es mostra l'estat buit amb el detall dels
-           noms que s'han demanat, que és el que ajuda a descobrir un error
-           de nom. */
-        if (!carregats.length) {
-          var noms = absents.map(function (r) { return r.username + '.json'; });
-          estatBuit(arrel, noms.length ? ['Fitxer(s) no trobat(s): ' + noms.join(', ')] : null, carrega);
-          if (errors.length) {
-            errors.forEach(function (r) {
-              arrel.appendChild(el('p', 'state__hint', r.username + '.json: ' + (r.error || 'error')));
-            });
-          }
-          buildRail([], null);
-          return;
+        var carregats = resultats.filter(function (x) { return x.dades; });
+        
+        if (carregats.length > 0) {
+          dadesActuals = carregats.map(function (x) { return x.dades; });
+          /* Ordenem per nom perquè el rail no balli mentre carreguen. */
+          dadesActuals.sort(function (a, b) { return a.username.localeCompare(b.username); });
+          dibuixa();
         }
 
-        dadesActuals = carregats.map(function (r) { return r.dades; });
-
-        /* S'ha d'aplicar el hash, no cridar dibuixa() directament: en una
-           càrrega directa l'esdeveniment hashchange no s'ha disparat mai,
-           així que sense això s'obriria sempre el primer alumne de la
-           llista en lloc del que demana l'URL. */
-        aplicaHash();
-
-        /* Avís no bloquejant: si una part falla, la resta es mostra igual.
-           S'insereix DESPRÉS de dibuixa() perquè dibuixa() buida l'arrel, i
-           com a primer fill perquè quedi a sobre del resum. */
-        if (absents.length || errors.length) {
-          var avís = el('div', 'state state--warn');
-          avís.setAttribute('role', 'status');
-          var titular = absents.length + errors.length === 1
-            ? '1 fitxer no s\'ha pogut carregar'
-            : (absents.length + errors.length) + ' fitxers no s\'han pogut carregar';
-          afegeix(avís, 'p', 'state__text', titular + ': ' +
-            absents.map(function (r) { return r.username + '.json'; })
-              .concat(errors.map(function (r) { return r.username + '.json (' + (r.error || 'error') + ')'; }))
-              .join(', '));
-          avís.appendChild(botRetry(carrega));
-          arrel.insertBefore(avís, arrel.firstChild);
+        if (rebuts === CONFIG.alumnes.length) {
+          if (!carregats.length) {
+            neteja();
+            var absents = resultats.filter(function (x) { return x.tipus === 'absent'; });
+            var noms = absents.map(function (x) { return x.username + '.json'; });
+            estatBuit(arrel, noms.length ? ['Fitxer(s) no trobat(s): ' + noms.join(', ')] : null, carrega);
+          } else {
+            var fallits = resultats.filter(function (x) { return x.tipus === 'absent' || x.tipus === 'error'; });
+            if (fallits.length > 0) {
+              var avís = el('div', 'state state--warn');
+              avís.setAttribute('role', 'status');
+              afegeix(avís, 'p', 'state__text', fallits.length + ' fitxer(s) no s\'han pogut carregar: ' +
+                fallits.map(function (x) { return x.username + '.json'; }).join(', '));
+              avís.appendChild(botRetry(carrega));
+              arrel.insertBefore(avís, arrel.firstChild);
+            }
+          }
         }
       });
     }
