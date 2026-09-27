@@ -1,0 +1,275 @@
+{
+  "appVersion" : "1.0",
+  "assignedPlan" : 1,
+  "assignedPlanPerSport" : {
+    "Futbol" : 1
+  },
+  "characterName" : "CharacterName",
+  "coins" : 500,
+  "currentDay" : 1,
+  "days" : [
+    {
+      "completed" : false,
+      "completedStages" : [
+
+      ],
+      "day" : 1,
+      "intensities" : {
+
+      },
+      "selectedMeals" : {
+
+      }
+    },
+    {
+      "completed" : false,
+      "completedStages" : [
+
+      ],
+      "day" : 2,
+      "intensities" : {
+
+      },
+      "selectedMeals" : {
+
+      }
+    },
+    {
+      "completed" : false,
+      "completedStages" : [
+
+      ],
+      "day" : 3,
+      "intensities" : {
+
+      },
+      "selectedMeals" : {
+
+      }
+    },
+    {
+      "completed" : false,
+      "completedStages" : [
+
+      ],
+      "day" : 4,
+      "intensities" : {
+
+      },
+      "selectedMeals" : {
+
+      }
+    },
+    {
+      "completed" : false,
+      "completedStages" : [
+
+      ],
+      "day" : 5,
+      "intensities" : {
+
+      },
+      "selectedMeals" : {
+
+      }
+    },
+    {
+      "completed" : false,
+      "completedStages" : [
+
+      ],
+      "day" : 6,
+      "intensities" : {
+
+      },
+      "selectedMeals" : {
+
+      }
+    },
+    {
+      "completed" : false,
+      "completedStages" : [
+
+      ],
+      "day" : 7,
+      "intensities" : {
+
+      },
+      "selectedMeals" : {
+
+      }
+    },
+    {
+      "completed" : false,
+      "completedStages" : [
+
+      ],
+      "day" : 8,
+      "intensities" : {
+
+      },
+      "selectedMeals" : {
+
+      }
+    },
+    {
+      "completed" : false,
+      "completedStages" : [
+
+      ],
+      "day" : 9,
+      "intensities" : {
+
+      },
+      "selectedMeals" : {
+
+      }
+    },
+    {
+      "completed" : false,
+      "completedStages" : [
+
+      ],
+      "day" : 10,
+      "intensities" : {
+
+      },
+      "selectedMeals" : {
+
+      }
+    },
+    {
+      "completed" : false,
+      "completedStages" : [
+
+      ],
+      "day" : 11,
+      "intensities" : {
+
+      },
+      "selectedMeals" : {
+
+      }
+    },
+    {
+      "completed" : false,
+      "completedStages" : [
+
+      ],
+      "day" : 12,
+      "intensities" : {
+
+      },
+      "selectedMeals" : {
+
+      }
+    },
+    {
+      "completed" : false,
+      "completedStages" : [
+
+      ],
+      "day" : 13,
+      "intensities" : {
+
+      },
+      "selectedMeals" : {
+
+      }
+    },
+    {
+      "completed" : false,
+      "completedStages" : [
+
+      ],
+      "day" : 14,
+      "intensities" : {
+
+      },
+      "selectedMeals" : {
+
+      }
+    }
+  ],
+  "emotionHistory" : [
+
+  ],
+  "equippedItems" : {
+
+  },
+  "exportedAt" : "2026-09-27T20:15:36Z",
+  "level" : 0,
+  "ownedItems" : [
+
+  ],
+  "planStartDate" : "2026-09-27T20:15:36Z",
+  "questionnaireAnswers" : {
+    "1" : "12",
+    "10" : "8.0",
+    "11" : "3",
+    "12" : "{\"bedtime\":\"12:33\",\"waketime\":\"3:00\"}",
+    "13" : "Una mica cansat \/ fatiga lleu",
+    "14" : "5 o més àpats",
+    "15" : "Alguns dies a la setmana",
+    "16" : "2.2",
+    "17" : "Gairebé mai entreno en dejú",
+    "18" : "De vegades",
+    "19" : "6",
+    "2" : "Femení",
+    "20" : "No faig estiraments",
+    "21" : "No ho utilitzo mai",
+    "22" : "2",
+    "23" : "6",
+    "24" : "6",
+    "25" : "6",
+    "26" : "Elevat, em sento sobrecarregat sovint",
+    "27" : "2.0",
+    "28" : "Diàriament (més de 5)",
+    "29" : "Gairebé sempre entre setmana",
+    "3" : "{\"height\":\"122\",\"weight\":\"122\"}",
+    "30" : "No faig escalfament previ",
+    "31" : "Gairebé mai",
+    "32" : "Mai en faig",
+    "33" : "Sí, múltiples lesions repetides",
+    "34" : "Adductors \/ Púbis",
+    "35" : "Més de 2 mesos",
+    "36" : "22",
+    "37" : "22",
+    "38" : "2",
+    "39" : "22",
+    "4" : "Futbol 7",
+    "40" : "22",
+    "5" : "Juvenil (16-18 anys)",
+    "6" : "Més de 6 anys",
+    "7" : "4",
+    "8" : "8",
+    "9" : "Mantenir-me en forma i gaudir de l'esport"
+  },
+  "questionnaireCompleted" : true,
+  "questionnaireCompletedDate" : "2026-09-27T20:15:36Z",
+  "questionnaireScore" : {
+    "date" : "2026-09-27T20:15:32Z",
+    "perCategory" : {
+      "Hàbits saludables" : 3.9,
+      "Nutrició i hidratació" : 10.7,
+      "Prevenció de lesions" : 1,
+      "Recuperació muscular" : 7.2,
+      "Salut mental i benestar" : 3.9,
+      "Son i descans" : 15.3
+    },
+    "sport" : "Futbol",
+    "total" : 42
+  },
+  "remindersEnabled" : null,
+  "schemaVersion" : 1,
+  "sleepHistory" : [
+
+  ],
+  "soundEnabled" : null,
+  "sport" : "Futbol",
+  "streakCompletedDates" : [
+
+  ],
+  "streakCount" : 0,
+  "username" : "EloiRomero"
+}
