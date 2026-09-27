@@ -1,0 +1,64 @@
+{
+  "username": "gonzalo",
+  "perfil": {
+    "nom": "Gonzalo",
+    "cognoms": "Schiavo",
+    "edat": 13,
+    "posicio": "Extrem",
+    "dorsal": 7,
+    "equip": "CE Sant Martí B",
+    "categoria": "Cadet",
+    "dataAlta": "2026-02-03",
+    "alturaCm": 160,
+    "pesoKg": 51.8
+  },
+  "pla": {
+    "nom": "Mobilitat i confiança en el duel",
+    "objectiu": "Millorar la condició física i perdre por a demanar el ball davant.",
+    "dataInici": "2026-09-08",
+    "dataRevisio": "2026-10-08",
+    "fase": "Base",
+    "sessionsSetmanal": 3
+  },
+  "questionari": {
+    "data": "2026-09-21",
+    "puntGlobal": 84,
+    "escala": 100,
+    "respostes": {
+      "alimentacio": 88,
+      "recuperacio": 80,
+      "son": 86,
+      "hidratacio": 79,
+      "gestioEmocional": 87
+    }
+  },
+  "progresDiari": {
+    "data": "2026-09-25",
+    "dinars": { "completats": 4, "total": 4 },
+    "entrenament": { "completat": true, "intensitat": 6, "minuts": 40 },
+    "son": { "hores": 9.1, "qualitat": 5 },
+    "emocions": { "escala": 9, "estat": "Amb ganes de jugar" }
+  },
+  "historial": [
+    { "data": "2026-09-14", "intensitat": 4, "horesSon": 8.8, "dinarsCompletats": 4 },
+    { "data": "2026-09-15", "intensitat": 5, "horesSon": 9.0, "dinarsCompletats": 4 },
+    { "data": "2026-09-16", "intensitat": 6, "horesSon": 8.6, "dinarsCompletats": 4 },
+    { "data": "2026-09-17", "intensitat": 5, "horesSon": 9.2, "dinarsCompletats": 4 },
+    { "data": "2026-09-18", "intensitat": 7, "horesSon": 8.9, "dinarsCompletats": 4 },
+    { "data": "2026-09-19", "intensitat": 4, "horesSon": 9.4, "dinarsCompletats": 4 },
+    { "data": "2026-09-20", "intensitat": 5, "horesSon": 9.0, "dinarsCompletats": 4 },
+    { "data": "2026-09-21", "intensitat": 6, "horesSon": 9.1, "dinarsCompletats": 4 },
+    { "data": "2026-09-22", "intensitat": 5, "horesSon": 8.7, "dinarsCompletats": 4 },
+    { "data": "2026-09-23", "intensitat": 6, "horesSon": 9.3, "dinarsCompletats": 4 },
+    { "data": "2026-09-24", "intensitat": 6, "horesSon": 8.8, "dinarsCompletats": 4 },
+    { "data": "2026-09-25", "intensitat": 6, "horesSon": 9.1, "dinarsCompletats": 4 }
+  ],
+  "recompenses": {
+    "racha": 4,
+    "rachaMaxima": 9,
+    "punts": 1120,
+    "nivell": "Bronze",
+    "proximaRecompensa": "Medalla Plata (a 40 punts)",
+    "insignies": ["Primers 7 dies"]
+  }
+}

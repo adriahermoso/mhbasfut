@@ -1,0 +1,64 @@
+{
+  "username": "marc",
+  "perfil": {
+    "nom": "Marc",
+    "cognoms": "Vilanova",
+    "edat": 15,
+    "posicio": "Porter",
+    "dorsal": 1,
+    "equip": "FS Granollers Juvenil",
+    "categoria": "Infantil",
+    "dataAlta": "2026-03-09",
+    "alturaCm": 168,
+    "pesoKg": 58.2
+  },
+  "pla": {
+    "nom": "Son, hidratació i gestió de l'estat d'ànim",
+    "objectiu": "Millorar les hores de son i mantenir l'hidratació els dies de partit.",
+    "dataInici": "2026-09-15",
+    "dataRevisio": "2026-10-15",
+    "fase": "Base",
+    "sessionsSetmanal": 2
+  },
+  "questionari": {
+    "data": "2026-09-23",
+    "puntGlobal": 62,
+    "escala": 100,
+    "respostes": {
+      "alimentacio": 58,
+      "recuperacio": 55,
+      "son": 61,
+      "hidratacio": 70,
+      "gestioEmocional": 66
+    }
+  },
+  "progresDiari": {
+    "data": "2026-09-25",
+    "dinars": { "completats": 2, "total": 4 },
+    "entrenament": { "completat": false, "intensitat": 3, "minuts": 0 },
+    "son": { "hores": 6.4, "qualitat": 2 },
+    "emocions": { "escala": 4, "estat": "Cansada" }
+  },
+  "historial": [
+    { "data": "2026-09-14", "intensitat": 5, "horesSon": 6.8, "dinarsCompletats": 3 },
+    { "data": "2026-09-15", "intensitat": 4, "horesSon": 7.0, "dinarsCompletats": 3 },
+    { "data": "2026-09-16", "intensitat": 3, "horesSon": 6.5, "dinarsCompletats": 2 },
+    { "data": "2026-09-17", "intensitat": 5, "horesSon": 7.2, "dinarsCompletats": 3 },
+    { "data": "2026-09-18", "intensitat": 2, "horesSon": 6.3, "dinarsCompletats": 2 },
+    { "data": "2026-09-19", "intensitat": 0, "horesSon": 6.6, "dinarsCompletats": 2 },
+    { "data": "2026-09-20", "intensitat": 3, "horesSon": 6.0, "dinarsCompletats": 2 },
+    { "data": "2026-09-21", "intensitat": 4, "horesSon": 6.9, "dinarsCompletats": 3 },
+    { "data": "2026-09-22", "intensitat": 2, "horesSon": 6.1, "dinarsCompletats": 2 },
+    { "data": "2026-09-23", "intensitat": 0, "horesSon": 6.4, "dinarsCompletats": 2 },
+    { "data": "2026-09-24", "intensitat": 0, "horesSon": 6.2, "dinarsCompletats": 2 },
+    { "data": "2026-09-25", "intensitat": 3, "horesSon": 6.4, "dinarsCompletats": 2 }
+  ],
+  "recompenses": {
+    "racha": 0,
+    "rachaMaxima": 6,
+    "punts": 640,
+    "nivell": "Bronze",
+    "proximaRecompensa": "Medalla Plata (a 10 punts)",
+    "insignies": ["Primers 7 dies"]
+  }
+}

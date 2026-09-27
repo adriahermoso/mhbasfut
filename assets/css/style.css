@@ -1,12 +1,14 @@
 /* ==========================================================================
    MHBASFUT - Estils Generals per a GitHub Pages
+   Fitxer únic de disseny: el comparteixen index.html, dashboard.html,
+   les pàgines de /legal i els components d'assets/screens.
    ========================================================================== */
 
 @font-face {
   font-family: 'NunitoVariable';
-  src: url('../fonts/nuto-varialble.ttf') format('truetype'),
-       url('../../assets/fonts/nuto-varialble.ttf') format('truetype'),
-       url('assets/fonts/nuto-varialble.ttf') format('truetype');
+  /* Adreça relativa a aquest mateix fitxer, així que funciona igual des de
+     la arrel del repositori, des d'un subdirectori de GitHub Pages i en local. */
+  src: url('../fonts/nuto-varialble.ttf') format('truetype');
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
@@ -26,9 +28,14 @@
   --text-muted: #8c9da8;
   --card-bg: #1a2730;
   --card-border: #2a3a46;
+  /* Colors d'estat d'un valor o d'una acció (usats a la consola i als
+     avisos de formulari). L'estat alt és el verd de marca --btn-bg. */
+  --estado-low: #e0704f;
+  --estado-mid: #dfa53c;
   --font-family: 'NunitoVariable', 'Nunito', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --border-radius-card: 16px;
   --border-radius-input: 12px;
+  --header-h: 72px;
 }
 
 /* Reseteig bàsic */
@@ -53,19 +60,26 @@ body {
    Capçalera / Navbar
    -------------------------------------------------------------------------- */
 .header {
+  position: sticky;
+  top: 0;
   background-color: var(--bg-header);
-  height: 72px;
+  height: var(--header-h);
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 16px;
   padding: 0 48px;
   width: 100%;
+  flex-shrink: 0;
+  z-index: 100;
+  border-bottom: 1px solid var(--card-border);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
 }
 
 .brand-title {
   color: var(--text-white);
   font-size: 1.45rem;
-  font-weight: 800;
+  font-weight: 900;
   letter-spacing: 0.5px;
   text-decoration: none;
 }
@@ -76,11 +90,92 @@ body {
   gap: 28px;
 }
 
+/* Botó de menú (només visible en pantalles estretes) */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 42px;
+  height: 42px;
+  padding: 0 9px;
+  background: none;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.nav-toggle__bar {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: var(--text-white);
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.2s ease;
+}
+
+.nav-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.nav-toggle:focus-visible {
+  outline: 2px solid var(--btn-bg);
+  outline-offset: 2px;
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .nav-links.is-open {
+    display: flex;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 1.1rem 20px 1.4rem;
+    background-color: var(--bg-header);
+    border-bottom: 1px solid var(--card-border);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4);
+  }
+
+  .nav-links.is-open .nav-link {
+    font-size: 1.15rem;
+  }
+}
+
+/* Es comparteix entre enllaços (/legal) i botons (index.html, dashboard.html):
+   el restau de botó evita que el navegador dibuixi un <button> ambodi. */
 .nav-link {
   color: var(--text-white);
   text-decoration: none;
   font-size: 1.1rem;
   font-weight: 700;
+  font-family: inherit;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
   transition: opacity 0.2s ease;
 }
 
@@ -98,7 +193,7 @@ body {
    Contenidor Principal & Targeta Login
    -------------------------------------------------------------------------- */
 .main-content {
-  flex: 1;
+  min-height: calc(100vh - var(--header-h));
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -114,6 +209,12 @@ body {
   max-width: 440px;
 }
 
+/* La barra de sessió que apareix sobre el formulari quan ja hi ha sessió
+   oberta ha de compartir l'amplada de la targeta de login. */
+.login-card__session {
+  width: 100%;
+}
+
 .app-icon {
   width: 110px;
   height: 110px;
@@ -124,8 +225,8 @@ body {
 }
 
 .login-title {
-  font-size: 1.7rem;
-  font-weight: 800;
+  font-size: 2.1rem;
+  font-weight: 900;
   color: var(--text-white);
   margin-bottom: 24px;
   text-align: center;
@@ -167,6 +268,64 @@ body {
   background-color: var(--input-bg-focus);
 }
 
+/* Campo de contraseña con botón para mostrar/ocultar */
+.password-wrap {
+  position: relative;
+  width: 100%;
+  display: flex;
+}
+
+.password-wrap .input-field {
+  padding-right: 56px;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  border-radius: 8px;
+  background: none;
+  color: var(--input-placeholder);
+  cursor: pointer;
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.password-toggle:hover {
+  color: var(--text-white);
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.password-toggle:focus-visible {
+  outline: 2px solid var(--btn-bg);
+  outline-offset: 2px;
+}
+
+.password-toggle svg {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+
+.password-toggle .eye-open {
+  display: none;
+}
+
+.password-toggle[aria-pressed="true"] .eye-open {
+  display: block;
+}
+
+.password-toggle[aria-pressed="true"] .eye-closed {
+  display: none;
+}
+
 .btn-submit {
   width: 100%;
   height: 52px;
@@ -194,9 +353,140 @@ body {
   transform: scale(0.99);
 }
 
+/* Missatge d'error o d'avís dins del formulari. */
+.form-error {
+  padding: 12px 16px;
+  border-radius: var(--border-radius-input);
+  background-color: rgba(224, 112, 79, 0.14);
+  border: 1px solid var(--estado-low);
+  color: #f0a68c;
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.form-error[hidden] {
+  display: none;
+}
+
+.input-field[aria-invalid="true"] {
+  border-color: var(--estado-low);
+}
+
 /* --------------------------------------------------------------------------
-   Vistes / Pantalles Secundàries (Console, App, Privacy, Support)
+   Barra de sessió (index.html i dashboard.html)
    -------------------------------------------------------------------------- */
+.session-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 14px 20px;
+  margin-bottom: 28px;
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--border-radius-input);
+}
+
+/* [hidden] ha de guanyar a display:flex, que és el que declara .session-bar. */
+.session-bar[hidden] {
+  display: none;
+}
+
+.session__user {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-white);
+}
+
+.session__user::before {
+  content: '';
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  margin-right: 10px;
+  border-radius: 50%;
+  background-color: var(--btn-bg);
+  vertical-align: middle;
+}
+
+/* Botó discret per a accions que no són l'acció principal de la pantalla. */
+.btn-outline {
+  padding: 9px 18px;
+  background: none;
+  color: var(--text-white);
+  border: 1.5px solid var(--card-border);
+  border-radius: var(--border-radius-input);
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, background-color 0.2s;
+}
+
+.btn-outline:hover {
+  border-color: var(--btn-bg);
+  color: var(--btn-bg);
+}
+
+.btn-outline:focus-visible {
+  outline: 2px solid var(--btn-bg);
+  outline-offset: 2px;
+}
+
+.btn-outline--sm {
+  padding: 7px 14px;
+  font-size: 0.88rem;
+}
+
+/* El mateix component es fa servir amb un <a> (p. ex. «Torna al llistat»),
+   de manera que cal donar-li l'alineació de caixa dels botons. */
+a.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+/* --------------------------------------------------------------------------
+   Routers de vistes (.screen) i seccions APP
+   -------------------------------------------------------------------------- */
+
+/* Pantalla de la SPA d'index.html: només la vista activa es mostra. */
+.screen {
+  display: none;
+  width: 100%;
+  animation: fadeIn 0.25s ease forwards;
+}
+
+.screen.active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.screen--wide.active {
+  align-items: stretch;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .screen {
+    animation: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
+}
+
 .page-container {
   max-width: 900px;
   width: 100%;
@@ -235,44 +525,251 @@ body {
   margin-bottom: 1rem;
 }
 
+/* Secció APP: capçalera + graella de targetes amb les pantallades. */
+.app-main {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem 4rem;
+}
+
+.app-hero {
+  text-align: center;
+  padding: 3.5rem 0 3rem;
+}
+
+.app-hero h1 {
+  font-size: 2.4rem;
+  font-weight: 900;
+  color: var(--text-white);
+  letter-spacing: -0.4px;
+  margin-bottom: 1.1rem;
+}
+
+.app-hero p {
+  max-width: 620px;
+  margin: 0 auto;
+  color: var(--input-placeholder);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.app-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.4rem;
+}
+
+.app-card {
+  background-color: var(--bg-header);
+  border-radius: 14px;
+  padding: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.app-card--wide {
+  grid-column: 1 / -1;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+}
+
+.app-card--center {
+  align-items: center;
+  text-align: center;
+}
+
+.app-card h2 {
+  font-size: 1.2rem;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  color: var(--text-white);
+  margin-bottom: 0.7rem;
+}
+
+.app-card p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.app-card__text {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.app-card__media {
+  display: flex;
+  gap: 1.2rem;
+  align-items: flex-end;
+  flex-shrink: 0;
+}
+
+.app-shot-col {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+/* Les imatges de l'APP ja inclouen el marc del telèfon, el text i els
+   botons, així que aquí només es controla l'encaix. */
+.app-shot {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+.app-shot--portrait {
+  max-width: 300px;
+}
+
+.app-shot--phone {
+  max-width: 260px;
+}
+
+.app-shot--banner {
+  width: 100%;
+}
+
+@media (max-width: 900px) {
+  .app-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .app-card--wide {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .app-card__media {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .app-hero h1 {
+    font-size: 1.9rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .app-main {
+    padding: 0 1.25rem 3rem;
+  }
+
+  .app-shot--portrait,
+  .app-shot--phone {
+    max-width: 100%;
+  }
+}
+
 /* --------------------------------------------------------------------------
    Peu de Pàgina (Footer)
    -------------------------------------------------------------------------- */
 .site-footer {
-  background-color: var(--bg-header);
-  padding: 24px 48px;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  font-size: 0.95rem;
-  color: var(--text-muted);
-  gap: 16px;
+  background-color: #0647a7;
+  color: #ffffff;
+  width: 100%;
+  padding: 44px 48px 40px;
 }
 
-.site-footer a {
-  color: #b0bec5;
-  text-decoration: none;
-  transition: color 0.2s;
+.footer-cols {
+  display: grid;
+  grid-template-columns: 301px 275px 1fr;
 }
 
-.site-footer a:hover {
-  color: var(--btn-bg);
+.footer-heading {
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 5px;
+  margin-bottom: 14px;
 }
 
-.footer-nav {
-  display: flex;
-  gap: 20px;
+.footer-list {
   list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-link {
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: 600;
+  font-family: inherit;
+  line-height: 1.3;
+  text-decoration: none;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+  transition: opacity 0.2s ease;
+}
+
+.footer-link:hover {
+  opacity: 0.75;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.footer-link:focus-visible {
+  outline: 2px solid #cbff3a;
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.17em;
+  margin-top: 250px;
+  font-size: clamp(3rem, 9vw, 150px);
+}
+
+.footer-logo {
+  width: 1.3067em;
+  height: 0.9267em;
+  flex-shrink: 0;
+  display: block;
+}
+
+.footer-wordmark {
+  color: #cbff3a;
+  font-size: 1em;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.5px;
+  white-space: nowrap;
 }
 
 /* --------------------------------------------------------------------------
    Adaptabilitat Mòbil / Responsive
    -------------------------------------------------------------------------- */
 @media (max-width: 640px) {
+  :root {
+    --header-h: 62px;
+  }
+
   .header {
     padding: 0 20px;
+    height: var(--header-h);
+  }
+
+  /* A pantalles estretes el nom d'usuari deixa espai a la capçalera; el
+     punt verd continua indicant que hi ha sessió oberta. */
+  .session__user {
+    font-size: 0;
+  }
+
+  .session__user::before {
+    margin-right: 0;
   }
 
   .brand-title {
@@ -285,13 +782,109 @@ body {
   }
 
   .site-footer {
-    padding: 20px;
-    flex-direction: column;
-    text-align: center;
+    padding: 28px 20px 24px;
   }
 
-  .footer-nav {
-    flex-wrap: wrap;
-    justify-content: center;
+  .footer-cols {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .footer-brand {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    margin-top: 56px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Pàgines legals (/legal)
+   -------------------------------------------------------------------------- */
+.legal-main {
+  min-height: calc(100vh - var(--header-h));
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 60px 46px 90px;
+}
+
+.legal-title {
+  font-size: 3.2rem;
+  font-weight: 900;
+  line-height: 1.15;
+  color: var(--text-white);
+  margin-bottom: 44px;
+  letter-spacing: -0.5px;
+}
+
+.legal-section {
+  margin-bottom: 34px;
+}
+
+.legal-section:last-child {
+  margin-bottom: 0;
+}
+
+.legal-section h2 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--text-white);
+  margin-bottom: 12px;
+}
+
+.legal-section ul {
+  list-style: disc;
+  padding-left: 1.35rem;
+  margin: 0;
+}
+
+.legal-section li {
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: #d1dde5;
+  margin-bottom: 4px;
+}
+
+.legal-section code {
+  padding: 2px 7px;
+  border-radius: 6px;
+  background-color: var(--bg-header);
+  border: 1px solid var(--card-border);
+  color: var(--btn-bg);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.92em;
+}
+
+.legal-updated {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-top: -28px;
+  margin-bottom: 40px;
+}
+
+.legal-back {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 48px;
+  color: var(--text-white);
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.legal-back:hover {
+  color: var(--btn-bg);
+}
+
+@media (max-width: 640px) {
+  .legal-main {
+    padding: 36px 20px 60px;
+  }
+
+  .legal-title {
+    font-size: 2.1rem;
+    margin-bottom: 32px;
   }
 }

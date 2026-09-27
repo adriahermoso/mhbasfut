@@ -1,0 +1,69 @@
+{
+  "username": "hector",
+  "perfil": {
+    "nom": "Héctor",
+    "cognoms": "Velasco",
+    "edat": 16,
+    "posicio": "Pivot",
+    "dorsal": 10,
+    "equip": "FS Granollers Juvenil",
+    "categoria": "Juvenil",
+    "dataAlta": "2025-09-15",
+    "alturaCm": 184,
+    "pesoKg": 78.3
+  },
+  "pla": {
+    "nom": "Potència i gestió de la càrrega",
+    "objectiu": "Continuar creixent en el joc interior sense carregar les cames en els dies de competició.",
+    "dataInici": "2026-08-30",
+    "dataRevisio": "2026-10-15",
+    "fase": "Específica",
+    "sessionsSetmanal": 4
+  },
+  "questionari": {
+    "data": "2026-09-20",
+    "puntGlobal": 88,
+    "escala": 100,
+    "respostes": {
+      "alimentacio": 91,
+      "recuperacio": 84,
+      "son": 86,
+      "hidratacio": 90,
+      "gestioEmocional": 89
+    }
+  },
+  "progresDiari": {
+    "data": "2026-09-25",
+    "dinars": { "completats": 4, "total": 4 },
+    "entrenament": { "completat": true, "intensitat": 8, "minuts": 65 },
+    "son": { "hores": 7.2, "qualitat": 3 },
+    "emocions": { "escala": 8, "estat": "Molt motivat" }
+  },
+  "historial": [
+    { "data": "2026-09-14", "intensitat": 7, "horesSon": 7.0, "dinarsCompletats": 4 },
+    { "data": "2026-09-15", "intensitat": 8, "horesSon": 7.4, "dinarsCompletats": 4 },
+    { "data": "2026-09-16", "intensitat": 6, "horesSon": 6.8, "dinarsCompletats": 3 },
+    { "data": "2026-09-17", "intensitat": 8, "horesSon": 7.6, "dinarsCompletats": 4 },
+    { "data": "2026-09-18", "intensitat": 7, "horesSon": 7.1, "dinarsCompletats": 4 },
+    { "data": "2026-09-19", "intensitat": 9, "horesSon": 7.8, "dinarsCompletats": 4 },
+    { "data": "2026-09-20", "intensitat": 8, "horesSon": 7.3, "dinarsCompletats": 4 },
+    { "data": "2026-09-21", "intensitat": 9, "horesSon": 7.9, "dinarsCompletats": 4 },
+    { "data": "2026-09-22", "intensitat": 7, "horesSon": 7.0, "dinarsCompletats": 3 },
+    { "data": "2026-09-23", "intensitat": 8, "horesSon": 7.5, "dinarsCompletats": 4 },
+    { "data": "2026-09-24", "intensitat": 8, "horesSon": 7.2, "dinarsCompletats": 4 },
+    { "data": "2026-09-25", "intensitat": 8, "horesSon": 7.2, "dinarsCompletats": 4 }
+  ],
+  "recompenses": {
+    "racha": 6,
+    "rachaMaxima": 11,
+    "punts": 2480,
+    "nivell": "Plata",
+    "proximaRecompensa": "Insígnia Lliga (a 20 punts)",
+    "insignies": [
+      "Primers 7 dies",
+      "Setmana completa",
+      "Recuperació perfecta",
+      "Cap de setmana actiu"
+    ]
+  }
+}

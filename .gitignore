@@ -1,0 +1,16 @@
+# Sistema operatiu
+.DS_Store
+Thumbs.db
+
+# Metadades de l'agent / entorn de treball
+.freebuff/
+
+# Servidor local de proves (no forma part del lloc web)
+__serve.py
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Node / eines
+node_modules/

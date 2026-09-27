@@ -1,0 +1,64 @@
+{
+  "username": "david",
+  "perfil": {
+    "nom": "David",
+    "cognoms": "Hernandez",
+    "edat": 15,
+    "posicio": "Porter",
+    "dorsal": 12,
+    "equip": "FS Granollers Juvenil",
+    "categoria": "Juvenil",
+    "dataAlta": "2025-10-06",
+    "alturaCm": 179,
+    "pesoKg": 70.5
+  },
+  "pla": {
+    "nom": "Sortida ràpida i collocació sota porteria",
+    "objectiu": "Treure el ball amb decisió i deixar de dubtar quan l'atac entra per la banda.",
+    "dataInici": "2026-09-01",
+    "dataRevisio": "2026-10-01",
+    "fase": "Càrrega",
+    "sessionsSetmanal": 5
+  },
+  "questionari": {
+    "data": "2026-09-19",
+    "puntGlobal": 74,
+    "escala": 100,
+    "respostes": {
+      "alimentacio": 76,
+      "recuperacio": 69,
+      "son": 73,
+      "hidratacio": 81,
+      "gestioEmocional": 71
+    }
+  },
+  "progresDiari": {
+    "data": "2026-09-25",
+    "dinars": { "completats": 4, "total": 4 },
+    "entrenament": { "completat": true, "intensitat": 8, "minuts": 60 },
+    "son": { "hores": 7.5, "qualitat": 4 },
+    "emocions": { "escala": 8, "estat": "Concentrat" }
+  },
+  "historial": [
+    { "data": "2026-09-14", "intensitat": 6, "horesSon": 7.2, "dinarsCompletats": 4 },
+    { "data": "2026-09-15", "intensitat": 7, "horesSon": 7.6, "dinarsCompletats": 4 },
+    { "data": "2026-09-16", "intensitat": 5, "horesSon": 7.0, "dinarsCompletats": 3 },
+    { "data": "2026-09-17", "intensitat": 7, "horesSon": 7.8, "dinarsCompletats": 4 },
+    { "data": "2026-09-18", "intensitat": 6, "horesSon": 7.4, "dinarsCompletats": 4 },
+    { "data": "2026-09-19", "intensitat": 8, "horesSon": 8.0, "dinarsCompletats": 4 },
+    { "data": "2026-09-20", "intensitat": 7, "horesSon": 7.7, "dinarsCompletats": 4 },
+    { "data": "2026-09-21", "intensitat": 8, "horesSon": 7.3, "dinarsCompletats": 4 },
+    { "data": "2026-09-22", "intensitat": 6, "horesSon": 7.9, "dinarsCompletats": 3 },
+    { "data": "2026-09-23", "intensitat": 9, "horesSon": 8.1, "dinarsCompletats": 4 },
+    { "data": "2026-09-24", "intensitat": 8, "horesSon": 7.6, "dinarsCompletats": 4 },
+    { "data": "2026-09-25", "intensitat": 8, "horesSon": 7.5, "dinarsCompletats": 4 }
+  ],
+  "recompenses": {
+    "racha": 9,
+    "rachaMaxima": 14,
+    "punts": 2140,
+    "nivell": "Plata",
+    "proximaRecompensa": "Medalla Or (a 30 punts)",
+    "insignies": ["Primers 7 dies", "Matiner", "Setmana completa"]
+  }
+}

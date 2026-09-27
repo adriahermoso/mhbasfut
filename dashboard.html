@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consola d'administració - MHBASFUT</title>
+  <meta name="description" content="Consola d'administració de MHBASFUT: seguiment dels alumnes, plans d'entrenament, qüestionaris, progrés diari i recompenses.">
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+<body>
+
+  <header class="header">
+    <a href="index.html" class="brand-title">/CONSOLA</a>
+
+    <!-- La consola és una vista de treball, no una pàgina pública: la capçalera
+         es queda amb el nom i la sortida, sense navegació. El botó l'hi afegeix
+         dashboard.js, que és l'únic que sap si hi ha sessió oberta. -->
+    <div class="header__end">
+      <div id="session-box" class="header__session"></div>
+    </div>
+  </header>
+
+  <div class="shell">
+    <aside class="side">
+      <ul class="side__list" id="side-list"></ul>
+    </aside>
+
+    <div class="console-main">
+      <noscript>
+        <div class="state state--error">
+          <h2 class="state__title">Cal activar el JavaScript</h2>
+          <p class="state__text">La consola d'administració llegeix les dades dels alumnes
+            amb JavaScript. Activa'l al navegador i torna a carregar la pàgina.</p>
+        </div>
+      </noscript>
+
+      <!-- Reple pel codi de dashboard.js -->
+      <div id="console-root"></div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h3 class="footer-heading">Social</h3>
+        <ul class="footer-list">
+          <li><a class="footer-link" href="https://www.instagram.com/marcelrrosell/" target="_blank" rel="noopener noreferrer">@marcelrrosell</a></li>
+          <li><a class="footer-link" href="https://www.instagram.com/_heectorvelasco_/" target="_blank" rel="noopener noreferrer">@_heectorvelasco_</a></li>
+          <li><a class="footer-link" href="mailto:adriahermoso9@gmail.com">adriahermoso9@gmail.com</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3 class="footer-heading">Resources</h3>
+        <ul class="footer-list">
+          <li><a class="footer-link" href="index.html">Consola</a></li>
+          <li><a class="footer-link" href="index.html#app">APP</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3 class="footer-heading">Legal</h3>
+        <ul class="footer-list">
+          <li><a class="footer-link" href="legal/index.html">Política de privacitat</a></li>
+          <li><a class="footer-link" href="legal/termes-i-condicions.html">Terminis i condicions</a></li>
+          <li><a class="footer-link" href="legal/suport.html">Suport</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-brand">
+      <img src="assets/images/logo.svg" alt="" class="footer-logo" aria-hidden="true">
+      <span class="footer-wordmark">MHBASFUT</span>
+    </div>
+  </footer>
+
+  <script src="assets/js/nav.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+  <script>
+    // Si no hi ha sessió oberta, muntaConsola torna a la pantalla
+    // d'inici de sessió i no mostra cap dada dels alumnes.
+    MHBSFUT.muntaConsola(document.getElementById('console-root'));
+  </script>
+
+</body>
+</html>
