@@ -9,16 +9,27 @@
   "currentDay" : 1,
   "days" : [
     {
-      "completed" : false,
+      "completed" : true,
       "completedStages" : [
-
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
       ],
       "day" : 1,
       "intensities" : {
-
+        "2" : 3,
+        "3" : 7
       },
       "selectedMeals" : {
-
+        "0" : 0,
+        "1" : 0,
+        "4" : 0,
+        "5" : 0,
+        "6" : 0
       }
     },
     {
@@ -192,12 +203,15 @@
     }
   ],
   "emotionHistory" : [
-
+    {
+      "date" : "2026-09-27T20:15:39Z",
+      "rating" : 3
+    }
   ],
   "equippedItems" : {
 
   },
-  "exportedAt" : "2026-09-27T20:15:36Z",
+  "exportedAt" : "2026-09-27T20:32:34Z",
   "level" : 0,
   "ownedItems" : [
 
@@ -263,13 +277,16 @@
   "remindersEnabled" : null,
   "schemaVersion" : 1,
   "sleepHistory" : [
-
+    {
+      "date" : "2026-09-27T20:15:38Z",
+      "rating" : 0
+    }
   ],
   "soundEnabled" : null,
   "sport" : "Futbol",
   "streakCompletedDates" : [
-
+    "2026-09-26T22:00:00Z"
   ],
-  "streakCount" : 0,
+  "streakCount" : 1,
   "username" : "EloiRomero"
 }
