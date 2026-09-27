@@ -31,10 +31,15 @@ window.MHBSFUT = (function () {
     dataPath: 'users/',
 
     /* Llistat d'alumnes que es mostren a la consola.
+       IMPORTANT: el nom ha de coincidir EXACTAMENT (majúscules incloses)
+       amb el fitxer que puja l'APP iOS: users/<username>.json.
+       L'APP autentica amb StudentAccounts (p. ex. `EloiRomero`) i el
+       GitHubSyncService puja a users/EloiRomero.json — `eloi.json` ja
+       no s'actualitza. GitHub Pages no permet llistar carpetes, de
+       manera que el llistat ha de ser explícit.
        Per afegir un alumne nou: creeu users/<username>.json i afegiu el
-       username a aquesta llista. GitHub Pages no permet llistar carpetes,
-       de manera que el llistat ha de ser explícit. */
-    alumnes: ['eloi', 'gonzalo', 'hugo', 'marc', 'david', 'marcel', 'hector'],
+       username a aquesta llista. */
+    alumnes: ['EloiRomero', 'GonzaloSchiavo', 'HugoMartinez', 'MarcVilanova', 'DavidHernandez', 'marcel', 'hector'],
 
     /* Comptes d'administració de la demostració. */
     comptes: [
@@ -84,18 +89,27 @@ window.MHBSFUT = (function () {
   }
 
   /* '2026-09-25' -> '25/09/2026'. Es fa a mà per no depender del fus horari
-     ni del navegador. */
+     ni del navegador. Accepta ISO complet ('2026-09-27T20:15:36Z') de
+     l'exportador iOS: es retalla als primers 10 caràcters. */
+  function isoAData(iso) {
+    if (typeof iso !== 'string') return null;
+    var d = iso.length >= 10 ? iso.slice(0, 10) : iso;
+    return /^\d{4}-\d{2}-\d{2}$/.test(d) ? d : null;
+  }
+
   function dataCurta(iso) {
-    if (typeof iso !== 'string') return '—';
-    var p = iso.split('-');
+    var d = isoAData(iso) || (typeof iso === 'string' ? iso : null);
+    if (!d) return '—';
+    var p = d.split('-');
     if (p.length !== 3) return iso;
     return p[2] + '/' + p[1] + '/' + p[0];
   }
 
   /* El dia del mes, per etiquetes curtes dels eixos. */
   function diaDelMes(iso) {
-    if (typeof iso !== 'string') return '';
-    var p = iso.split('-');
+    var d = isoAData(iso);
+    if (!d) return '';
+    var p = d.split('-');
     return p.length === 3 ? p[2] : iso;
   }
 
@@ -243,31 +257,286 @@ window.MHBSFUT = (function () {
      Lectures dels fitxers de dades
      ------------------------------------------------------------------------ */
 
-  /* Demana un únic fitxer d'alumne. Resol sempre amb { username, dades } o
-     { username, tipus, error }, de manera que un fitxer trencat no pugui
-     aturar la càrrega de la resta. */
-  function carregaAlumne(username) {
-    var adreça = CONFIG.dataPath + encodeURIComponent(username) + '.json';
+  /* Fitxers heretats en minúscules (demo inicial: eloi.json, etc.).
+     L'APP actual puja users/EloiRomero.json; si el fitxer nou encara no
+     existeix (l'alumne no ha sincronitzat mai), es mostra la demo antiga
+     com a reserva perquè la consola no quedi buida. */
+  var FITXER_ALIAS = {
+    'EloiRomero': ['eloi'],
+    'GonzaloSchiavo': ['gonzalo'],
+    'HugoMartinez': ['hugo'],
+    'MarcVilanova': ['marc'],
+    'DavidHernandez': ['david']
+  };
 
-    return window.fetch(adreça, { cache: 'no-store' })
-      .then(function (resposta) {
-        if (resposta.status === 404) {
-          return { username: username, tipus: 'absent' };
-        }
-        if (!resposta.ok) {
-          return { username: username, tipus: 'error', error: 'HTTP ' + resposta.status };
-        }
-        return resposta.json().then(function (dades) {
-          return { username: username, dades: dades };
+  function demanaFitxer(nom) {
+    var adreça = CONFIG.dataPath + encodeURIComponent(nom) + '.json';
+    return window.fetch(adreça, { cache: 'no-store' }).then(function (resposta) {
+      if (resposta.status === 404) return null;
+      if (!resposta.ok) throw new Error('HTTP ' + resposta.status);
+      return resposta.json();
+    });
+  }
+
+  /* Demana un únic fitxer d'alumne (amb reserva a l'àlies heretat).
+     Resol sempre amb { username, dades } o { username, tipus, error },
+     de manera que un fitxer trencat no pugui aturar la càrrega de la resta. */
+  function carregaAlumne(username) {
+    var candidats = [username].concat(FITXER_ALIAS[username] || []);
+    var cadena = Promise.resolve(null);
+    candidats.forEach(function (nom) {
+      cadena = cadena.then(function (trobat) {
+        if (trobat) return trobat;
+        return demanaFitxer(nom).then(function (dades) {
+          if (!dades) return null;
+          return { dades: dades };
         });
-      })
-      .catch(function (error) {
-        return { username: username, tipus: 'error', error: descriuError(error) };
       });
+    });
+    return cadena.then(function (trobat) {
+      if (!trobat) return { username: username, tipus: 'absent' };
+      var dades = normalitza(username, trobat.dades);
+      /* Slug estable per al rail i el hash (#estudiant/...): les dades
+         heretades porten username en minúscules i trencarien la cerca. */
+      dades.username = username;
+      return { username: username, dades: dades };
+    }).catch(function (error) {
+      return { username: username, tipus: 'error', error: descriuError(error) };
+    });
   }
 
   function carregaTots() {
     return Promise.all(CONFIG.alumnes.map(carregaAlumne));
+  }
+
+  /* ------------------------------------------------------------------------
+     Adaptador del snapshot iOS (UserDataExporter, schemaVersion 1) al
+     model heretat que pinta buildFitxa (perfil/pla/questionari/
+     progresDiari/historial/recompenses). Els fitxers demo antics passen
+     intactes. No s'inventa res: cada camp indica la font; quan l'APP no
+     desa una dada (p. ex. minuts, dorsal), es deixa '—' o 0 i la fitxa
+     ja sap amagar la barra.
+     ------------------------------------------------------------------------ */
+
+  var SON_HORES_ESTIMADES = { 0: 8.5, 1: 7.5, 2: 6.5, 3: 5.0 };
+  var EMOCIO_ESCALA = [10, 8, 6, 4, 2];
+  var EMOCIO_ESTAT = ['Genial', 'Bé', 'Normal', 'Decaigut', 'Fatal'];
+  var CATEGORIA_MAX = {
+    'Son i descans': 25,
+    'Nutrició i hidratació': 20,
+    'Recuperació muscular': 20,
+    'Prevenció de lesions': 15,
+    'Salut mental i benestar': 10,
+    'Hàbits saludables': 10
+  };
+
+  function esNouEsquema(d) {
+    return d && typeof d === 'object' &&
+      d.schemaVersion !== undefined && d.questionnaireAnswers !== undefined;
+  }
+
+  function parteixNom(slug) {
+    var s = String(slug || '').trim();
+    if (!s) return { nom: '?', cognoms: '' };
+    var parts = s.replace(/([a-zà-ÿ])([A-ZÀ-Þ])/g, '$1 $2').split(' ');
+    if (parts.length === 1) {
+      return { nom: parts[0][0].toUpperCase() + parts[0].slice(1), cognoms: '' };
+    }
+    return { nom: parts[0], cognoms: parts.slice(1).join(' ') };
+  }
+
+  function avuiData() {
+    var ara = new Date();
+    function dos(n) { return (n < 10 ? '0' : '') + n; }
+    return ara.getFullYear() + '-' + dos(ara.getMonth() + 1) + '-' + dos(ara.getDate());
+  }
+
+  function sumaDies(dataISO, n) {
+    var p = String(dataISO).split('-');
+    var base = new Date(Number(p[0]), Number(p[1]) - 1, Number(p[2]));
+    base.setDate(base.getDate() + n);
+    function dos(x) { return (x < 10 ? '0' : '') + x; }
+    return base.getFullYear() + '-' + dos(base.getMonth() + 1) + '-' + dos(base.getDate());
+  }
+
+  function diferenciaDies(aISO, bISO) {
+    var pa = String(aISO).split('-');
+    var pb = String(bISO).split('-');
+    var a = new Date(Number(pa[0]), Number(pa[1]) - 1, Number(pa[2]));
+    var b = new Date(Number(pb[0]), Number(pb[1]) - 1, Number(pb[2]));
+    return Math.round((b - a) / 86400000);
+  }
+
+  function rachaMaxima(datesISO) {
+    var uniq = {};
+    (datesISO || []).forEach(function (d) { if (d) uniq[d] = 1; });
+    var dies = Object.keys(uniq).sort();
+    var max = 0;
+    var actual = 0;
+    var prev = null;
+    dies.forEach(function (d) {
+      if (prev && diferenciaDies(prev, d) === 1) { actual += 1; }
+      else { actual = 1; }
+      if (actual > max) max = actual;
+      prev = d;
+    });
+    return max;
+  }
+
+  function intensitatMitjana(day) {
+    if (!day || !day.intensities) return null;
+    var vals = Object.keys(day.intensities).map(function (k) { return day.intensities[k]; })
+      .filter(function (v) { return typeof v === 'number' && isFinite(v); });
+    if (!vals.length) return null;
+    return vals.reduce(function (a, b) { return a + b; }, 0) / vals.length;
+  }
+
+  function horesSonDe(rating) {
+    if (rating === null || rating === undefined) return null;
+    var h = SON_HORES_ESTIMADES[rating];
+    return h !== undefined ? h : null;
+  }
+
+  function normalitza(slug, d) {
+    if (!esNouEsquema(d)) return d;
+
+    var respostesQ = d.questionnaireAnswers || {};
+    var perCat = (d.questionnaireScore && d.questionnaireScore.perCategory) || {};
+    function pctCat(nom) {
+      var v = Number(perCat[nom]);
+      var max = CATEGORIA_MAX[nom] || 0;
+      if (!isFinite(v) || !max) return 0;
+      return Math.max(0, Math.min(100, Math.round((v / max) * 100)));
+    }
+
+    var nomParts = parteixNom(d.username || slug);
+    var edat = parseInt(respostesQ['1'], 10);
+    var alcadaPes = {};
+    try { alcadaPes = JSON.parse(respostesQ['3'] || '{}'); } catch (e) { alcadaPes = {}; }
+    var alturaCm = parseFloat(alcadaPes.height);
+    var pesoKg = parseFloat(alcadaPes.weight);
+    var esport = d.sport || 'Futbol';
+    var esportBon = esport === 'Basquet' ? 'Bàsquet' : 'Futbol';
+
+    var dataQ = isoAData(d.questionnaireCompletedDate) || isoAData(d.exportedAt) || avuiData();
+    var totalQ = (d.questionnaireScore && d.questionnaireScore.total) || 0;
+
+    var plaNum = d.assignedPlan || 1;
+    var diaActual = Math.max(1, Math.min(14, Number(d.currentDay) || 1));
+    var iniciPla = isoAData(d.planStartDate) || dataQ;
+    var fase = diaActual <= 5 ? 'Càrrega' : (diaActual <= 10 ? 'Manteniment' : 'Retorn');
+    var sessions = parseInt(respostesQ['7'], 10);
+    if (!isFinite(sessions)) sessions = 4;
+    var nivellText = totalQ >= 90 ? 'Entrenament invisible excel·lent' :
+      totalQ >= 80 ? 'Entrenament invisible molt bo' :
+      totalQ >= 70 ? 'Entrenament invisible bo' :
+      totalQ >= 60 ? 'Entrenament invisible millorable' : 'Entrenament invisible deficient';
+
+    var dies = Array.isArray(d.days) ? d.days : [];
+    function dia(num) {
+      for (var i = 0; i < dies.length; i++) {
+        if (dies[i] && dies[i].day === num) return dies[i];
+      }
+      return null;
+    }
+    var diaAvui = dia(diaActual) || {};
+    var menjarsAvui = diaAvui.selectedMeals || {};
+    var nMenjars = Object.keys(menjarsAvui).length;
+
+    var sonHist = Array.isArray(d.sleepHistory) ? d.sleepHistory : [];
+    var emoHist = Array.isArray(d.emotionHistory) ? d.emotionHistory : [];
+    function ultim(list) { return list.length ? list[list.length - 1] : null; }
+    var sonUlt = ultim(sonHist);
+    var emoUlt = ultim(emoHist);
+
+    var sonQualitat = sonUlt ? (4 - Math.max(0, Math.min(3, sonUlt.rating))) : null;
+    var sonHores = sonUlt ? horesSonDe(sonUlt.rating) : null;
+    var emoEscala = emoUlt ? EMOCIO_ESCALA[Math.max(0, Math.min(4, emoUlt.rating))] : null;
+    var emoEstat = emoUlt ? EMOCIO_ESTAT[Math.max(0, Math.min(4, emoUlt.rating))] : '—';
+
+    var dataProgres = isoAData(emoUlt && emoUlt.date) || isoAData(sonUlt && sonUlt.date) ||
+      isoAData(d.exportedAt) || avuiData();
+
+    var sonPerDia = {};
+    sonHist.forEach(function (r) {
+      var dd = isoAData(r.date);
+      if (dd) sonPerDia[dd] = r.rating;
+    });
+
+    var historial = [];
+    var mostra = dies.slice(-12);
+    mostra.forEach(function (dy) {
+      var num = dy.day;
+      var dataDia = sumaDies(iniciPla, num - 1);
+      var inten = intensitatMitjana(dy);
+      var ratingDia = sonPerDia[dataDia];
+      var hores = (ratingDia !== undefined) ? horesSonDe(ratingDia) : sonHores;
+      historial.push({
+        data: dataDia,
+        intensitat: inten !== null ? Math.round(inten * 10) / 10 : 0,
+        horesSon: hores !== null ? hores : 0,
+        dinarsCompletats: Object.keys(dy.selectedMeals || {}).length
+      });
+    });
+
+    var streakDates = (d.streakCompletedDates || []).map(isoAData).filter(Boolean);
+    var rachaMax = Math.max(rachaMaxima(streakDates), Number(d.streakCount) || 0);
+
+    return {
+      username: slug,
+      perfil: {
+        nom: nomParts.nom,
+        cognoms: nomParts.cognoms,
+        edat: isFinite(edat) ? edat : null,
+        posicio: respostesQ['4'] || esportBon,
+        dorsal: null,
+        equip: '—',
+        categoria: respostesQ['5'] || '—',
+        dataAlta: dataQ,
+        alturaCm: isFinite(alturaCm) ? alturaCm : null,
+        pesoKg: isFinite(pesoKg) ? pesoKg : null
+      },
+      pla: {
+        nom: 'Pla ' + plaNum + ' · ' + esportBon,
+        objectiu: nivellText + ' (qüestionari: ' + totalQ + '/100).',
+        dataInici: iniciPla,
+        dataRevisio: sumaDies(iniciPla, 30),
+        fase: fase,
+        sessionsSetmanal: sessions
+      },
+      questionari: {
+        data: dataQ,
+        puntGlobal: totalQ,
+        escala: 100,
+        respostes: {
+          alimentacio: pctCat('Nutrició i hidratació'),
+          recuperacio: pctCat('Recuperació muscular'),
+          son: pctCat('Son i descans'),
+          hidratacio: pctCat('Nutrició i hidratació'),
+          gestioEmocional: pctCat('Salut mental i benestar')
+        }
+      },
+      progresDiari: {
+        data: dataProgres,
+        dinars: { completats: nMenjars, total: 4 },
+        entrenament: {
+          completat: !!diaAvui.completed,
+          intensitat: (function () { var m = intensitatMitjana(diaAvui); return m !== null ? Math.round(m) : null; })(),
+          minuts: (diaAvui.completedStages || []).length * 15
+        },
+        son: { hores: sonHores, qualitat: sonQualitat },
+        emocions: { escala: emoEscala !== null ? emoEscala : '—', estat: emoEstat }
+      },
+      historial: historial,
+      recompenses: {
+        racha: Number(d.streakCount) || 0,
+        rachaMaxima: rachaMax,
+        punts: (d.coins !== undefined && d.coins !== null) ? d.coins : 0,
+        nivell: String((d.level !== undefined && d.level !== null) ? d.level : 0),
+        proximaRecompensa: 'Nivell ' + ((Number(d.level) || 0) + 1) + ' a la vista',
+        insignies: Array.isArray(d.ownedItems) ? d.ownedItems : []
+      }
+    };
   }
 
   /* ------------------------------------------------------------------------
@@ -570,8 +839,12 @@ window.MHBSFUT = (function () {
     var cap = el('div', 'main__head');
     afegeix(cap, 'h1', 'main__title',
       ((perfil.nom || '') + ' ' + (perfil.cognoms || '')).trim() || alumne.username);
-    afegeix(cap, 'p', 'main__sub', [perfil.equip, perfil.categoria, 'Dorsal ' + perfil.dorsal, perfil.posicio]
-      .filter(Boolean).join(' · '));
+    /* Les dades iOS no sempre porten equip/dorsal: s'amaguen els buits
+       (i els '—') en comptes de pintar «Dorsal null». */
+    var subParts = [perfil.equip, perfil.categoria,
+      (perfil.dorsal !== null && perfil.dorsal !== undefined) ? 'Dorsal ' + perfil.dorsal : null,
+      perfil.posicio].filter(function (x) { return x && x !== '—'; });
+    afegeix(cap, 'p', 'main__sub', subParts.length ? subParts.join(' · ') : '—');
     frag.appendChild(cap);
 
     /* Indicadors personals */
@@ -937,6 +1210,10 @@ window.MHBSFUT = (function () {
     muntaConsola: muntaConsola,
     obreSessio: obreSessio,
     tancaSessio: tancaSessio,
-    sessioOberta: sessioOberta
+    sessioOberta: sessioOberta,
+    /* Exposat per depurar des de la consola del navegador
+       (p. ex. MHBSFUT.normalitza('EloiRomero', snapshot)). */
+    normalitza: normalitza,
+    isoAData: isoAData
   };
 })();
