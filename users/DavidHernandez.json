@@ -197,12 +197,12 @@
   "equippedItems" : {
 
   },
-  "exportedAt" : "2026-09-29T15:45:08Z",
+  "exportedAt" : "2026-09-29T17:32:46Z",
   "level" : 0,
   "ownedItems" : [
 
   ],
-  "planStartDate" : null,
+  "planStartDate" : "2026-09-29T15:45:08Z",
   "questionnaireAnswers" : {
     "1" : "16",
     "10" : "8.0",
@@ -232,6 +232,9 @@
     "32" : "Sí, 2 o més cops per setmana",
     "33" : "Sí, una lesió que em va aturar",
     "34" : "Turmell \/ Peu",
+    "35" : "1 a 3 setmanes",
+    "36" : "25",
+    "37" : "57",
     "4" : "Futbol 11",
     "5" : "Juvenil (16-18 anys)",
     "6" : "Més de 6 anys",
