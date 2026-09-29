@@ -197,7 +197,7 @@
   "equippedItems" : {
 
   },
-  "exportedAt" : "2026-09-29T18:30:42Z",
+  "exportedAt" : "2026-09-29T18:32:16Z",
   "level" : 0,
   "ownedItems" : [
 
@@ -216,6 +216,16 @@
     "18" : "Sovint",
     "19" : "3",
     "2" : "Masculí",
+    "20" : "Entre 5 i 15 minuts",
+    "21" : "No ho utilitzo mai",
+    "22" : "3",
+    "23" : "4",
+    "24" : "4",
+    "25" : "8",
+    "26" : "Lleu, en dies puntuals",
+    "27" : "1.0",
+    "28" : "1 o 2 a la setmana",
+    "29" : "Variable segons el dia",
     "3" : "{\"height\":\"184\",\"weight\":\"75\"}",
     "4" : "Bàsquet 5x5",
     "5" : "Juvenil (16-18 anys)",
