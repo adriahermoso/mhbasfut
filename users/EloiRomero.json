@@ -197,7 +197,7 @@
   "equippedItems" : {
 
   },
-  "exportedAt" : "2026-09-29T18:32:16Z",
+  "exportedAt" : "2026-09-29T18:54:20Z",
   "level" : 0,
   "ownedItems" : [
 
@@ -227,6 +227,12 @@
     "28" : "1 o 2 a la setmana",
     "29" : "Variable segons el dia",
     "3" : "{\"height\":\"184\",\"weight\":\"75\"}",
+    "30" : "Sovint, però breu (menys de 5 minuts)",
+    "31" : "Sí, sempre (trot suau, respiració)",
+    "32" : "Només quan noto alguna molèstia",
+    "33" : "Sí, molèsties musculars lleus",
+    "34" : "Altra zona muscular \/ articular",
+    "35" : "1 a 7 dies (menys d'una setmana)",
     "4" : "Bàsquet 5x5",
     "5" : "Juvenil (16-18 anys)",
     "6" : "4 a 6 anys",
