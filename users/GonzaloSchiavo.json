@@ -1,0 +1,258 @@
+{
+  "appVersion" : "1.2",
+  "assignedPlan" : null,
+  "assignedPlanPerSport" : {
+
+  },
+  "characterName" : "CharacterName",
+  "coins" : 500,
+  "currentDay" : 1,
+  "days" : [
+    {
+      "completed" : false,
+      "completedStages" : [
+
+      ],
+      "day" : 1,
+      "intensities" : {
+
+      },
+      "selectedMeals" : {
+
+      }
+    },
+    {
+      "completed" : false,
+      "completedStages" : [
+
+      ],
+      "day" : 2,
+      "intensities" : {
+
+      },
+      "selectedMeals" : {
+
+      }
+    },
+    {
+      "completed" : false,
+      "completedStages" : [
+
+      ],
+      "day" : 3,
+      "intensities" : {
+
+      },
+      "selectedMeals" : {
+
+      }
+    },
+    {
+      "completed" : false,
+      "completedStages" : [
+
+      ],
+      "day" : 4,
+      "intensities" : {
+
+      },
+      "selectedMeals" : {
+
+      }
+    },
+    {
+      "completed" : false,
+      "completedStages" : [
+
+      ],
+      "day" : 5,
+      "intensities" : {
+
+      },
+      "selectedMeals" : {
+
+      }
+    },
+    {
+      "completed" : false,
+      "completedStages" : [
+
+      ],
+      "day" : 6,
+      "intensities" : {
+
+      },
+      "selectedMeals" : {
+
+      }
+    },
+    {
+      "completed" : false,
+      "completedStages" : [
+
+      ],
+      "day" : 7,
+      "intensities" : {
+
+      },
+      "selectedMeals" : {
+
+      }
+    },
+    {
+      "completed" : false,
+      "completedStages" : [
+
+      ],
+      "day" : 8,
+      "intensities" : {
+
+      },
+      "selectedMeals" : {
+
+      }
+    },
+    {
+      "completed" : false,
+      "completedStages" : [
+
+      ],
+      "day" : 9,
+      "intensities" : {
+
+      },
+      "selectedMeals" : {
+
+      }
+    },
+    {
+      "completed" : false,
+      "completedStages" : [
+
+      ],
+      "day" : 10,
+      "intensities" : {
+
+      },
+      "selectedMeals" : {
+
+      }
+    },
+    {
+      "completed" : false,
+      "completedStages" : [
+
+      ],
+      "day" : 11,
+      "intensities" : {
+
+      },
+      "selectedMeals" : {
+
+      }
+    },
+    {
+      "completed" : false,
+      "completedStages" : [
+
+      ],
+      "day" : 12,
+      "intensities" : {
+
+      },
+      "selectedMeals" : {
+
+      }
+    },
+    {
+      "completed" : false,
+      "completedStages" : [
+
+      ],
+      "day" : 13,
+      "intensities" : {
+
+      },
+      "selectedMeals" : {
+
+      }
+    },
+    {
+      "completed" : false,
+      "completedStages" : [
+
+      ],
+      "day" : 14,
+      "intensities" : {
+
+      },
+      "selectedMeals" : {
+
+      }
+    }
+  ],
+  "emotionHistory" : [
+
+  ],
+  "equippedItems" : {
+
+  },
+  "exportedAt" : "2026-09-29T16:18:26Z",
+  "level" : 0,
+  "ownedItems" : [
+
+  ],
+  "planStartDate" : null,
+  "questionnaireAnswers" : {
+    "1" : "15",
+    "10" : "8.0",
+    "11" : "4",
+    "12" : "{\"bedtime\":\"23:00\",\"waketime\":\"7:15\"}",
+    "13" : "Prou descansat per afrontar el dia",
+    "14" : "4 àpats",
+    "15" : "Diàriament (1 o 2 racions)",
+    "16" : "4.0",
+    "17" : "La majoria de vegades",
+    "18" : "Sovint",
+    "19" : "2",
+    "2" : "Masculí",
+    "20" : "Entre 5 i 15 minuts",
+    "21" : "Sí, habitualment (rutina fixa)",
+    "22" : "3",
+    "23" : "4",
+    "24" : "6",
+    "25" : "8",
+    "26" : "Lleu, en dies puntuals",
+    "27" : "1.5",
+    "28" : "1 o 2 a la setmana",
+    "29" : "Gairebé sempre entre setmana",
+    "3" : "{\"height\":\"180\",\"weight\":\"80\"}",
+    "30" : "Sí, complet (mobilitat, cursa, activació)",
+    "31" : "Sí, sempre (trot suau, respiració)",
+    "32" : "Un cop per setmana",
+    "33" : "Sí, molèsties musculars lleus",
+    "34" : "Genoll \/ Lligaments",
+    "35" : "0 dies (sense baixa)",
+    "4" : "Bàsquet 5x5",
+    "5" : "Juvenil (16-18 anys)",
+    "6" : "4 a 6 anys",
+    "7" : "4",
+    "8" : "7",
+    "9" : "Millorar el rendiment físic i la velocitat"
+  },
+  "questionnaireCompleted" : false,
+  "questionnaireCompletedDate" : null,
+  "questionnaireScore" : null,
+  "remindersEnabled" : null,
+  "schemaVersion" : 1,
+  "sleepHistory" : [
+
+  ],
+  "soundEnabled" : null,
+  "sport" : "Basquet",
+  "streakCompletedDates" : [
+
+  ],
+  "streakCount" : 0,
+  "username" : "GonzaloSchiavo"
+}
