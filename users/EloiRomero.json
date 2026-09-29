@@ -1,57 +1,37 @@
 {
   "appVersion" : "1.2",
-  "assignedPlan" : 1,
+  "assignedPlan" : null,
   "assignedPlanPerSport" : {
-    "Futbol" : 1
+
   },
   "characterName" : "CharacterName",
-  "coins" : 250,
-  "currentDay" : 3,
+  "coins" : 500,
+  "currentDay" : 1,
   "days" : [
     {
-      "completed" : true,
+      "completed" : false,
       "completedStages" : [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6
+
       ],
       "day" : 1,
       "intensities" : {
-        "2" : 3,
-        "3" : 7
+
       },
       "selectedMeals" : {
-        "0" : 0,
-        "1" : 0,
-        "4" : 0,
-        "5" : 0,
-        "6" : 0
+
       }
     },
     {
-      "completed" : true,
+      "completed" : false,
       "completedStages" : [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5
+
       ],
       "day" : 2,
       "intensities" : {
-        "2" : 6
+
       },
       "selectedMeals" : {
-        "0" : 0,
-        "1" : 1,
-        "3" : 0,
-        "4" : 0,
-        "5" : 1
+
       }
     },
     {
@@ -212,100 +192,51 @@
     }
   ],
   "emotionHistory" : [
-    {
-      "date" : "2026-09-27T20:15:39Z",
-      "rating" : 3
-    }
+
   ],
   "equippedItems" : {
-    "pelo" : 1
+
   },
-  "exportedAt" : "2026-09-29T13:56:56Z",
+  "exportedAt" : "2026-09-29T16:35:47Z",
   "level" : 0,
   "ownedItems" : [
-    "pelo.0",
-    "pelo.1"
+
   ],
-  "planStartDate" : "2026-09-27T20:15:36Z",
+  "planStartDate" : null,
   "questionnaireAnswers" : {
-    "1" : "12",
-    "10" : "8.0",
-    "11" : "3",
-    "12" : "{\"bedtime\":\"12:33\",\"waketime\":\"3:00\"}",
+    "1" : "17",
+    "10" : "10.0",
+    "11" : "2",
+    "12" : "{\"bedtime\":\"2:00\",\"waketime\":\"13:00\"}",
     "13" : "Una mica cansat \/ fatiga lleu",
-    "14" : "5 o més àpats",
+    "14" : "4 àpats",
     "15" : "Alguns dies a la setmana",
-    "16" : "2.2",
-    "17" : "Gairebé mai entreno en dejú",
-    "18" : "De vegades",
-    "19" : "6",
-    "2" : "Femení",
-    "20" : "No faig estiraments",
-    "21" : "No ho utilitzo mai",
-    "22" : "2",
-    "23" : "6",
-    "24" : "6",
-    "25" : "6",
-    "26" : "Elevat, em sento sobrecarregat sovint",
-    "27" : "2.0",
-    "28" : "Diàriament (més de 5)",
-    "29" : "Gairebé sempre entre setmana",
-    "3" : "{\"height\":\"122\",\"weight\":\"122\"}",
-    "30" : "No faig escalfament previ",
-    "31" : "Gairebé mai",
-    "32" : "Mai en faig",
-    "33" : "Sí, múltiples lesions repetides",
-    "34" : "Adductors \/ Púbis",
-    "35" : "Més de 2 mesos",
-    "36" : "22",
-    "37" : "22",
-    "38" : "2",
-    "39" : "22",
-    "4" : "Futbol 7",
-    "40" : "22",
+    "16" : "3.0",
+    "17" : "La majoria de vegades",
+    "18" : "Sovint",
+    "19" : "3",
+    "2" : "Masculí",
+    "3" : "{\"height\":\"184\",\"weight\":\"75\"}",
+    "4" : "Bàsquet 5x5",
     "5" : "Juvenil (16-18 anys)",
-    "6" : "Més de 6 anys",
+    "6" : "4 a 6 anys",
     "7" : "4",
-    "8" : "8",
-    "9" : "Mantenir-me en forma i gaudir de l'esport"
+    "8" : "6",
+    "9" : "Arribar al màxim nivell competitiu"
   },
-  "questionnaireCompleted" : true,
-  "questionnaireCompletedDate" : "2026-09-27T20:15:36Z",
-  "questionnaireScore" : {
-    "date" : "2026-09-27T20:15:32Z",
-    "perCategory" : {
-      "Hàbits saludables" : 3.9,
-      "Nutrició i hidratació" : 10.7,
-      "Prevenció de lesions" : 1,
-      "Recuperació muscular" : 7.2,
-      "Salut mental i benestar" : 3.9,
-      "Son i descans" : 15.3
-    },
-    "sport" : "Futbol",
-    "total" : 42
-  },
+  "questionnaireCompleted" : false,
+  "questionnaireCompletedDate" : null,
+  "questionnaireScore" : null,
   "remindersEnabled" : null,
   "schemaVersion" : 1,
   "sleepHistory" : [
-    {
-      "date" : "2026-09-27T20:15:38Z",
-      "rating" : 0
-    },
-    {
-      "date" : "2026-09-28T05:31:52Z",
-      "rating" : 0
-    },
-    {
-      "date" : "2026-09-29T13:56:56Z",
-      "rating" : 0
-    }
+
   ],
   "soundEnabled" : null,
-  "sport" : "Futbol",
+  "sport" : "Basquet",
   "streakCompletedDates" : [
-    "2026-09-26T22:00:00Z",
-    "2026-09-27T22:00:00Z"
+
   ],
-  "streakCount" : 2,
+  "streakCount" : 0,
   "username" : "EloiRomero"
 }
