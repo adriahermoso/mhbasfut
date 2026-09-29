@@ -1,0 +1,224 @@
+{
+  "appVersion" : "1.2",
+  "assignedPlan" : null,
+  "assignedPlanPerSport" : {
+
+  },
+  "characterName" : "CharacterName",
+  "coins" : 500,
+  "currentDay" : 1,
+  "days" : [
+    {
+      "completed" : false,
+      "completedStages" : [
+
+      ],
+      "day" : 1,
+      "intensities" : {
+
+      },
+      "selectedMeals" : {
+
+      }
+    },
+    {
+      "completed" : false,
+      "completedStages" : [
+
+      ],
+      "day" : 2,
+      "intensities" : {
+
+      },
+      "selectedMeals" : {
+
+      }
+    },
+    {
+      "completed" : false,
+      "completedStages" : [
+
+      ],
+      "day" : 3,
+      "intensities" : {
+
+      },
+      "selectedMeals" : {
+
+      }
+    },
+    {
+      "completed" : false,
+      "completedStages" : [
+
+      ],
+      "day" : 4,
+      "intensities" : {
+
+      },
+      "selectedMeals" : {
+
+      }
+    },
+    {
+      "completed" : false,
+      "completedStages" : [
+
+      ],
+      "day" : 5,
+      "intensities" : {
+
+      },
+      "selectedMeals" : {
+
+      }
+    },
+    {
+      "completed" : false,
+      "completedStages" : [
+
+      ],
+      "day" : 6,
+      "intensities" : {
+
+      },
+      "selectedMeals" : {
+
+      }
+    },
+    {
+      "completed" : false,
+      "completedStages" : [
+
+      ],
+      "day" : 7,
+      "intensities" : {
+
+      },
+      "selectedMeals" : {
+
+      }
+    },
+    {
+      "completed" : false,
+      "completedStages" : [
+
+      ],
+      "day" : 8,
+      "intensities" : {
+
+      },
+      "selectedMeals" : {
+
+      }
+    },
+    {
+      "completed" : false,
+      "completedStages" : [
+
+      ],
+      "day" : 9,
+      "intensities" : {
+
+      },
+      "selectedMeals" : {
+
+      }
+    },
+    {
+      "completed" : false,
+      "completedStages" : [
+
+      ],
+      "day" : 10,
+      "intensities" : {
+
+      },
+      "selectedMeals" : {
+
+      }
+    },
+    {
+      "completed" : false,
+      "completedStages" : [
+
+      ],
+      "day" : 11,
+      "intensities" : {
+
+      },
+      "selectedMeals" : {
+
+      }
+    },
+    {
+      "completed" : false,
+      "completedStages" : [
+
+      ],
+      "day" : 12,
+      "intensities" : {
+
+      },
+      "selectedMeals" : {
+
+      }
+    },
+    {
+      "completed" : false,
+      "completedStages" : [
+
+      ],
+      "day" : 13,
+      "intensities" : {
+
+      },
+      "selectedMeals" : {
+
+      }
+    },
+    {
+      "completed" : false,
+      "completedStages" : [
+
+      ],
+      "day" : 14,
+      "intensities" : {
+
+      },
+      "selectedMeals" : {
+
+      }
+    }
+  ],
+  "emotionHistory" : [
+
+  ],
+  "equippedItems" : {
+
+  },
+  "exportedAt" : "2026-09-29T13:44:36Z",
+  "level" : 0,
+  "ownedItems" : [
+
+  ],
+  "planStartDate" : null,
+  "questionnaireAnswers" : {
+
+  },
+  "questionnaireCompleted" : false,
+  "questionnaireCompletedDate" : null,
+  "questionnaireScore" : null,
+  "remindersEnabled" : null,
+  "schemaVersion" : 1,
+  "sleepHistory" : [
+
+  ],
+  "soundEnabled" : null,
+  "sport" : "Futbol",
+  "streakCompletedDates" : [
+
+  ],
+  "streakCount" : 0,
+  "username" : "MarcVilanova"
+}
