@@ -1,8 +1,8 @@
 {
   "appVersion" : "1.2",
-  "assignedPlan" : null,
+  "assignedPlan" : 1,
   "assignedPlanPerSport" : {
-
+    "Futbol" : 1
   },
   "characterName" : "CharacterName",
   "coins" : 500,
@@ -197,12 +197,12 @@
   "equippedItems" : {
 
   },
-  "exportedAt" : "2026-09-29T13:49:31Z",
+  "exportedAt" : "2026-09-29T13:50:16Z",
   "level" : 0,
   "ownedItems" : [
 
   ],
-  "planStartDate" : "2026-09-29T13:49:17Z",
+  "planStartDate" : "2026-09-29T13:50:16Z",
   "questionnaireAnswers" : {
     "1" : "17",
     "10" : "8.0",
@@ -234,16 +234,32 @@
     "34" : "Cap molèstia recent",
     "35" : "0 dies (sense baixa)",
     "36" : "2,34",
+    "37" : "3",
+    "38" : "7",
+    "39" : "51",
     "4" : "Futbol 11",
+    "40" : "6,01",
     "5" : "Juvenil (16-18 anys)",
     "6" : "4 a 6 anys",
     "7" : "3",
     "8" : "8",
     "9" : "Millorar el rendiment físic i la velocitat"
   },
-  "questionnaireCompleted" : false,
-  "questionnaireCompletedDate" : null,
-  "questionnaireScore" : null,
+  "questionnaireCompleted" : true,
+  "questionnaireCompletedDate" : "2026-09-29T13:50:15Z",
+  "questionnaireScore" : {
+    "date" : "2026-09-29T13:50:08Z",
+    "perCategory" : {
+      "Hàbits saludables" : 8.3,
+      "Nutrició i hidratació" : 13.3,
+      "Prevenció de lesions" : 10,
+      "Recuperació muscular" : 7.2,
+      "Salut mental i benestar" : 5.8,
+      "Son i descans" : 11.1
+    },
+    "sport" : "Futbol",
+    "total" : 56
+  },
   "remindersEnabled" : null,
   "schemaVersion" : 1,
   "sleepHistory" : [
