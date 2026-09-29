@@ -1,8 +1,8 @@
 {
   "appVersion" : "1.2",
-  "assignedPlan" : 4,
+  "assignedPlan" : 1,
   "assignedPlanPerSport" : {
-    "Futbol" : 4
+    "Futbol" : 1
   },
   "characterName" : "CharacterName",
   "coins" : 500,
@@ -11,14 +11,17 @@
     {
       "completed" : false,
       "completedStages" : [
-
+        0,
+        1,
+        2
       ],
       "day" : 1,
       "intensities" : {
-
+        "2" : 8
       },
       "selectedMeals" : {
-
+        "0" : 0,
+        "1" : 0
       }
     },
     {
@@ -200,12 +203,12 @@
   "equippedItems" : {
 
   },
-  "exportedAt" : "2026-09-29T14:59:11Z",
+  "exportedAt" : "2026-09-29T15:00:33Z",
   "level" : 0,
   "ownedItems" : [
 
   ],
-  "planStartDate" : "2026-09-29T13:59:31Z",
+  "planStartDate" : "2026-09-29T14:59:50Z",
   "questionnaireAnswers" : {
     "1" : "16",
     "10" : "7.0",
@@ -238,27 +241,30 @@
     "35" : "0 dies (sense baixa)",
     "36" : "20",
     "37" : "20",
+    "38" : "9,25",
+    "39" : "48",
     "4" : "Futbol 11",
+    "40" : "6,12",
     "5" : "Juvenil (16-18 anys)",
     "6" : "Més de 6 anys",
     "7" : "3",
     "8" : "4",
     "9" : "Mantenir-me en forma i gaudir de l'esport"
   },
-  "questionnaireCompleted" : false,
-  "questionnaireCompletedDate" : null,
+  "questionnaireCompleted" : true,
+  "questionnaireCompletedDate" : "2026-09-29T14:59:50Z",
   "questionnaireScore" : {
-    "date" : "2026-09-29T13:53:29Z",
+    "date" : "2026-09-29T14:59:47Z",
     "perCategory" : {
       "Hàbits saludables" : 6.5,
-      "Nutrició i hidratació" : 12,
-      "Prevenció de lesions" : 7.7,
-      "Recuperació muscular" : 6.5,
-      "Salut mental i benestar" : 7.2,
+      "Nutrició i hidratació" : 8,
+      "Prevenció de lesions" : 9.3,
+      "Recuperació muscular" : 5.9,
+      "Salut mental i benestar" : 6.9,
       "Son i descans" : 16
     },
     "sport" : "Futbol",
-    "total" : 56
+    "total" : 53
   },
   "remindersEnabled" : null,
   "schemaVersion" : 1,
