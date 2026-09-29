@@ -197,12 +197,12 @@
   "equippedItems" : {
 
   },
-  "exportedAt" : "2026-09-29T16:18:26Z",
+  "exportedAt" : "2026-09-29T16:24:02Z",
   "level" : 0,
   "ownedItems" : [
 
   ],
-  "planStartDate" : null,
+  "planStartDate" : "2026-09-29T16:18:26Z",
   "questionnaireAnswers" : {
     "1" : "15",
     "10" : "8.0",
