@@ -1,8 +1,8 @@
 {
   "appVersion" : "1.2",
-  "assignedPlan" : null,
+  "assignedPlan" : 1,
   "assignedPlanPerSport" : {
-
+    "Futbol" : 1
   },
   "characterName" : "CharacterName",
   "coins" : 500,
@@ -197,12 +197,12 @@
   "equippedItems" : {
 
   },
-  "exportedAt" : "2026-09-29T17:32:46Z",
+  "exportedAt" : "2026-09-29T17:35:01Z",
   "level" : 0,
   "ownedItems" : [
 
   ],
-  "planStartDate" : "2026-09-29T15:45:08Z",
+  "planStartDate" : "2026-09-29T17:35:01Z",
   "questionnaireAnswers" : {
     "1" : "16",
     "10" : "8.0",
@@ -235,16 +235,31 @@
     "35" : "1 a 3 setmanes",
     "36" : "25",
     "37" : "57",
+    "38" : "8,25",
+    "39" : "56",
     "4" : "Futbol 11",
+    "40" : "7,4",
     "5" : "Juvenil (16-18 anys)",
     "6" : "Més de 6 anys",
     "7" : "3",
     "8" : "12",
     "9" : "Mantenir-me en forma i gaudir de l'esport"
   },
-  "questionnaireCompleted" : false,
-  "questionnaireCompletedDate" : null,
-  "questionnaireScore" : null,
+  "questionnaireCompleted" : true,
+  "questionnaireCompletedDate" : "2026-09-29T17:35:01Z",
+  "questionnaireScore" : {
+    "date" : "2026-09-29T17:34:59Z",
+    "perCategory" : {
+      "Hàbits saludables" : 8.5,
+      "Nutrició i hidratació" : 13.3,
+      "Prevenció de lesions" : 9.8,
+      "Recuperació muscular" : 9.4,
+      "Salut mental i benestar" : 5.6,
+      "Son i descans" : 18.1
+    },
+    "sport" : "Futbol",
+    "total" : 65
+  },
   "remindersEnabled" : null,
   "schemaVersion" : 1,
   "sleepHistory" : [
