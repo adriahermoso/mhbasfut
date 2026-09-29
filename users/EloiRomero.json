@@ -1,12 +1,12 @@
 {
-  "appVersion" : "1.0",
+  "appVersion" : "1.2",
   "assignedPlan" : 1,
   "assignedPlanPerSport" : {
     "Futbol" : 1
   },
   "characterName" : "CharacterName",
   "coins" : 250,
-  "currentDay" : 2,
+  "currentDay" : 3,
   "days" : [
     {
       "completed" : true,
@@ -220,7 +220,7 @@
   "equippedItems" : {
     "pelo" : 1
   },
-  "exportedAt" : "2026-09-28T05:32:56Z",
+  "exportedAt" : "2026-09-29T13:56:56Z",
   "level" : 0,
   "ownedItems" : [
     "pelo.0",
@@ -293,6 +293,10 @@
     },
     {
       "date" : "2026-09-28T05:31:52Z",
+      "rating" : 0
+    },
+    {
+      "date" : "2026-09-29T13:56:56Z",
       "rating" : 0
     }
   ],
