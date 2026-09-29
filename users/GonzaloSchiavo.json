@@ -1,8 +1,8 @@
 {
   "appVersion" : "1.2",
-  "assignedPlan" : null,
+  "assignedPlan" : 2,
   "assignedPlanPerSport" : {
-
+    "Basquet" : 2
   },
   "characterName" : "CharacterName",
   "coins" : 500,
@@ -197,12 +197,12 @@
   "equippedItems" : {
 
   },
-  "exportedAt" : "2026-09-29T16:24:02Z",
+  "exportedAt" : "2026-09-29T16:26:00Z",
   "level" : 0,
   "ownedItems" : [
 
   ],
-  "planStartDate" : "2026-09-29T16:18:26Z",
+  "planStartDate" : "2026-09-29T16:26:00Z",
   "questionnaireAnswers" : {
     "1" : "15",
     "10" : "8.0",
@@ -233,16 +233,33 @@
     "33" : "Sí, molèsties musculars lleus",
     "34" : "Genoll \/ Lligaments",
     "35" : "0 dies (sense baixa)",
+    "36" : "40",
+    "37" : "265",
+    "38" : "5,3",
+    "39" : "47",
     "4" : "Bàsquet 5x5",
+    "40" : "12",
     "5" : "Juvenil (16-18 anys)",
     "6" : "4 a 6 anys",
     "7" : "4",
     "8" : "7",
     "9" : "Millorar el rendiment físic i la velocitat"
   },
-  "questionnaireCompleted" : false,
-  "questionnaireCompletedDate" : null,
-  "questionnaireScore" : null,
+  "questionnaireCompleted" : true,
+  "questionnaireCompletedDate" : "2026-09-29T16:26:00Z",
+  "questionnaireScore" : {
+    "date" : "2026-09-29T16:25:38Z",
+    "perCategory" : {
+      "Hàbits saludables" : 6.5,
+      "Nutrició i hidratació" : 12.1,
+      "Prevenció de lesions" : 11.8,
+      "Recuperació muscular" : 15.8,
+      "Salut mental i benestar" : 6.7,
+      "Son i descans" : 20.1
+    },
+    "sport" : "Basquet",
+    "total" : 73
+  },
   "remindersEnabled" : null,
   "schemaVersion" : 1,
   "sleepHistory" : [
