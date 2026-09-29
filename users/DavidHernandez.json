@@ -11,14 +11,17 @@
     {
       "completed" : false,
       "completedStages" : [
-
+        0,
+        1,
+        2
       ],
       "day" : 1,
       "intensities" : {
-
+        "2" : 7
       },
       "selectedMeals" : {
-
+        "0" : 2,
+        "1" : 0
       }
     },
     {
@@ -192,12 +195,15 @@
     }
   ],
   "emotionHistory" : [
-
+    {
+      "date" : "2026-09-29T17:35:07Z",
+      "rating" : 1
+    }
   ],
   "equippedItems" : {
 
   },
-  "exportedAt" : "2026-09-29T17:35:01Z",
+  "exportedAt" : "2026-09-29T17:56:15Z",
   "level" : 0,
   "ownedItems" : [
 
@@ -263,7 +269,10 @@
   "remindersEnabled" : null,
   "schemaVersion" : 1,
   "sleepHistory" : [
-
+    {
+      "date" : "2026-09-29T17:35:04Z",
+      "rating" : 0
+    }
   ],
   "soundEnabled" : null,
   "sport" : "Futbol",
