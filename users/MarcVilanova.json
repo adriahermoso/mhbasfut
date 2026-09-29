@@ -200,7 +200,7 @@
   "equippedItems" : {
 
   },
-  "exportedAt" : "2026-09-29T14:03:45Z",
+  "exportedAt" : "2026-09-29T14:59:11Z",
   "level" : 0,
   "ownedItems" : [
 
@@ -236,6 +236,8 @@
     "33" : "Sí, molèsties musculars lleus",
     "34" : "Altra zona muscular \/ articular",
     "35" : "0 dies (sense baixa)",
+    "36" : "20",
+    "37" : "20",
     "4" : "Futbol 11",
     "5" : "Juvenil (16-18 anys)",
     "6" : "Més de 6 anys",
