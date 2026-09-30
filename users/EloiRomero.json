@@ -11,14 +11,17 @@
     {
       "completed" : false,
       "completedStages" : [
-
+        0,
+        1,
+        2
       ],
       "day" : 1,
       "intensities" : {
-
+        "2" : 7
       },
       "selectedMeals" : {
-
+        "0" : 0,
+        "1" : 0
       }
     },
     {
@@ -192,12 +195,15 @@
     }
   ],
   "emotionHistory" : [
-
+    {
+      "date" : "2026-09-30T18:52:43Z",
+      "rating" : 0
+    }
   ],
   "equippedItems" : {
 
   },
-  "exportedAt" : "2026-09-30T18:52:31Z",
+  "exportedAt" : "2026-09-30T18:54:19Z",
   "level" : 0,
   "ownedItems" : [
 
@@ -263,7 +269,10 @@
   "remindersEnabled" : null,
   "schemaVersion" : 1,
   "sleepHistory" : [
-
+    {
+      "date" : "2026-09-30T18:52:38Z",
+      "rating" : 2
+    }
   ],
   "soundEnabled" : null,
   "sport" : "Basquet",
