@@ -1,12 +1,12 @@
 {
   "appVersion" : "1.2",
-  "assignedPlan" : null,
+  "assignedPlan" : 4,
   "assignedPlanPerSport" : {
-
+    "Basquet" : 4
   },
   "characterName" : "CharacterName",
   "coins" : 500,
-  "currentDay" : 2,
+  "currentDay" : 1,
   "days" : [
     {
       "completed" : false,
@@ -197,12 +197,12 @@
   "equippedItems" : {
 
   },
-  "exportedAt" : "2026-09-30T18:38:01Z",
+  "exportedAt" : "2026-09-30T18:40:41Z",
   "level" : 0,
   "ownedItems" : [
 
   ],
-  "planStartDate" : "2026-09-29T16:35:47Z",
+  "planStartDate" : null,
   "questionnaireAnswers" : {
     "1" : "17",
     "10" : "10.0",
@@ -235,7 +235,10 @@
     "35" : "1 a 7 dies (menys d'una setmana)",
     "36" : "43",
     "37" : "191",
+    "38" : "9",
+    "39" : "54",
     "4" : "Bàsquet 5x5",
+    "40" : "7,56",
     "5" : "Juvenil (16-18 anys)",
     "6" : "4 a 6 anys",
     "7" : "4",
@@ -244,7 +247,19 @@
   },
   "questionnaireCompleted" : false,
   "questionnaireCompletedDate" : null,
-  "questionnaireScore" : null,
+  "questionnaireScore" : {
+    "date" : "2026-09-30T18:40:36Z",
+    "perCategory" : {
+      "Hàbits saludables" : 5.8,
+      "Nutrició i hidratació" : 13.3,
+      "Prevenció de lesions" : 9.5,
+      "Recuperació muscular" : 10.2,
+      "Salut mental i benestar" : 6.1,
+      "Son i descans" : 10.7
+    },
+    "sport" : "Basquet",
+    "total" : 56
+  },
   "remindersEnabled" : null,
   "schemaVersion" : 1,
   "sleepHistory" : [
