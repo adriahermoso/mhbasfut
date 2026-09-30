@@ -6,7 +6,7 @@
   },
   "characterName" : "CharacterName",
   "coins" : 500,
-  "currentDay" : 2,
+  "currentDay" : 1,
   "days" : [
     {
       "completed" : false,
@@ -200,12 +200,12 @@
   "equippedItems" : {
 
   },
-  "exportedAt" : "2026-09-30T13:23:03Z",
+  "exportedAt" : "2026-09-30T18:44:03Z",
   "level" : 0,
   "ownedItems" : [
 
   ],
-  "planStartDate" : "2026-09-29T16:26:00Z",
+  "planStartDate" : "2026-09-30T18:44:02Z",
   "questionnaireAnswers" : {
     "1" : "15",
     "10" : "8.0",
@@ -217,28 +217,28 @@
     "16" : "4.0",
     "17" : "La majoria de vegades",
     "18" : "Sovint",
-    "19" : "2",
+    "19" : "4",
     "2" : "Masculí",
     "20" : "Entre 5 i 15 minuts",
-    "21" : "Sí, habitualment (rutina fixa)",
+    "21" : "Ocasionalment (1-2 cops per setmana)",
     "22" : "3",
     "23" : "4",
     "24" : "6",
-    "25" : "8",
+    "25" : "6",
     "26" : "Lleu, en dies puntuals",
-    "27" : "1.5",
+    "27" : "2.0",
     "28" : "1 o 2 a la setmana",
     "29" : "Gairebé sempre entre setmana",
     "3" : "{\"height\":\"180\",\"weight\":\"80\"}",
     "30" : "Sí, complet (mobilitat, cursa, activació)",
     "31" : "Sí, sempre (trot suau, respiració)",
-    "32" : "Un cop per setmana",
-    "33" : "Sí, molèsties musculars lleus",
+    "32" : "Sí, 2 o més cops per setmana",
+    "33" : "Sí, múltiples lesions repetides",
     "34" : "Genoll \/ Lligaments",
     "35" : "0 dies (sense baixa)",
-    "36" : "40",
-    "37" : "265",
-    "38" : "5,3",
+    "36" : "45",
+    "37" : "237",
+    "38" : "5,15",
     "39" : "47",
     "4" : "Bàsquet 5x5",
     "40" : "12",
@@ -249,19 +249,19 @@
     "9" : "Millorar el rendiment físic i la velocitat"
   },
   "questionnaireCompleted" : true,
-  "questionnaireCompletedDate" : "2026-09-29T16:26:00Z",
+  "questionnaireCompletedDate" : "2026-09-30T18:44:02Z",
   "questionnaireScore" : {
-    "date" : "2026-09-29T16:25:38Z",
+    "date" : "2026-09-30T18:44:01Z",
     "perCategory" : {
-      "Hàbits saludables" : 6.5,
+      "Hàbits saludables" : 6.1,
       "Nutrició i hidratació" : 12.1,
-      "Prevenció de lesions" : 11.8,
-      "Recuperació muscular" : 15.8,
-      "Salut mental i benestar" : 6.7,
+      "Prevenció de lesions" : 11,
+      "Recuperació muscular" : 13,
+      "Salut mental i benestar" : 6.1,
       "Son i descans" : 20.1
     },
     "sport" : "Basquet",
-    "total" : 73
+    "total" : 68
   },
   "remindersEnabled" : null,
   "schemaVersion" : 1,
