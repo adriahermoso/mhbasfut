@@ -197,12 +197,12 @@
   "equippedItems" : {
 
   },
-  "exportedAt" : "2026-09-30T18:40:41Z",
+  "exportedAt" : "2026-09-30T18:52:31Z",
   "level" : 0,
   "ownedItems" : [
 
   ],
-  "planStartDate" : null,
+  "planStartDate" : "2026-09-30T18:52:31Z",
   "questionnaireAnswers" : {
     "1" : "17",
     "10" : "10.0",
@@ -245,8 +245,8 @@
     "8" : "6",
     "9" : "Arribar al màxim nivell competitiu"
   },
-  "questionnaireCompleted" : false,
-  "questionnaireCompletedDate" : null,
+  "questionnaireCompleted" : true,
+  "questionnaireCompletedDate" : "2026-09-30T18:52:31Z",
   "questionnaireScore" : {
     "date" : "2026-09-30T18:40:36Z",
     "perCategory" : {
