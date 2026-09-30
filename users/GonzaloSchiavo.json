@@ -6,7 +6,7 @@
   },
   "characterName" : "CharacterName",
   "coins" : 500,
-  "currentDay" : 1,
+  "currentDay" : 2,
   "days" : [
     {
       "completed" : false,
@@ -192,12 +192,15 @@
     }
   ],
   "emotionHistory" : [
-
+    {
+      "date" : "2026-09-29T16:26:08Z",
+      "rating" : 1
+    }
   ],
   "equippedItems" : {
 
   },
-  "exportedAt" : "2026-09-29T16:26:00Z",
+  "exportedAt" : "2026-09-30T13:23:03Z",
   "level" : 0,
   "ownedItems" : [
 
@@ -263,7 +266,14 @@
   "remindersEnabled" : null,
   "schemaVersion" : 1,
   "sleepHistory" : [
-
+    {
+      "date" : "2026-09-29T16:26:05Z",
+      "rating" : 0
+    },
+    {
+      "date" : "2026-09-30T13:23:03Z",
+      "rating" : 0
+    }
   ],
   "soundEnabled" : null,
   "sport" : "Basquet",
