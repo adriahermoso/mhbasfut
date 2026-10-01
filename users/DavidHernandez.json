@@ -6,7 +6,7 @@
   },
   "characterName" : "CharacterName",
   "coins" : 500,
-  "currentDay" : 2,
+  "currentDay" : 3,
   "days" : [
     {
       "completed" : true,
@@ -35,14 +35,15 @@
     {
       "completed" : false,
       "completedStages" : [
-
+        0
       ],
       "day" : 2,
       "intensities" : {
 
       },
       "selectedMeals" : {
-
+        "0" : 2,
+        "1" : 0
       }
     },
     {
@@ -211,7 +212,7 @@
   "equippedItems" : {
 
   },
-  "exportedAt" : "2026-09-30T05:33:16Z",
+  "exportedAt" : "2026-10-01T11:28:45Z",
   "level" : 0,
   "ownedItems" : [
 
@@ -284,6 +285,10 @@
     {
       "date" : "2026-09-30T05:33:16Z",
       "rating" : 2
+    },
+    {
+      "date" : "2026-10-01T11:28:45Z",
+      "rating" : 2
     }
   ],
   "soundEnabled" : null,
@@ -291,6 +296,6 @@
   "streakCompletedDates" : [
     "2026-09-28T22:00:00Z"
   ],
-  "streakCount" : 1,
+  "streakCount" : 0,
   "username" : "DavidHernandez"
 }
