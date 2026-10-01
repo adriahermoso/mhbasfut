@@ -6,7 +6,7 @@
   },
   "characterName" : "CharacterName",
   "coins" : 500,
-  "currentDay" : 2,
+  "currentDay" : 3,
   "days" : [
     {
       "completed" : true,
@@ -33,16 +33,25 @@
       }
     },
     {
-      "completed" : false,
+      "completed" : true,
       "completedStages" : [
-
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
       ],
       "day" : 2,
       "intensities" : {
-
+        "2" : 5
       },
       "selectedMeals" : {
-
+        "0" : 1,
+        "1" : 1,
+        "3" : 0,
+        "4" : 1,
+        "5" : 2
       }
     },
     {
@@ -211,7 +220,7 @@
   "equippedItems" : {
 
   },
-  "exportedAt" : "2026-09-30T13:24:59Z",
+  "exportedAt" : "2026-10-01T15:28:50Z",
   "level" : 0,
   "ownedItems" : [
 
@@ -284,13 +293,18 @@
     {
       "date" : "2026-09-30T13:24:59Z",
       "rating" : 1
+    },
+    {
+      "date" : "2026-10-01T15:28:50Z",
+      "rating" : 2
     }
   ],
   "soundEnabled" : null,
   "sport" : "Futbol",
   "streakCompletedDates" : [
-    "2026-09-28T22:00:00Z"
+    "2026-09-28T22:00:00Z",
+    "2026-09-29T22:00:00Z"
   ],
-  "streakCount" : 1,
+  "streakCount" : 2,
   "username" : "HugoMartinez"
 }
