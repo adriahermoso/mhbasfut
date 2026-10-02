@@ -6,10 +6,10 @@
   },
   "characterName" : "CharacterName",
   "coins" : 500,
-  "currentDay" : 1,
+  "currentDay" : 3,
   "days" : [
     {
-      "completed" : false,
+      "completed" : true,
       "completedStages" : [
         0,
         1,
@@ -17,7 +17,10 @@
         3,
         4,
         5,
-        6
+        6,
+        7,
+        8,
+        9
       ],
       "day" : 1,
       "intensities" : {
@@ -48,14 +51,15 @@
     {
       "completed" : false,
       "completedStages" : [
-
+        0
       ],
       "day" : 3,
       "intensities" : {
 
       },
       "selectedMeals" : {
-
+        "0" : 1,
+        "1" : 0
       }
     },
     {
@@ -211,7 +215,7 @@
   "equippedItems" : {
 
   },
-  "exportedAt" : "2026-09-30T18:56:56Z",
+  "exportedAt" : "2026-10-02T17:08:18Z",
   "level" : 0,
   "ownedItems" : [
 
@@ -280,12 +284,16 @@
     {
       "date" : "2026-09-30T18:52:38Z",
       "rating" : 2
+    },
+    {
+      "date" : "2026-10-02T17:08:18Z",
+      "rating" : 3
     }
   ],
   "soundEnabled" : null,
   "sport" : "Basquet",
   "streakCompletedDates" : [
-
+    "2026-09-29T22:00:00Z"
   ],
   "streakCount" : 0,
   "username" : "EloiRomero"
