@@ -6,7 +6,7 @@
   },
   "characterName" : "CharacterName",
   "coins" : 500,
-  "currentDay" : 3,
+  "currentDay" : 4,
   "days" : [
     {
       "completed" : true,
@@ -73,14 +73,15 @@
     {
       "completed" : false,
       "completedStages" : [
-
+        0
       ],
       "day" : 4,
       "intensities" : {
 
       },
       "selectedMeals" : {
-
+        "0" : 1,
+        "1" : 0
       }
     },
     {
@@ -223,7 +224,7 @@
   "equippedItems" : {
 
   },
-  "exportedAt" : "2026-10-01T22:25:44Z",
+  "exportedAt" : "2026-10-03T09:50:11Z",
   "level" : 0,
   "ownedItems" : [
 
@@ -300,6 +301,10 @@
     {
       "date" : "2026-10-01T13:54:30Z",
       "rating" : 0
+    },
+    {
+      "date" : "2026-10-03T09:50:11Z",
+      "rating" : 1
     }
   ],
   "soundEnabled" : null,
