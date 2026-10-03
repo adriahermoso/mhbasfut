@@ -71,17 +71,29 @@
       }
     },
     {
-      "completed" : false,
+      "completed" : true,
       "completedStages" : [
-        0
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
       ],
       "day" : 4,
       "intensities" : {
-
+        "2" : 7,
+        "3" : 8,
+        "4" : 8,
+        "5" : 7
       },
       "selectedMeals" : {
         "0" : 1,
-        "1" : 0
+        "1" : 2,
+        "6" : 0
       }
     },
     {
@@ -219,12 +231,16 @@
     {
       "date" : "2026-09-29T16:26:08Z",
       "rating" : 1
+    },
+    {
+      "date" : "2026-10-03T09:50:13Z",
+      "rating" : 1
     }
   ],
   "equippedItems" : {
 
   },
-  "exportedAt" : "2026-10-03T09:50:11Z",
+  "exportedAt" : "2026-10-03T09:51:28Z",
   "level" : 0,
   "ownedItems" : [
 
@@ -310,8 +326,9 @@
   "soundEnabled" : null,
   "sport" : "Basquet",
   "streakCompletedDates" : [
-    "2026-09-29T22:00:00Z"
+    "2026-09-29T22:00:00Z",
+    "2026-10-02T22:00:00Z"
   ],
-  "streakCount" : 0,
+  "streakCount" : 1,
   "username" : "GonzaloSchiavo"
 }
