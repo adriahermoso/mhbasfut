@@ -53,8 +53,20 @@ Les credencials són a `CONFIG.comptes`, al principi de `assets/js/dashboard.js`
 
 Cada alumne té un fitxer `users/<username>.json`. Per afegir-ne un:
 
-1. Crea el fitxer seguint l'esquema d'un fitxer existent.
-2. Afegeix el `username` a `CONFIG.alumnes` de `assets/js/dashboard.js`.
+1. Afegeix el `username` a `CONFIG.alumnes` de `assets/js/dashboard.js`.
+2. Crea el fitxer seguint l'esquema d'un fitxer existent.
+
+L'ordre és el que importa: el pas 1 és suficient perquè l'alumne aparegui al
+rail de la consola. Si encara no ha sincronitzat mai, la fila es veu igual amb
+«Encara no ha sincronitzat» i s'omplirà sola quan arribi el primer sync.
+
+La clau de `CONFIG.alumnes` ha de ser **exactament** el mateix string que
+l'APP iOS puja a `users/<username>.json`: sensible a majúscules i minúscules,
+sense tildes ni espais (`HectorVelasco`, no `Hector Velasco`).
+
+El nom visible es deriva de la clau partint-la pel cognom
+(`MarcelRosell` → «Marcel Rosell»). Si cal un nom que això no doni, per exemple
+amb tildes (`HectorVelasco` → «Héctor Velasco»), poseu-lo a `CONFIG.noms`.
 
 GitHub Pages no permet llistar el contingut d'una carpeta, de manera que el
 llistat d'alumnes ha de ser explícit al codi.

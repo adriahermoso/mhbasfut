@@ -32,8 +32,27 @@ window.MHBSFUT = (function () {
        es vegin a l'instant després de sincronitzar. */
     dataPath: 'https://raw.githubusercontent.com/adriahermoso/mhbasfut/main/users/',
 
-    /* Llistat d'alumnes que es mostren a la consola. */
-    alumnes: ['EloiRomero', 'GonzaloSchiavo', 'HugoMartinez', 'MarcVilanova', 'DavidHernandez'],
+    /* Llistat d'alumnes que es mostren a la consola.
+
+       És explícit a propòsit: GitHub Pages no deixa llistar el contingut de
+       users/, i a més l'alumne ha d'aparèixer encara que no hagi sincronitzat
+       mai (no existeix encara el fitxer). La clau ha de ser EXACTAMENT el
+       string que l'APP iOS puja a users/<username>.json: sensible a
+       majúscules i minúscules, sense tildes ni espais.
+
+       Els noms visibles no hi són: es deriven de la clau partint-la pel
+       cognom (HectorVelasco -> «Hector Velasco»). Quan calgui un nom que
+       això no doni (tildes, cognoms compostes...), poseu-lo a `noms`. */
+    alumnes: [
+      'EloiRomero', 'GonzaloSchiavo', 'HugoMartinez', 'MarcVilanova', 'DavidHernandez',
+      'MarcelRosell', 'HectorVelasco'
+    ],
+
+    /* Noms visibles que NO es deriven de l'identificador. La clau és
+       l'usuari exacte del llistat de dalt. */
+    noms: {
+      HectorVelasco: 'Héctor Velasco'
+    },
 
     /* Comptes d'administració de la demostració. */
     comptes: [
@@ -297,6 +316,41 @@ window.MHBSFUT = (function () {
      });
    }
 
+  /* Model de consola per a un alumne del llistat que encara no té dades.
+
+     Un alumne pot aparèixer a CONFIG.alumnes abans que existeixi el seu
+     fitxer a users/ (encara no ha sincronitzat) o que la petició hagi fallat.
+     En tots dos casos ha de conservar la fila al rail: el llistat és
+     explícit al codi i no depèn de quins fitxers hi hagi al repositori.
+     `problema` distingeix 'absent' (mai ha sincronitzat) de 'error'. */
+  function alumneVisible(r) {
+    if (r.dades) return r.dades;
+    var p = parteixNom(r.username);
+    return {
+      username: r.username,
+      senseDades: true,
+      problema: r.tipus === 'error' ? 'error' : 'absent',
+      perfil: { nom: p.nom, cognoms: p.cognoms }
+    };
+  }
+
+  /* Text del rail segons l'estat de les dades de l'alumne. */
+  function subRail(alumne) {
+    if (alumne.senseDades) {
+      return alumne.problema === 'error'
+        ? 'No s\'ha pogut llegir'
+        : 'Encara no ha sincronitzat';
+    }
+    var recompenses = alumne.recompenses || {};
+    return (recompenses.racha != null ? recompenses.racha : 0) + ' dies de racha';
+  }
+
+  /* Nom visible d'un alumne, del perfil si en té i de la clau si no. */
+  function nomVisible(alumne) {
+    var perfil = alumne.perfil || {};
+    return ((perfil.nom || '') + ' ' + (perfil.cognoms || '')).trim() || alumne.username;
+  }
+
   /* ------------------------------------------------------------------------
      Adaptador del snapshot iOS (UserDataExporter, schemaVersion 1) al
      model heretat que pinta buildFitxa (perfil/pla/questionari/
@@ -325,8 +379,11 @@ window.MHBSFUT = (function () {
 
   function parteixNom(slug) {
     var s = String(slug || '').trim();
-    if (!s) return { nom: '?', cognoms: '' };
-    var parts = s.replace(/([a-zà-ÿ])([A-ZÀ-Þ])/g, '$1 $2').split(' ');
+    /* CONFIG.noms és l'escapatori per als noms que no es deriven de la clau
+       (tildes, cognoms compostes...). Sense entrada, es parteix el slug. */
+    var oficial = (s && CONFIG.noms && CONFIG.noms[s]) || s;
+    if (!oficial) return { nom: '?', cognoms: '' };
+    var parts = oficial.replace(/([a-zà-ÿ])([A-ZÀ-Þ])/g, '$1 $2').split(' ');
     if (parts.length === 1) {
       return { nom: parts[0][0].toUpperCase() + parts[0].slice(1), cognoms: '' };
     }
@@ -795,13 +852,11 @@ window.MHBSFUT = (function () {
     }
 
     dades.forEach(function (alumne) {
-      var perfil = alumne.perfil || {};
-      var recompenses = alumne.recompenses || {};
       item(
         '#estudiant/' + alumne.username,
         inicials(alumne),
-        ((perfil.nom || '') + ' ' + (perfil.cognoms || '')).trim() || alumne.username,
-        (recompenses.racha != null ? recompenses.racha : 0) + ' dies de racha',
+        nomVisible(alumne),
+        subRail(alumne),
         actiu === alumne.username
       );
     });
@@ -811,7 +866,35 @@ window.MHBSFUT = (function () {
      Vista de fitxa (un alumne)
      ------------------------------------------------------------------------ */
 
+  /* Fitxa d'un alumne que encara no ha sincronitzat. Es manté la capçalera
+     amb el seu nom (és el que el professor ha de veure al rail) i s'explica
+     què falta, en lloc de pintar indicadors a zero que semblin dades. */
+  function buildFitxaSenseDades(alumne) {
+    var frag = document.createDocumentFragment();
+
+    var cap = el('div', 'main__head');
+    afegeix(cap, 'h1', 'main__title', nomVisible(alumne));
+    afegeix(cap, 'p', 'main__sub',
+      alumne.problema === 'error'
+        ? 'No s\'ha pogut llegir ' + alumne.username + '.json'
+        : 'Encara no ha sincronitzat');
+    frag.appendChild(cap);
+
+    var box = el('div', 'state');
+    afegeix(box, 'h2', 'state__title',
+      alumne.problema === 'error' ? 'No s\'han pogut carregar les dades' : 'Encara no hi ha dades');
+    afegeix(box, 'p', 'state__text', alumne.problema === 'error'
+      ? 'El fitxer ' + alumne.username + '.json no s\'ha pogut llegir del repositori. ' +
+        'Torna a provar-ho més tard.'
+      : 'Aquest alumne no ha sincronitzat mai, així que encara no existeix el fitxer ' +
+        alumne.username + '.json. La fila apareixerà igual aquí i s\'omplirà sola ' +
+        'quan l\'APP del noi faci el primer sync.');
+    frag.appendChild(box);
+    return frag;
+  }
+
   function buildFitxa(alumne) {
+    if (alumne.senseDades) return buildFitxaSenseDades(alumne);
     var frag = document.createDocumentFragment();
     var perfil = alumne.perfil || {};
     var pla = alumne.pla || {};
@@ -825,8 +908,7 @@ window.MHBSFUT = (function () {
 
     /* Capçalera */
     var cap = el('div', 'main__head');
-    afegeix(cap, 'h1', 'main__title',
-      ((perfil.nom || '') + ' ' + (perfil.cognoms || '')).trim() || alumne.username);
+    afegeix(cap, 'h1', 'main__title', nomVisible(alumne));
     /* Les dades iOS no sempre porten equip/dorsal: s'amaguen els buits
        (i els '—') en comptes de pintar «Dorsal null». */
     var subParts = [perfil.equip, perfil.categoria,
@@ -1141,26 +1223,31 @@ window.MHBSFUT = (function () {
         rebuts += 1;
 
         var carregats = resultats.filter(function (x) { return x.dades; });
-        
-        if (carregats.length > 0) {
-          dadesActuals = carregats.map(function (x) { return x.dades; });
-          /* Ordenem per nom perquè el rail no balli mentre carreguen. */
-          dadesActuals.sort(function (a, b) { return a.username.localeCompare(b.username); });
-          dibuixa();
-        }
+
+        /* Entre tots els alumnes del llistat, no només els que tenen fitxer:
+           els que encara no han sincronitzat també hi surten. */
+        dadesActuals = resultats.map(alumneVisible);
+        /* Ordenem per nom perquè el rail no balli mentre carreguen. */
+        dadesActuals.sort(function (a, b) { return a.username.localeCompare(b.username); });
+        dibuixa();
 
         if (rebuts === CONFIG.alumnes.length) {
           if (!carregats.length) {
+            /* Cap fitxer llegit de tot: es conserva l'ajuda de diagnosi encara
+               que el rail ja mostri tots els alumnes configurats. */
             neteja();
+            buildRail(dadesActuals, null);
             var absents = resultats.filter(function (x) { return x.tipus === 'absent'; });
             var noms = absents.map(function (x) { return x.username + '.json'; });
             estatBuit(arrel, noms.length ? ['Fitxer(s) no trobat(s): ' + noms.join(', ')] : null, carrega);
           } else {
-            var fallits = resultats.filter(function (x) { return x.tipus === 'absent' || x.tipus === 'error'; });
+            /* Un fitxer absent és un estado normal (alumne nou), no un error:
+               només s'avisa de les peticions que han fallat de debò. */
+            var fallits = resultats.filter(function (x) { return x.tipus === 'error'; });
             if (fallits.length > 0) {
               var avís = el('div', 'state state--warn');
               avís.setAttribute('role', 'status');
-              afegeix(avís, 'p', 'state__text', fallits.length + ' fitxer(s) no s\'han pogut carregar: ' +
+              afegeix(avís, 'p', 'state__text', fallits.length + ' fitxer(s) no s\'han pogut llegir: ' +
                 fallits.map(function (x) { return x.username + '.json'; }).join(', '));
               avís.appendChild(botRetry(carrega));
               arrel.insertBefore(avís, arrel.firstChild);
