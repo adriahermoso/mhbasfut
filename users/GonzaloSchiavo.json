@@ -6,7 +6,7 @@
   },
   "characterName" : "CharacterName",
   "coins" : 500,
-  "currentDay" : 4,
+  "currentDay" : 7,
   "days" : [
     {
       "completed" : true,
@@ -240,7 +240,7 @@
   "equippedItems" : {
 
   },
-  "exportedAt" : "2026-10-03T09:51:28Z",
+  "exportedAt" : "2026-10-06T20:04:11Z",
   "level" : 0,
   "ownedItems" : [
 
@@ -321,6 +321,10 @@
     {
       "date" : "2026-10-03T09:50:11Z",
       "rating" : 1
+    },
+    {
+      "date" : "2026-10-06T20:04:11Z",
+      "rating" : 1
     }
   ],
   "soundEnabled" : null,
@@ -329,6 +333,6 @@
     "2026-09-29T22:00:00Z",
     "2026-10-02T22:00:00Z"
   ],
-  "streakCount" : 1,
+  "streakCount" : 0,
   "username" : "GonzaloSchiavo"
 }
