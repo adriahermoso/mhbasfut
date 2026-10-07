@@ -187,16 +187,25 @@
       }
     },
     {
-      "completed" : false,
+      "completed" : true,
       "completedStages" : [
-
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
       ],
       "day" : 9,
       "intensities" : {
-
+        "2" : 9
       },
       "selectedMeals" : {
-
+        "0" : 2,
+        "1" : 2,
+        "3" : 2,
+        "4" : 0,
+        "5" : 2
       }
     },
     {
@@ -282,7 +291,7 @@
   "equippedItems" : {
 
   },
-  "exportedAt" : "2026-10-07T17:53:09Z",
+  "exportedAt" : "2026-10-07T17:54:22Z",
   "level" : 0,
   "ownedItems" : [
 
@@ -395,8 +404,9 @@
     "2026-10-02T22:00:00Z",
     "2026-10-03T22:00:00Z",
     "2026-10-04T22:00:00Z",
-    "2026-10-05T22:00:00Z"
+    "2026-10-05T22:00:00Z",
+    "2026-10-06T22:00:00Z"
   ],
-  "streakCount" : 8,
+  "streakCount" : 9,
   "username" : "MarcVilanova"
 }
