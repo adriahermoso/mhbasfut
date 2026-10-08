@@ -211,14 +211,17 @@
     {
       "completed" : false,
       "completedStages" : [
-
+        0,
+        1,
+        2
       ],
       "day" : 10,
       "intensities" : {
-
+        "2" : 9
       },
       "selectedMeals" : {
-
+        "0" : 1,
+        "1" : 1
       }
     },
     {
@@ -286,12 +289,16 @@
     {
       "date" : "2026-10-05T19:59:37Z",
       "rating" : 2
+    },
+    {
+      "date" : "2026-10-08T12:15:21Z",
+      "rating" : 2
     }
   ],
   "equippedItems" : {
 
   },
-  "exportedAt" : "2026-10-08T12:15:16Z",
+  "exportedAt" : "2026-10-08T14:03:42Z",
   "level" : 0,
   "ownedItems" : [
 
