@@ -6,7 +6,7 @@
   },
   "characterName" : "CharacterName",
   "coins" : 500,
-  "currentDay" : 11,
+  "currentDay" : 12,
   "days" : [
     {
       "completed" : true,
@@ -233,17 +233,25 @@
       }
     },
     {
-      "completed" : false,
+      "completed" : true,
       "completedStages" : [
-        0
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
       ],
       "day" : 11,
       "intensities" : {
-
+        "2" : 9
       },
       "selectedMeals" : {
         "0" : 1,
-        "1" : 0
+        "1" : 2,
+        "3" : 0,
+        "4" : 2,
+        "5" : 1
       }
     },
     {
@@ -307,7 +315,7 @@
   "equippedItems" : {
 
   },
-  "exportedAt" : "2026-10-09T10:19:21Z",
+  "exportedAt" : "2026-10-10T15:42:59Z",
   "level" : 0,
   "ownedItems" : [
 
@@ -416,6 +424,10 @@
     {
       "date" : "2026-10-09T10:19:21Z",
       "rating" : 0
+    },
+    {
+      "date" : "2026-10-10T15:42:59Z",
+      "rating" : 0
     }
   ],
   "soundEnabled" : null,
@@ -430,8 +442,9 @@
     "2026-10-04T22:00:00Z",
     "2026-10-05T22:00:00Z",
     "2026-10-06T22:00:00Z",
-    "2026-10-07T22:00:00Z"
+    "2026-10-07T22:00:00Z",
+    "2026-10-08T22:00:00Z"
   ],
-  "streakCount" : 10,
+  "streakCount" : 11,
   "username" : "MarcVilanova"
 }
