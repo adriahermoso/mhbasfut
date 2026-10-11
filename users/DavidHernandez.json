@@ -6,7 +6,7 @@
   },
   "characterName" : "CharacterName",
   "coins" : 500,
-  "currentDay" : 3,
+  "currentDay" : 13,
   "days" : [
     {
       "completed" : true,
@@ -47,16 +47,25 @@
       }
     },
     {
-      "completed" : false,
+      "completed" : true,
       "completedStages" : [
-
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
       ],
       "day" : 3,
       "intensities" : {
-
+        "2" : 6
       },
       "selectedMeals" : {
-
+        "0" : 0,
+        "1" : 0,
+        "3" : 0,
+        "4" : 0,
+        "5" : 1
       }
     },
     {
@@ -207,12 +216,16 @@
     {
       "date" : "2026-09-29T17:35:07Z",
       "rating" : 1
+    },
+    {
+      "date" : "2026-10-11T00:25:58Z",
+      "rating" : 0
     }
   ],
   "equippedItems" : {
 
   },
-  "exportedAt" : "2026-10-01T11:28:45Z",
+  "exportedAt" : "2026-10-11T00:25:58Z",
   "level" : 0,
   "ownedItems" : [
 
@@ -294,7 +307,8 @@
   "soundEnabled" : null,
   "sport" : "Futbol",
   "streakCompletedDates" : [
-    "2026-09-28T22:00:00Z"
+    "2026-09-28T22:00:00Z",
+    "2026-09-30T22:00:00Z"
   ],
   "streakCount" : 0,
   "username" : "DavidHernandez"
