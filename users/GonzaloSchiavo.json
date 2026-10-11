@@ -6,7 +6,7 @@
   },
   "characterName" : "CharacterName",
   "coins" : 500,
-  "currentDay" : 10,
+  "currentDay" : 12,
   "days" : [
     {
       "completed" : true,
@@ -171,16 +171,25 @@
       }
     },
     {
-      "completed" : false,
+      "completed" : true,
       "completedStages" : [
-
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
       ],
       "day" : 10,
       "intensities" : {
-
+        "2" : 8
       },
       "selectedMeals" : {
-
+        "0" : 0,
+        "1" : 0,
+        "3" : 0,
+        "4" : 0,
+        "5" : 0
       }
     },
     {
@@ -199,14 +208,14 @@
     {
       "completed" : false,
       "completedStages" : [
-
+        0
       ],
       "day" : 12,
       "intensities" : {
 
       },
       "selectedMeals" : {
-
+        "0" : 0
       }
     },
     {
@@ -248,12 +257,16 @@
     {
       "date" : "2026-10-06T20:04:13Z",
       "rating" : 1
+    },
+    {
+      "date" : "2026-10-09T09:27:19Z",
+      "rating" : 1
     }
   ],
   "equippedItems" : {
 
   },
-  "exportedAt" : "2026-10-09T09:27:18Z",
+  "exportedAt" : "2026-10-11T13:37:08Z",
   "level" : 0,
   "ownedItems" : [
 
@@ -342,6 +355,10 @@
     {
       "date" : "2026-10-09T09:27:18Z",
       "rating" : 0
+    },
+    {
+      "date" : "2026-10-11T13:37:08Z",
+      "rating" : 1
     }
   ],
   "soundEnabled" : null,
@@ -349,7 +366,8 @@
   "streakCompletedDates" : [
     "2026-09-29T22:00:00Z",
     "2026-10-02T22:00:00Z",
-    "2026-10-05T22:00:00Z"
+    "2026-10-05T22:00:00Z",
+    "2026-10-08T22:00:00Z"
   ],
   "streakCount" : 0,
   "username" : "GonzaloSchiavo"
