@@ -6,7 +6,7 @@
   },
   "characterName" : "CharacterName",
   "coins" : 500,
-  "currentDay" : 14,
+  "currentDay" : 1,
   "days" : [
     {
       "completed" : true,
@@ -299,16 +299,25 @@
       }
     },
     {
-      "completed" : false,
+      "completed" : true,
       "completedStages" : [
-
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
       ],
       "day" : 14,
       "intensities" : {
-
+        "2" : 9
       },
       "selectedMeals" : {
-
+        "0" : 0,
+        "1" : 2,
+        "3" : 0,
+        "4" : 2,
+        "5" : 0
       }
     }
   ],
@@ -337,12 +346,12 @@
   "equippedItems" : {
 
   },
-  "exportedAt" : "2026-10-12T11:04:49Z",
+  "exportedAt" : "2026-10-12T21:11:51Z",
   "level" : 0,
   "ownedItems" : [
 
   ],
-  "planStartDate" : "2026-09-29T14:59:50Z",
+  "planStartDate" : "2026-10-12T11:05:31Z",
   "questionnaireAnswers" : {
     "1" : "16",
     "10" : "7.0",
@@ -386,9 +395,9 @@
     "9" : "Mantenir-me en forma i gaudir de l'esport"
   },
   "questionnaireCompleted" : true,
-  "questionnaireCompletedDate" : "2026-09-29T14:59:50Z",
+  "questionnaireCompletedDate" : "2026-10-12T11:05:31Z",
   "questionnaireScore" : {
-    "date" : "2026-09-29T14:59:47Z",
+    "date" : "2026-10-12T11:05:31Z",
     "perCategory" : {
       "Hàbits saludables" : 6.5,
       "Nutrició i hidratació" : 8,
@@ -475,8 +484,9 @@
     "2026-10-07T22:00:00Z",
     "2026-10-08T22:00:00Z",
     "2026-10-09T22:00:00Z",
-    "2026-10-10T22:00:00Z"
+    "2026-10-10T22:00:00Z",
+    "2026-10-11T22:00:00Z"
   ],
-  "streakCount" : 13,
+  "streakCount" : 14,
   "username" : "MarcVilanova"
 }
