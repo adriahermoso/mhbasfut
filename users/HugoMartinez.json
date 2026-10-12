@@ -6,7 +6,7 @@
   },
   "characterName" : "CharacterName",
   "coins" : 500,
-  "currentDay" : 13,
+  "currentDay" : 14,
   "days" : [
     {
       "completed" : true,
@@ -259,16 +259,25 @@
       }
     },
     {
-      "completed" : false,
+      "completed" : true,
       "completedStages" : [
-
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
       ],
       "day" : 13,
       "intensities" : {
-
+        "2" : 2
       },
       "selectedMeals" : {
-
+        "0" : 0,
+        "1" : 0,
+        "3" : 0,
+        "4" : 0,
+        "5" : 0
       }
     },
     {
@@ -301,12 +310,16 @@
     {
       "date" : "2026-10-08T05:07:18Z",
       "rating" : 3
+    },
+    {
+      "date" : "2026-10-11T19:51:48Z",
+      "rating" : 4
     }
   ],
   "equippedItems" : {
 
   },
-  "exportedAt" : "2026-10-11T19:51:47Z",
+  "exportedAt" : "2026-10-12T11:05:18Z",
   "level" : 0,
   "ownedItems" : [
 
@@ -415,6 +428,10 @@
     {
       "date" : "2026-10-11T19:51:47Z",
       "rating" : 2
+    },
+    {
+      "date" : "2026-10-12T11:05:18Z",
+      "rating" : 2
     }
   ],
   "soundEnabled" : null,
@@ -429,8 +446,9 @@
     "2026-10-05T22:00:00Z",
     "2026-10-07T22:00:00Z",
     "2026-10-08T22:00:00Z",
-    "2026-10-09T22:00:00Z"
+    "2026-10-09T22:00:00Z",
+    "2026-10-10T22:00:00Z"
   ],
-  "streakCount" : 3,
+  "streakCount" : 4,
   "username" : "HugoMartinez"
 }
