@@ -1,12 +1,12 @@
 {
   "appVersion" : "1.2",
-  "assignedPlan" : 4,
+  "assignedPlan" : 1,
   "assignedPlanPerSport" : {
-    "Futbol" : 4
+    "Futbol" : 1
   },
   "characterName" : "CharacterName",
   "coins" : 500,
-  "currentDay" : 9,
+  "currentDay" : 1,
   "days" : [
     {
       "completed" : false,
@@ -24,7 +24,7 @@
     {
       "completed" : false,
       "completedStages" : [
-        0
+
       ],
       "day" : 2,
       "intensities" : {
@@ -195,73 +195,77 @@
     {
       "date" : "2026-10-04T19:19:28Z",
       "rating" : 2
+    },
+    {
+      "date" : "2026-10-12T11:30:48Z",
+      "rating" : 0
     }
   ],
   "equippedItems" : {
 
   },
-  "exportedAt" : "2026-10-12T11:30:41Z",
+  "exportedAt" : "2026-10-12T11:33:08Z",
   "level" : 0,
   "ownedItems" : [
 
   ],
-  "planStartDate" : "2026-10-04T19:19:22Z",
+  "planStartDate" : "2026-10-12T11:33:08Z",
   "questionnaireAnswers" : {
-    "1" : "17",
-    "10" : "6.0",
+    "1" : "18",
+    "10" : "8.0",
     "11" : "3",
-    "12" : "{\"bedtime\":\"00:00\",\"waketime\":\"7:20\"}",
-    "13" : "Prou descansat per afrontar el dia",
-    "14" : "3 àpats",
-    "15" : "Alguns dies a la setmana",
+    "12" : "{\"bedtime\":\"23:00\",\"waketime\":\"7:00\"}",
+    "13" : "Molt descansat i amb molta energia",
+    "14" : "2 àpats",
+    "15" : "Diàriament (3 o més racions)",
     "16" : "2.2",
-    "17" : "La majoria de vegades",
-    "18" : "Gairebé mai",
-    "19" : "5",
+    "17" : "Sempre un esmorzar complet",
+    "18" : "Sempre (proteïna + carbohidrats)",
+    "19" : "6",
     "2" : "Masculí",
-    "20" : "No faig estiraments",
-    "21" : "No ho utilitzo mai",
+    "20" : "Més de 15 minuts",
+    "21" : "Sí, habitualment (rutina fixa)",
     "22" : "2",
-    "23" : "5",
+    "23" : "6",
     "24" : "6",
-    "25" : "7",
+    "25" : "6",
     "26" : "Moderat, m'afecta el rendiment de vegades",
-    "27" : "2.0",
-    "28" : "1 o 2 a la setmana",
-    "29" : "Molt irregular",
-    "3" : "{\"height\":\"172\",\"weight\":\"60\"}",
-    "30" : "Sovint, però breu (menys de 5 minuts)",
-    "31" : "De vegades",
+    "27" : "1.5",
+    "28" : "Diàriament (més de 5)",
+    "29" : "Variable segons el dia",
+    "3" : "{\"height\":\"125\",\"weight\":\"52\"}",
+    "30" : "Només toco pilota directament",
+    "31" : "Gairebé mai",
     "32" : "Mai en faig",
-    "33" : "Sí, una lesió que em va aturar",
-    "34" : "Isquiotibials \/ Quàdriceps",
+    "33" : "Sí, múltiples lesions repetides",
+    "34" : "Genoll \/ Lligaments",
     "35" : "1 a 2 mesos",
-    "36" : "25",
-    "37" : "170",
-    "38" : "8",
-    "39" : "47",
+    "36" : "12",
+    "37" : "5",
+    "38" : "2",
+    "39" : "2",
     "4" : "Futbol 11",
-    "40" : "5",
-    "5" : "Juvenil (16-18 anys)",
-    "6" : "Més de 6 anys",
-    "7" : "3",
-    "8" : "4",
+    "40" : "2",
+    "5" : "Infantil (12-13 anys)",
+    "6" : "Menys d'1 any",
+    "7" : "4",
+    "8" : "8",
     "9" : "Millorar el rendiment físic i la velocitat"
   },
   "questionnaireCompleted" : true,
-  "questionnaireCompletedDate" : "2026-10-04T19:19:22Z",
+  "questionnaireCompletedDate" : "2026-10-12T11:33:08Z",
   "questionnaireScore" : {
-    "date" : "2026-10-04T19:19:13Z",
+    "date" : "2026-10-12T11:32:58Z",
     "perCategory" : {
-      "Hàbits saludables" : 3.9,
-      "Nutrició i hidratació" : 9.3,
-      "Prevenció de lesions" : 5,
-      "Recuperació muscular" : 7.8,
-      "Salut mental i benestar" : 5.3,
-      "Son i descans" : 15.6
+      "Hàbits saludables" : 3.2,
+      "Nutrició i hidratació" : 16,
+      "Prevenció de lesions" : 2.5,
+      "Recuperació muscular" : 17.2,
+      "Salut mental i benestar" : 4.7,
+      "Son i descans" : 20.8
     },
     "sport" : "Futbol",
-    "total" : 47
+    "total" : 64
   },
   "remindersEnabled" : null,
   "schemaVersion" : 1,
