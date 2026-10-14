@@ -6,7 +6,7 @@
   },
   "characterName" : "CharacterName",
   "coins" : 500,
-  "currentDay" : 2,
+  "currentDay" : 3,
   "days" : [
     {
       "completed" : true,
@@ -346,7 +346,7 @@
   "equippedItems" : {
 
   },
-  "exportedAt" : "2026-10-13T07:31:15Z",
+  "exportedAt" : "2026-10-14T18:20:11Z",
   "level" : 0,
   "ownedItems" : [
 
@@ -471,6 +471,10 @@
     {
       "date" : "2026-10-13T07:31:15Z",
       "rating" : 0
+    },
+    {
+      "date" : "2026-10-14T18:20:11Z",
+      "rating" : 0
     }
   ],
   "soundEnabled" : null,
@@ -491,6 +495,6 @@
     "2026-10-10T22:00:00Z",
     "2026-10-11T22:00:00Z"
   ],
-  "streakCount" : 14,
+  "streakCount" : 0,
   "username" : "MarcVilanova"
 }
