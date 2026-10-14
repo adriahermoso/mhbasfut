@@ -6,7 +6,7 @@
   },
   "characterName" : "CharacterName",
   "coins" : 500,
-  "currentDay" : 14,
+  "currentDay" : 2,
   "days" : [
     {
       "completed" : true,
@@ -38,14 +38,14 @@
     {
       "completed" : false,
       "completedStages" : [
-
+        0
       ],
       "day" : 2,
       "intensities" : {
 
       },
       "selectedMeals" : {
-
+        "0" : 0
       }
     },
     {
@@ -222,16 +222,27 @@
       }
     },
     {
-      "completed" : false,
+      "completed" : true,
       "completedStages" : [
-
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
       ],
       "day" : 14,
       "intensities" : {
-
+        "2" : 8,
+        "3" : 8
       },
       "selectedMeals" : {
-
+        "0" : 0,
+        "1" : 0,
+        "4" : 0,
+        "5" : 0,
+        "6" : 0
       }
     }
   ],
@@ -243,17 +254,21 @@
     {
       "date" : "2026-10-03T09:49:43Z",
       "rating" : 2
+    },
+    {
+      "date" : "2026-10-13T20:06:09Z",
+      "rating" : 2
     }
   ],
   "equippedItems" : {
 
   },
-  "exportedAt" : "2026-10-13T20:06:08Z",
+  "exportedAt" : "2026-10-14T20:25:41Z",
   "level" : 0,
   "ownedItems" : [
 
   ],
-  "planStartDate" : "2026-09-30T18:52:31Z",
+  "planStartDate" : "2026-10-13T20:07:05Z",
   "questionnaireAnswers" : {
     "1" : "17",
     "10" : "10.0",
@@ -297,9 +312,9 @@
     "9" : "Arribar al màxim nivell competitiu"
   },
   "questionnaireCompleted" : true,
-  "questionnaireCompletedDate" : "2026-09-30T18:52:31Z",
+  "questionnaireCompletedDate" : "2026-10-13T20:07:05Z",
   "questionnaireScore" : {
-    "date" : "2026-09-30T18:40:36Z",
+    "date" : "2026-10-13T20:07:02Z",
     "perCategory" : {
       "Hàbits saludables" : 5.8,
       "Nutrició i hidratació" : 13.3,
@@ -329,6 +344,10 @@
     {
       "date" : "2026-10-13T20:06:08Z",
       "rating" : 1
+    },
+    {
+      "date" : "2026-10-14T20:25:41Z",
+      "rating" : 2
     }
   ],
   "soundEnabled" : null,
@@ -337,8 +356,9 @@
     "2026-09-29T22:00:00Z",
     "2026-10-01T22:00:00Z",
     "2026-10-02T22:00:00Z",
-    "2026-10-04T22:00:00Z"
+    "2026-10-04T22:00:00Z",
+    "2026-10-12T22:00:00Z"
   ],
-  "streakCount" : 0,
+  "streakCount" : 1,
   "username" : "EloiRomero"
 }
