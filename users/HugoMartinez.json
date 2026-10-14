@@ -6,7 +6,7 @@
   },
   "characterName" : "CharacterName",
   "coins" : 500,
-  "currentDay" : 1,
+  "currentDay" : 3,
   "days" : [
     {
       "completed" : true,
@@ -51,7 +51,7 @@
         "1" : 1,
         "3" : 0,
         "4" : 1,
-        "5" : 2
+        "5" : 0
       }
     },
     {
@@ -73,7 +73,7 @@
         "1" : 1,
         "3" : 0,
         "4" : 1,
-        "5" : 1
+        "5" : 0
       }
     },
     {
@@ -328,7 +328,7 @@
   "equippedItems" : {
 
   },
-  "exportedAt" : "2026-10-12T17:49:10Z",
+  "exportedAt" : "2026-10-14T14:33:38Z",
   "level" : 0,
   "ownedItems" : [
 
@@ -441,6 +441,14 @@
     {
       "date" : "2026-10-12T11:05:18Z",
       "rating" : 2
+    },
+    {
+      "date" : "2026-10-13T13:20:20Z",
+      "rating" : 2
+    },
+    {
+      "date" : "2026-10-14T14:33:38Z",
+      "rating" : 2
     }
   ],
   "soundEnabled" : null,
@@ -459,6 +467,6 @@
     "2026-10-10T22:00:00Z",
     "2026-10-11T22:00:00Z"
   ],
-  "streakCount" : 5,
+  "streakCount" : 0,
   "username" : "HugoMartinez"
 }
