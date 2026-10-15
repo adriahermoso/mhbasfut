@@ -6,7 +6,7 @@
   },
   "characterName" : "CharacterName",
   "coins" : 500,
-  "currentDay" : 14,
+  "currentDay" : 3,
   "days" : [
     {
       "completed" : true,
@@ -252,16 +252,27 @@
       }
     },
     {
-      "completed" : false,
+      "completed" : true,
       "completedStages" : [
-
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
       ],
       "day" : 14,
       "intensities" : {
-
+        "2" : 6,
+        "3" : 5
       },
       "selectedMeals" : {
-
+        "0" : 0,
+        "1" : 0,
+        "4" : 0,
+        "5" : 0,
+        "6" : 0
       }
     }
   ],
@@ -290,12 +301,12 @@
   "equippedItems" : {
 
   },
-  "exportedAt" : "2026-10-13T08:31:30Z",
+  "exportedAt" : "2026-10-15T09:27:40Z",
   "level" : 0,
   "ownedItems" : [
 
   ],
-  "planStartDate" : "2026-09-30T18:44:02Z",
+  "planStartDate" : "2026-10-13T08:32:06Z",
   "questionnaireAnswers" : {
     "1" : "15",
     "10" : "8.0",
@@ -339,9 +350,9 @@
     "9" : "Millorar el rendiment físic i la velocitat"
   },
   "questionnaireCompleted" : true,
-  "questionnaireCompletedDate" : "2026-09-30T18:44:02Z",
+  "questionnaireCompletedDate" : "2026-10-13T08:32:06Z",
   "questionnaireScore" : {
-    "date" : "2026-09-30T18:44:01Z",
+    "date" : "2026-10-13T08:32:06Z",
     "perCategory" : {
       "Hàbits saludables" : 6.1,
       "Nutrició i hidratació" : 12.1,
@@ -391,6 +402,10 @@
     {
       "date" : "2026-10-13T08:31:30Z",
       "rating" : 1
+    },
+    {
+      "date" : "2026-10-15T09:27:40Z",
+      "rating" : 1
     }
   ],
   "soundEnabled" : null,
@@ -401,8 +416,9 @@
     "2026-10-05T22:00:00Z",
     "2026-10-08T22:00:00Z",
     "2026-10-10T22:00:00Z",
-    "2026-10-11T22:00:00Z"
+    "2026-10-11T22:00:00Z",
+    "2026-10-12T22:00:00Z"
   ],
-  "streakCount" : 2,
+  "streakCount" : 0,
   "username" : "GonzaloSchiavo"
 }
