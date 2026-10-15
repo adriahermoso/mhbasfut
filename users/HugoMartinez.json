@@ -6,7 +6,7 @@
   },
   "characterName" : "CharacterName",
   "coins" : 500,
-  "currentDay" : 3,
+  "currentDay" : 4,
   "days" : [
     {
       "completed" : true,
@@ -323,12 +323,16 @@
     {
       "date" : "2026-10-11T19:51:48Z",
       "rating" : 4
+    },
+    {
+      "date" : "2026-10-14T14:33:40Z",
+      "rating" : 3
     }
   ],
   "equippedItems" : {
 
   },
-  "exportedAt" : "2026-10-14T14:33:38Z",
+  "exportedAt" : "2026-10-15T15:48:47Z",
   "level" : 0,
   "ownedItems" : [
 
@@ -448,6 +452,10 @@
     },
     {
       "date" : "2026-10-14T14:33:38Z",
+      "rating" : 2
+    },
+    {
+      "date" : "2026-10-15T15:48:47Z",
       "rating" : 2
     }
   ],
