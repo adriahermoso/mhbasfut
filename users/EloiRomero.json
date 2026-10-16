@@ -6,7 +6,7 @@
   },
   "characterName" : "CharacterName",
   "coins" : 500,
-  "currentDay" : 3,
+  "currentDay" : 4,
   "days" : [
     {
       "completed" : true,
@@ -275,7 +275,7 @@
   "equippedItems" : {
 
   },
-  "exportedAt" : "2026-10-15T20:29:45Z",
+  "exportedAt" : "2026-10-16T19:24:08Z",
   "level" : 0,
   "ownedItems" : [
 
@@ -364,6 +364,10 @@
     {
       "date" : "2026-10-15T20:29:45Z",
       "rating" : 1
+    },
+    {
+      "date" : "2026-10-16T19:24:08Z",
+      "rating" : 1
     }
   ],
   "soundEnabled" : null,
@@ -376,6 +380,6 @@
     "2026-10-12T22:00:00Z",
     "2026-10-13T22:00:00Z"
   ],
-  "streakCount" : 2,
+  "streakCount" : 0,
   "username" : "EloiRomero"
 }
