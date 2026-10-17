@@ -1567,7 +1567,9 @@ window.MHBSFUT = (function () {
        l'alumne actiu. */
     var sheetObert = false;
     var sheetFons = el('div', 'sheet-backdrop');
+    sheetFons.hidden = true;
     var sheet = el('section', 'sheet');
+    sheet.hidden = true;
     var sheetCap = el('div', 'sheet__head');
     var sheetCapTxt = el('div');
     var sheetTitol = el('h2', 'sheet__title', 'Ajustos manuals');
