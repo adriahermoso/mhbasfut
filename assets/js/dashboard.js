@@ -1551,7 +1551,20 @@ window.MHBSFUT = (function () {
        la consola és una vista d'una sola pàgina i el nom ocupa espai que no
        fa falta. */
     var cap = document.getElementById('session-box');
+    var botoAjustos = null;
     if (cap) {
+      botoAjustos = el('button', 'btn-outline btn-outline--sm', 'Ajustos manuals');
+      botoAjustos.type = 'button';
+      botoAjustos.addEventListener('click', function () {
+        var ed = document.getElementById('edicio');
+        if (!ed) return;
+        ed.open = !ed.open;
+        if (ed.open) {
+          ed.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+      cap.appendChild(botoAjustos);
+
       var sortida = el('button', 'btn-outline btn-outline--sm', 'Tancar sessió');
       sortida.type = 'button';
       sortida.addEventListener('click', function () {
@@ -1641,6 +1654,11 @@ window.MHBSFUT = (function () {
       if (!alumne) return;
 
       arrel.appendChild(buildFitxa(alumne, rawPerAlumne[alumne.username] || null, desaAjustos));
+
+      /* El botó de la capçalera només serveix si l'alumne té fitxer. */
+      if (botoAjustos) {
+        botoAjustos.disabled = !rawPerAlumne[alumne.username];
+      }
 
       /* Desplaça la vista a l'anchor demanat (p. ex. des d'un enllaç
          «Detalls» d'un indicador) o retorna a dalt. */

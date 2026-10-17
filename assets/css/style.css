@@ -441,6 +441,16 @@ body {
   font-size: 0.88rem;
 }
 
+.btn-outline:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.btn-outline:disabled:hover {
+  border-color: var(--card-border);
+  color: var(--text-white);
+}
+
 /* El mateix component es fa servir amb un <a> (p. ex. «Torna al llistat»),
    de manera que cal donar-li l'alineació de caixa dels botons. */
 a.btn-outline {

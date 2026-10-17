@@ -787,6 +787,12 @@
   overflow: hidden;
 }
 
+/* El panell s'obre des del botó de la capçalera («Ajustos manuals»), no
+   des d'una barra aquí: només es mostra el contingut quan és obert. */
+.editor__summary {
+  display: none;
+}
+
 .editor__summary {
   display: flex;
   align-items: baseline;
