@@ -80,10 +80,11 @@ partir de l'esquema 2. La consola els adapta al seu model de presentació amb
 
 ## Edició manual des de la consola
 
-La fitxa de cada alumne té un panell plegable **Ajustos manuals** per corregir
-dades sense tocar l'APP: pla (1-4), esport, data d'inici, cicle, cicles
-completats, qüestionari/programa completat, punts, dies completats i les dates
-de la ratxa.
+El botó **Ajustos manuals** de la capçalera obre una barra inferior (sheet)
+flotant sobre la fitxa de l'alumne actiu, sense tocar les dades que es
+mostren: pla (1-4), esport, data d'inici, cicle, cicles completats,
+qüestionari/programa completat, punts, dies completats i les dates de la
+ratxa. Es tanca amb la ×, clicant el fons o prement Esc.
 
 Per desar cal un **token personal de GitHub** (*fine-grained PAT*) amb permís
 de continguts d'escriptura sobre aquest repositori. El token es desa a

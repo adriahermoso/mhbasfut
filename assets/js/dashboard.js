@@ -200,7 +200,6 @@ window.MHBSFUT = (function () {
      ------------------------------------------------------------------------ */
 
   /* Estat del panell d'ajustos, que ha de sobreviure als redibuixos. */
-  var editorObert = false;
   var editorMissatge = null;
 
   function llegeixToken() {
@@ -1038,7 +1037,7 @@ window.MHBSFUT = (function () {
     return frag;
   }
 
-  function buildFitxa(alumne, raw, alDesar) {
+  function buildFitxa(alumne) {
     if (alumne.senseDades) return buildFitxaSenseDades(alumne);
     var frag = document.createDocumentFragment();
     var perfil = alumne.perfil || {};
@@ -1202,11 +1201,6 @@ window.MHBSFUT = (function () {
     graella.appendChild(s3);
     graella.appendChild(s5);
 
-    /* L'editor va primer perquè és l'acció de treball ocasional: plegat fa
-       només una fila i no destorba la lectura. */
-    var editor = buildEditor(alumne.username, raw, alDesar);
-    if (editor) graella.insertBefore(editor, graella.firstChild);
-
     frag.appendChild(graella);
     return frag;
   }
@@ -1221,18 +1215,10 @@ window.MHBSFUT = (function () {
     if (!raw) return null;
     var dades = raw || {};
 
-    var detalls = el('details', 'panel editor panel--full');
+    /* Contingut del panell d'ajustos: es dibuixa dins la barra inferior
+       (sheet) quan es prem el botó «Ajustos manuals» de la capçalera. */
+    var detalls = el('div', 'editor');
     detalls.id = 'edicio';
-    if (editorMissatge) editorObert = true;
-    detalls.open = editorObert;
-    detalls.addEventListener('toggle', function () { editorObert = detalls.open; });
-
-    var resum = el('summary', 'editor__summary');
-    var titol = el('span', 'editor__title', 'Ajustos manuals');
-    resum.appendChild(titol);
-    afegeix(resum, 'span', 'editor__hint',
-      'Edita ' + slug + '.json: pla, cicle, ratxa, punts i dies completats.');
-    detalls.appendChild(resum);
 
     var cos = el('div', 'editor__cos');
 
@@ -1556,12 +1542,13 @@ window.MHBSFUT = (function () {
       botoAjustos = el('button', 'btn-outline btn-outline--sm', 'Ajustos manuals');
       botoAjustos.type = 'button';
       botoAjustos.addEventListener('click', function () {
-        var ed = document.getElementById('edicio');
-        if (!ed) return;
-        ed.open = !ed.open;
-        if (ed.open) {
-          ed.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (sheetObert) {
+          tancaSheet();
+          return;
         }
+        var alumne = alumneMostrat();
+        if (!alumne || !rawPerAlumne[alumne.username]) return;
+        obreSheet(alumne.username);
       });
       cap.appendChild(botoAjustos);
 
@@ -1572,6 +1559,64 @@ window.MHBSFUT = (function () {
         window.location.replace('index.html#consola');
       });
       cap.appendChild(sortida);
+    }
+
+    /* Barra inferior (sheet) amb l'editor d'ajustos. És un element fixat
+       al cos de la pàgina, fora de la fitxa: mai no se'n modifiquen les
+       dades. Es constrúix un cop i cada aperició l'omple amb les dades de
+       l'alumne actiu. */
+    var sheetObert = false;
+    var sheetFons = el('div', 'sheet-backdrop');
+    var sheet = el('section', 'sheet');
+    var sheetCap = el('div', 'sheet__head');
+    var sheetCapTxt = el('div');
+    var sheetTitol = el('h2', 'sheet__title', 'Ajustos manuals');
+    var sheetSub = el('p', 'sheet__sub');
+    sheetCapTxt.appendChild(sheetTitol);
+    sheetCapTxt.appendChild(sheetSub);
+    var sheetClose = el('button', 'sheet__close', '×');
+    sheetClose.type = 'button';
+    sheetClose.setAttribute('aria-label', 'Tanca els ajustos');
+    sheetClose.addEventListener('click', tancaSheet);
+    sheetCap.appendChild(sheetCapTxt);
+    sheetCap.appendChild(sheetClose);
+    var sheetCos = el('div', 'sheet__body');
+    sheet.appendChild(sheetCap);
+    sheet.appendChild(sheetCos);
+    sheetFons.addEventListener('click', tancaSheet);
+    document.body.appendChild(sheetFons);
+    document.body.appendChild(sheet);
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && sheetObert) tancaSheet();
+    });
+
+    function obreSheet(username) {
+      var raw = rawPerAlumne[username];
+      if (!raw) return;
+      sheetCos.textContent = '';
+      sheetCos.appendChild(buildEditor(username, raw, desaAjustos));
+      sheetSub.textContent = 'Edita ' + username + '.json: pla, cicle, ratxa, punts i dies completats.';
+      sheetFons.hidden = false;
+      sheet.hidden = false;
+      document.body.classList.add('is-sheet-void');
+      requestAnimationFrame(function () {
+        sheetFons.classList.add('is-open');
+        sheet.classList.add('is-open');
+      });
+      sheetObert = true;
+    }
+
+    function tancaSheet() {
+      if (!sheetObert) return;
+      sheetObert = false;
+      sheetFons.classList.remove('is-open');
+      sheet.classList.remove('is-open');
+      document.body.classList.remove('is-sheet-void');
+      setTimeout(function () {
+        sheetFons.hidden = true;
+        sheet.hidden = true;
+      }, 280);
     }
 
     var dadesActuals = [];
@@ -1653,7 +1698,7 @@ window.MHBSFUT = (function () {
       buildRail(dadesActuals, alumne ? alumne.username : null);
       if (!alumne) return;
 
-      arrel.appendChild(buildFitxa(alumne, rawPerAlumne[alumne.username] || null, desaAjustos));
+      arrel.appendChild(buildFitxa(alumne));
 
       /* El botó de la capçalera només serveix si l'alumne té fitxer. */
       if (botoAjustos) {
@@ -1671,12 +1716,14 @@ window.MHBSFUT = (function () {
     }
 
     function aplicaHash() {
+      if (sheetObert) tancaSheet();
       var hash = window.location.hash.replace(/^#/, '');
       alumneActiu = hash.indexOf('estudiant/') === 0 ? hash.slice('estudiant/'.length) : null;
       dibuixa();
     }
 
     function carrega() {
+      if (sheetObert) tancaSheet();
       neteja();
       buildRail([], alumneActiu);
       estatCarregant(arrel);
