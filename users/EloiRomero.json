@@ -6,7 +6,7 @@
   },
   "characterName" : "CharacterName",
   "coins" : 500,
-  "currentDay" : 4,
+  "currentDay" : 5,
   "days" : [
     {
       "completed" : true,
@@ -104,20 +104,23 @@
         "1" : 1,
         "3" : 2,
         "4" : 1,
-        "5" : 1
+        "5" : 0
       }
     },
     {
       "completed" : false,
       "completedStages" : [
-
+        0,
+        1,
+        2
       ],
       "day" : 5,
       "intensities" : {
-
+        "2" : 4
       },
       "selectedMeals" : {
-
+        "0" : 0,
+        "1" : 0
       }
     },
     {
@@ -270,12 +273,16 @@
     {
       "date" : "2026-10-13T20:06:09Z",
       "rating" : 2
+    },
+    {
+      "date" : "2026-10-16T19:24:13Z",
+      "rating" : 1
     }
   ],
   "equippedItems" : {
 
   },
-  "exportedAt" : "2026-10-16T19:24:08Z",
+  "exportedAt" : "2026-10-17T13:40:38Z",
   "level" : 0,
   "ownedItems" : [
 
