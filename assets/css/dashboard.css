@@ -801,11 +801,13 @@
   background: rgba(4, 10, 14, 0.62);
   backdrop-filter: blur(3px);
   opacity: 0;
+  pointer-events: none;
   transition: opacity 0.25s;
 }
 
 .sheet-backdrop.is-open {
   opacity: 1;
+  pointer-events: auto;
 }
 
 .sheet {
