@@ -71,8 +71,40 @@ amb tildes (`HectorVelasco` → «Héctor Velasco»), poseu-lo a `CONFIG.noms`.
 GitHub Pages no permet llistar el contingut d'una carpeta, de manera que el
 llistat d'alumnes ha de ser explícit al codi.
 
-Esquema: `username`, `perfil`, `pla`, `questionari`, `progresDiari`,
-`historial` (12 dies, per al gràfic de la consola) i `recompenses`.
+Esquema: els fitxers són el *snapshot* que puja l'APP iOS (`username`,
+`questionnaireAnswers`, `sport`, `assignedPlanPerSport`, `planStartDate`,
+`days`, `sleepHistory`/`emotionHistory`, `streakCompletedDates`, `coins`…),
+amb `cycleNumber`, `completedCycles`, `programCompleted` i `planArchives` a
+partir de l'esquema 2. La consola els adapta al seu model de presentació amb
+`normalitza()`.
+
+## Edició manual des de la consola
+
+La fitxa de cada alumne té un panell plegable **Ajustos manuals** per corregir
+dades sense tocar l'APP: pla (1-4), esport, data d'inici, cicle, cicles
+completats, qüestionari/programa completat, punts, dies completats i les dates
+de la ratxa.
+
+Per desar cal un **token personal de GitHub** (*fine-grained PAT*) amb permís
+de continguts d'escriptura sobre aquest repositori. El token es desa a
+`localStorage` del navegador (mai al codi ni al repositori) i la consola
+l'usa per escriure el fitxer amb l'API de continguts.
+
+Cada desament afegeix dues claus a `users/<usuari>.json`:
+
+| Clau | Contingut |
+| --- | --- |
+| `adminRevision` | Segell ISO-8601 sense mil·lisegons (`2026-10-17T12:34:56Z`). |
+| `adminOverrides` | Només els camps editats, amb el format que entén l'APP. |
+
+L'APP, en obrir-se o tornar a primer pla (i abans de cada pujada), llegeix
+aquestes claus i aplica les edicions si la revisió és més nova que l'última
+aplicada; la pujada següent consolida l'estat nou. Si l'APP encara no s'ha
+obert, les claus es queden al fitxer i s'apliquen al següent arrencament.
+
+> El format d'`adminOverrides` (claus i tipus) està definit a
+> `AdminOverrideApplier.swift` de l'APP iOS. Si es canvia allà, cal canviar
+> també `buildEditor` a `assets/js/dashboard.js`.
 
 ## Com treure els fitxers en local
 

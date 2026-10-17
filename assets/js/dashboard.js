@@ -32,6 +32,16 @@ window.MHBSFUT = (function () {
        es vegin a l'instant després de sincronitzar. */
     dataPath: 'https://raw.githubusercontent.com/adriahermoso/mhbasfut/main/users/',
 
+    /* Repositori i branca per a l'EDICIÓ manual. La consola escriu els
+       fitxers amb l'API de continguts de GitHub, que demana un token
+       personal (PAT) amb permís d'escriptura sobre aquest repositori. */
+    apiUsuari: 'adriahermoso',
+    apiRepo: 'mhbasfut',
+    apiBranca: 'main',
+
+    /* Clau de localStorage on es desa el token. Mai al codi ni al repo. */
+    tokenKey: 'mhbasfut.token',
+
     /* Llistat d'alumnes que es mostren a la consola.
 
        És explícit a propòsit: GitHub Pages no deixa llistar el contingut de
@@ -176,6 +186,137 @@ window.MHBSFUT = (function () {
   }
 
   /* ------------------------------------------------------------------------
+     Edició manual: token i API de continguts de GitHub
+     --------------------------------------------------------------------------
+     La consola llegeix les dades de raw.githubusercontent, però per DESAR
+     canvis cal escriure al repositori i això demana un token personal de
+     GitHub (PAT) amb permís de continguts. El token es desa a localStorage
+     d'aquest navegador i mai viatja enlloc més.
+
+     Cada desament escriu `adminRevision` (ISO-8601 sense mil·lisegons) i
+     `adminOverrides` dins users/<usuari>.json. L'APP aplica les edicions la
+     propera vegada que s'obre o torna a primer pla i recorda la revisió
+     aplicada per no repetir-la.
+     ------------------------------------------------------------------------ */
+
+  /* Estat del panell d'ajustos, que ha de sobreviure als redibuixos. */
+  var editorObert = false;
+  var editorMissatge = null;
+
+  function llegeixToken() {
+    try {
+      return window.localStorage.getItem(CONFIG.tokenKey) || '';
+    } catch (e) {
+      return '';
+    }
+  }
+
+  function desaToken(token) {
+    try {
+      window.localStorage.setItem(CONFIG.tokenKey, token);
+    } catch (e) {
+      /* sense operació */
+    }
+  }
+
+  function esborraToken() {
+    try {
+      window.localStorage.removeItem(CONFIG.tokenKey);
+    } catch (e) {
+      /* sense operació */
+    }
+  }
+
+  /* Base64 <-> text UTF-8: l'API de GitHub treballa en base64 i els JSON
+     porten accents, de manera que btoa/atob directes no serveixen. */
+  function utf8ABase64(text) {
+    var bytes = new TextEncoder().encode(text);
+    var bin = '';
+    for (var i = 0; i < bytes.length; i++) bin += String.fromCharCode(bytes[i]);
+    return window.btoa(bin);
+  }
+
+  function base64AUtf8(b64) {
+    var bin = window.atob(String(b64).replace(/\s/g, ''));
+    var bytes = new Uint8Array(bin.length);
+    for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+    return new TextDecoder().decode(bytes);
+  }
+
+  /* Segell de revisió: ISO-8601 SENSE mil·lisegons, el format exacte que
+     accepta l'APP (.iso8601 i AdminOverrideApplier). */
+  function novaRevisio() {
+    return new Date().toISOString().replace(/\.\d{3}Z$/, 'Z');
+  }
+
+  function missatgeApi(estat) {
+    if (estat === 0) return 'No s\'ha pogut contactar amb GitHub.';
+    if (estat === 401) return 'El token no és vàlid o ha caducat.';
+    if (estat === 403) return 'El token no té permís d\'escriptura en aquest repositori.';
+    if (estat === 404) return 'No s\'ha trobat el fitxer al repositori.';
+    if (estat === 409 || estat === 422) return 'El fitxer ha canviat mentrestant. Torna-ho a provar.';
+    return 'GitHub ha respost amb un error (' + estat + ').';
+  }
+
+  /* Una crida a l'API de continguts. Mai llança: els errors es converteixen
+     en { ok:false, estat, error } perquè la interfície els pugui mostrar. */
+  function cridaApi(token, metode, cami, cos) {
+    var opcions = {
+      method: metode,
+      cache: 'no-store',
+      headers: {
+        'Accept': 'application/vnd.github+json',
+        'Authorization': 'Bearer ' + token,
+        'X-GitHub-Api-Version': '2022-11-28'
+      }
+    };
+    if (cos) {
+      opcions.headers['Content-Type'] = 'application/json';
+      opcions.body = JSON.stringify(cos);
+    }
+    return window.fetch(
+      'https://api.github.com/repos/' + CONFIG.apiUsuari + '/' + CONFIG.apiRepo +
+        '/contents/' + cami,
+      opcions
+    ).then(function (resposta) {
+      return resposta.json().catch(function () { return null; }).then(function (dades) {
+        return { ok: resposta.ok, estat: resposta.status, dades: dades };
+      });
+    }).catch(function (error) {
+      return { ok: false, estat: 0, error: descriuError(error) };
+    });
+  }
+
+  /* Llegeix el fitxer actual directament de l'API (raw podria servir una
+     còpia amb retard). Torna { sha, dades }, { sha:null, dades:null } si el
+     fitxer encara no existeix, o { error }. */
+  function llegeixFitxerApi(token, cami) {
+    return cridaApi(token, 'GET', cami + '?ref=' + CONFIG.apiBranca).then(function (r) {
+      if (r.error) return { error: r.error };
+      if (r.estat === 404) return { sha: null, dades: null };
+      if (!r.ok) return { error: missatgeApi(r.estat) };
+      try {
+        return { sha: r.dades.sha, dades: JSON.parse(base64AUtf8(r.dades.content)) };
+      } catch (e) {
+        return { error: 'El fitxer remot no és JSON vàlid.' };
+      }
+    });
+  }
+
+  function desaFitxerApi(token, cami, objecte, sha, missatge) {
+    var cos = {
+      message: missatge,
+      content: utf8ABase64(JSON.stringify(objecte, null, 2) + '\n'),
+      branch: CONFIG.apiBranca
+    };
+    if (sha) cos.sha = sha;
+    return cridaApi(token, 'PUT', cami, cos).then(function (r) {
+      if (r.error || !r.ok) return { error: r.error || missatgeApi(r.estat) };
+      return { ok: true };
+    });
+  }
+
+  /* ------------------------------------------------------------------------
      Sessió (demostració, no seguretat real)
      ------------------------------------------------------------------------ */
 
@@ -301,7 +442,8 @@ window.MHBSFUT = (function () {
        if (!dades) return { username: username, tipus: 'absent' };
        var n = normalitza(username, dades);
        n.username = username;
-       return { username: username, dades: n };
+       /* `raw` és el JSON tal qual: el panell d'ajustos edita sobre ell. */
+       return { username: username, dades: n, raw: dades };
      }).catch(function (error) {
        return { username: username, tipus: 'error', error: descriuError(error) };
      });
@@ -547,7 +689,10 @@ window.MHBSFUT = (function () {
         dataInici: iniciPla,
         dataRevisio: sumaDies(iniciPla, 30),
         fase: fase,
-        sessionsSetmanal: sessions
+        sessionsSetmanal: sessions,
+        cicle: Number(d.cycleNumber) >= 1 ? Number(d.cycleNumber) : 1,
+        ciclesCompletats: Number(d.completedCycles) || 0,
+        programaCompletat: d.programCompleted === true
       },
       questionari: {
         data: dataQ,
@@ -893,7 +1038,7 @@ window.MHBSFUT = (function () {
     return frag;
   }
 
-  function buildFitxa(alumne) {
+  function buildFitxa(alumne, raw, alDesar) {
     if (alumne.senseDades) return buildFitxaSenseDades(alumne);
     var frag = document.createDocumentFragment();
     var perfil = alumne.perfil || {};
@@ -1001,6 +1146,9 @@ window.MHBSFUT = (function () {
     dades2.appendChild(filaDada('Sessions per setmana', pla.sessionsSetmanal != null ? String(pla.sessionsSetmanal) : '—'));
     dades2.appendChild(filaDada('Inici', dataCurta(pla.dataInici)));
     dades2.appendChild(filaDada('Revisió', dataCurta(pla.dataRevisio)));
+    dades2.appendChild(filaDada('Cicle', (pla.cicle || 1) +
+      (pla.ciclesCompletats ? ' · ' + pla.ciclesCompletats + ' completats' : '')));
+    dades2.appendChild(filaDada('Programa', pla.programaCompletat ? 'Completat' : 'En curs'));
     s2.appendChild(dades2);
 
     var escala = questionari.escala || 100;
@@ -1054,8 +1202,277 @@ window.MHBSFUT = (function () {
     graella.appendChild(s3);
     graella.appendChild(s5);
 
+    /* L'editor va primer perquè és l'acció de treball ocasional: plegat fa
+       només una fila i no destorba la lectura. */
+    var editor = buildEditor(alumne.username, raw, alDesar);
+    if (editor) graella.insertBefore(editor, graella.firstChild);
+
     frag.appendChild(graella);
     return frag;
+  }
+
+  /* ------------------------------------------------------------------------
+     Ajustos manuals: editor de les dades d'un alumne
+     ------------------------------------------------------------------------ */
+
+  /* Panell plegable per editar el fitxer de l'alumne. `alDesar(slug, overrides)`
+     torna una promesa amb { error } o { ok, revisio }. */
+  function buildEditor(slug, raw, alDesar) {
+    if (!raw) return null;
+    var dades = raw || {};
+
+    var detalls = el('details', 'panel editor panel--full');
+    detalls.id = 'edicio';
+    if (editorMissatge) editorObert = true;
+    detalls.open = editorObert;
+    detalls.addEventListener('toggle', function () { editorObert = detalls.open; });
+
+    var resum = el('summary', 'editor__summary');
+    var titol = el('span', 'editor__title', 'Ajustos manuals');
+    resum.appendChild(titol);
+    afegeix(resum, 'span', 'editor__hint',
+      'Edita ' + slug + '.json: pla, cicle, ratxa, punts i dies completats.');
+    detalls.appendChild(resum);
+
+    var cos = el('div', 'editor__cos');
+
+    /* Token de GitHub. */
+    var tokenFila = el('div', 'editor__token');
+    var tokenCamp = el('input', 'input-field editor__token-input');
+    tokenCamp.type = 'password';
+    tokenCamp.placeholder = 'Token de GitHub (PAT)';
+    tokenCamp.autocomplete = 'off';
+    tokenCamp.value = llegeixToken();
+    tokenFila.appendChild(tokenCamp);
+
+    var estatToken = el('span', 'editor__token-estat');
+    function avisaToken() {
+      var hi = tokenCamp.value.trim() !== '';
+      estatToken.textContent = hi
+        ? 'Token desat només en aquest navegador'
+        : 'Sense token: la fitxa és de només lectura';
+      estatToken.classList.toggle('is-buit', !hi);
+    }
+
+    var botoToken = el('button', 'btn-outline btn-outline--sm', 'Desa el token');
+    botoToken.type = 'button';
+    botoToken.addEventListener('click', function () {
+      desaToken(tokenCamp.value.trim());
+      avisaToken();
+      pintaMissatge(false, tokenCamp.value.trim()
+        ? 'Token desat. Ja pots desar canvis.'
+        : 'Token esborrat.');
+    });
+    tokenFila.appendChild(botoToken);
+
+    var botoNeteja = el('button', 'btn-outline btn-outline--sm', 'Esborra');
+    botoNeteja.type = 'button';
+    botoNeteja.addEventListener('click', function () {
+      esborraToken();
+      tokenCamp.value = '';
+      avisaToken();
+      pintaMissatge(false, 'Token esborrat.');
+    });
+    tokenFila.appendChild(botoNeteja);
+
+    cos.appendChild(tokenFila);
+    cos.appendChild(estatToken);
+    avisaToken();
+
+    /* Formulari. */
+    var formulari = el('div', 'editor__form');
+
+    function camp(etiqueta, node) {
+      var box = el('label', 'editor__camp');
+      afegeix(box, 'span', 'editor__etiqueta', etiqueta);
+      box.appendChild(node);
+      return box;
+    }
+
+    function input(nom, tipus, valor, extra) {
+      var i = el('input', 'input-field');
+      i.name = nom;
+      i.type = tipus;
+      if (valor !== undefined && valor !== null) i.value = String(valor);
+      if (extra) Object.keys(extra).forEach(function (k) { i.setAttribute(k, extra[k]); });
+      return i;
+    }
+
+    function casella(nom, text, marcat) {
+      var l = el('label', 'editor__casella');
+      var c = el('input');
+      c.type = 'checkbox';
+      c.name = nom;
+      c.checked = !!marcat;
+      l.appendChild(c);
+      l.appendChild(el('span', null, text));
+      return { fila: l, input: c };
+    }
+
+    var esport = el('select', 'input-field');
+    esport.name = 'sport';
+    [['Futbol', 'Futbol'], ['Basquet', 'Bàsquet']].forEach(function (par) {
+      var o = el('option', null, par[1]);
+      o.value = par[0];
+      esport.appendChild(o);
+    });
+    esport.value = dades.sport === 'Basquet' ? 'Basquet' : 'Futbol';
+
+    var pla = input('planNumber', 'number', (dades.assignedPlanPerSport || {})[esport.value] ||
+      dades.assignedPlan || 1, { min: '1', max: '4', step: '1' });
+    var inici = input('planStartDate', 'date', isoAData(dades.planStartDate) || '');
+    var cicle = input('cycleNumber', 'number', Number(dades.cycleNumber) >= 1 ? dades.cycleNumber : 1,
+      { min: '1', step: '1' });
+    var completats = input('completedCycles', 'number', Number(dades.completedCycles) || 0,
+      { min: '0', step: '1' });
+    var punts = input('coins', 'number',
+      (dades.coins !== undefined && dades.coins !== null) ? dades.coins : 500,
+      { min: '0', step: '1' });
+
+    formulari.appendChild(camp('Esport', esport));
+    formulari.appendChild(camp('Pla (1-4)', pla));
+    formulari.appendChild(camp('Data d\'inici del pla', inici));
+    formulari.appendChild(camp('Cicle', cicle));
+    formulari.appendChild(camp('Cicles completats', completats));
+    formulari.appendChild(camp('Punts', punts));
+
+    var qCompletat = casella('questionnaireCompleted', 'Qüestionari completat',
+      dades.questionnaireCompleted);
+    formulari.appendChild(qCompletat.fila);
+    var programa = casella('programCompleted', 'Programa completat', dades.programCompleted === true);
+    formulari.appendChild(programa.fila);
+
+    /* Ratxa: una data ISO per línia. Es desa a migdia UTC perquè el dia no
+       balli amb el fus horari en passar a Date a l'APP. */
+    function datesRatxa() {
+      var dates = [];
+      ratxa.value.split('\n').forEach(function (linia) {
+        var t = linia.trim();
+        if (!t) return;
+        if (!/^\d{4}-\d{2}-\d{2}$/.test(t)) {
+          throw new Error('Data de ratxa invàlida: «' + t + '». Forma: AAAA-MM-DD.');
+        }
+        dates.push(t + 'T12:00:00Z');
+      });
+      return dates;
+    }
+
+    var ratxa = el('textarea', 'input-field editor__area');
+    ratxa.name = 'streakCompletedDates';
+    ratxa.rows = 5;
+    ratxa.placeholder = 'Una data per línia, format AAAA-MM-DD';
+    ratxa.value = (dades.streakCompletedDates || []).map(isoAData).filter(Boolean).join('\n');
+    var campRatxa = camp('Ratxa (dates completades)', ratxa);
+    campRatxa.classList.add('editor__camp--ample');
+    formulari.appendChild(campRatxa);
+
+    var dies = el('fieldset', 'editor__dies-camp');
+    afegeix(dies, 'legend', 'editor__etiqueta', 'Dies completats');
+    var diesGrid = el('div', 'editor__dies');
+    var perDia = {};
+    for (var n = 1; n <= 14; n++) {
+      var diaDades = null;
+      (Array.isArray(dades.days) ? dades.days : []).forEach(function (dy) {
+        if (dy && dy.day === n) diaDades = dy;
+      });
+      var c = casella('dia' + n, 'Dia ' + n, diaDades && diaDades.completed);
+      perDia[n] = c.input;
+      diesGrid.appendChild(c.fila);
+    }
+    dies.appendChild(diesGrid);
+    formulari.appendChild(dies);
+
+    var peu = el('div', 'editor__peu');
+    var botoDesa = el('button', 'editor__desa', 'Desa els canvis');
+    botoDesa.type = 'button';
+    peu.appendChild(botoDesa);
+
+    var msg = el('p', 'editor__msg');
+    msg.hidden = true;
+    peu.appendChild(msg);
+    formulari.appendChild(peu);
+
+    function pintaMissatge(esError, text) {
+      msg.hidden = false;
+      msg.classList.toggle('is-error', !!esError);
+      msg.classList.toggle('is-ok', !esError);
+      msg.textContent = text;
+    }
+
+    function numValid(camp_, nom, min, max) {
+      var brut = camp_.value.trim();
+      if (brut === '') return null;
+      var v = Number(brut);
+      if (!isFinite(v) || v % 1 !== 0 || v < min || (max !== undefined && v > max)) {
+        throw new Error('El camp «' + nom + '» ha de ser un nombre enter' +
+          (max !== undefined ? ' entre ' + min + ' i ' + max : ' ≥ ' + min) + '.');
+      }
+      return v;
+    }
+
+    function construeixOverrides() {
+      var overrides = {
+        sport: esport.value,
+        questionnaireCompleted: qCompletat.input.checked,
+        programCompleted: programa.input.checked,
+        streakCompletedDates: datesRatxa(),
+        days: {}
+      };
+      for (var d = 1; d <= 14; d++) {
+        overrides.days[String(d)] = { completed: !!perDia[d].checked };
+      }
+      var vPla = numValid(pla, 'Pla', 1, 4);
+      if (vPla !== null) overrides.planNumber = vPla;
+      var vCicle = numValid(cicle, 'Cicle', 1);
+      if (vCicle !== null) overrides.cycleNumber = vCicle;
+      var vCompletats = numValid(completats, 'Cicles completats', 0);
+      if (vCompletats !== null) overrides.completedCycles = vCompletats;
+      var vPunts = numValid(punts, 'Punts', 0);
+      if (vPunts !== null) overrides.coins = vPunts;
+      if (inici.value) overrides.planStartDate = inici.value + 'T00:00:00Z';
+      return overrides;
+    }
+
+    botoDesa.addEventListener('click', function () {
+      var overrides;
+      try {
+        overrides = construeixOverrides();
+      } catch (err) {
+        pintaMissatge(true, err.message);
+        return;
+      }
+      if (!llegeixToken()) {
+        pintaMissatge(true, 'Escriu i desa primer el token de GitHub.');
+        tokenCamp.focus();
+        return;
+      }
+      botoDesa.disabled = true;
+      pintaMissatge(false, 'Desant…');
+      alDesar(slug, overrides).then(function (r) {
+        botoDesa.disabled = false;
+        /* En cas correcte, `alDesar` redibuixa la fitxa i el missatge es
+           repinta des de `editorMissatge`; només cal atendre l'error. */
+        if (r && r.error) pintaMissatge(true, r.error);
+      });
+    });
+
+    if (editorMissatge) {
+      pintaMissatge(!editorMissatge.ok, editorMissatge.text);
+      editorMissatge = null;
+    }
+
+    cos.appendChild(formulari);
+
+    var nota = 'Els canvis s\'aplicaran quan l\'APP de l\'alumne s\'obri o passi a primer pla. ' +
+      'Si desmarques un dia, els passos intermedis que ja tenia es conserven. ' +
+      'Si reposis la data d\'inici, desmarca els dies que quedin per davant.';
+    if (dades.adminRevision) {
+      nota += ' Última edició manual: ' + dades.adminRevision + '.';
+    }
+    afegeix(cos, 'p', 'editor__nota', nota);
+
+    detalls.appendChild(cos);
+    return detalls;
   }
 
   /* ------------------------------------------------------------------------
@@ -1146,6 +1563,8 @@ window.MHBSFUT = (function () {
 
     var dadesActuals = [];
     var alumneActiu = null;
+    /* JSON tal qual de cada alumne, per al panell d'ajustos. */
+    var rawPerAlumne = {};
 
     function neteja() {
       while (arrel.firstChild) arrel.removeChild(arrel.firstChild);
@@ -1171,6 +1590,45 @@ window.MHBSFUT = (function () {
       return alumne;
     }
 
+    /* Desa les edicions del panell d'ajustos. Llegeix el fitxer fresc de
+       l'API (no el raw amb cau), hi enganxa `adminRevision` + `adminOverrides`
+       i el torna a pujar. En acabar, refresca la fitxa en memòria. */
+    function desaAjustos(slug, overrides) {
+      var token = llegeixToken();
+      var cami = 'users/' + slug + '.json';
+      return llegeixFitxerApi(token, cami).then(function (lectura) {
+        if (lectura.error) return { error: lectura.error };
+        var base = lectura.dades || { schemaVersion: 2, username: slug };
+        var revisio = novaRevisio();
+        base.username = base.username || slug;
+        base.schemaVersion = base.schemaVersion || 2;
+        base.adminRevision = revisio;
+        base.adminOverrides = overrides;
+
+        return desaFitxerApi(token, cami, base, lectura.sha,
+          'admin: ajustos manuals de ' + slug + ' (' + revisio + ')'
+        ).then(function (escriptura) {
+          if (escriptura.error) return { error: escriptura.error };
+          rawPerAlumne[slug] = base;
+          var n = normalitza(slug, base);
+          n.username = slug;
+          for (var i = 0; i < dadesActuals.length; i++) {
+            if (dadesActuals[i].username === slug) {
+              dadesActuals[i] = n;
+              break;
+            }
+          }
+          editorMissatge = {
+            ok: true,
+            text: 'Canvis desats al repositori (revisió ' + revisio + '). ' +
+              'S\'aplicaran quan l\'APP de l\'alumne s\'obri o faci sync.'
+          };
+          dibuixa();
+          return { ok: true, revisio: revisio };
+        });
+      });
+    }
+
     function dibuixa() {
       neteja();
 
@@ -1182,7 +1640,7 @@ window.MHBSFUT = (function () {
       buildRail(dadesActuals, alumne ? alumne.username : null);
       if (!alumne) return;
 
-      arrel.appendChild(buildFitxa(alumne));
+      arrel.appendChild(buildFitxa(alumne, rawPerAlumne[alumne.username] || null, desaAjustos));
 
       /* Desplaça la vista a l'anchor demanat (p. ex. des d'un enllaç
          «Detalls» d'un indicador) o retorna a dalt. */
@@ -1221,6 +1679,7 @@ window.MHBSFUT = (function () {
       carregaTots(function (r) {
         resultats.push(r);
         rebuts += 1;
+        if (r.dades && r.raw) rawPerAlumne[r.username] = r.raw;
 
         var carregats = resultats.filter(function (x) { return x.dades; });
 
@@ -1275,6 +1734,7 @@ window.MHBSFUT = (function () {
     /* Exposat per depurar des de la consola del navegador
        (p. ex. MHBSFUT.normalitza('EloiRomero', snapshot)). */
     normalitza: normalitza,
-    isoAData: isoAData
+    isoAData: isoAData,
+    novaRevisio: novaRevisio
   };
 })();
