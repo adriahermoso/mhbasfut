@@ -1,12 +1,15 @@
 {
-  "appVersion" : "1.2",
+  "adminRevision" : null,
+  "appVersion" : "1.5",
   "assignedPlan" : 2,
   "assignedPlanPerSport" : {
     "Basquet" : 2
   },
   "characterName" : "CharacterName",
   "coins" : 500,
-  "currentDay" : 4,
+  "completedCycles" : 0,
+  "currentDay" : 6,
+  "cycleNumber" : 1,
   "days" : [
     {
       "completed" : true,
@@ -111,16 +114,28 @@
       }
     },
     {
-      "completed" : false,
+      "completed" : true,
       "completedStages" : [
-
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
       ],
       "day" : 5,
       "intensities" : {
-
+        "2" : 3,
+        "3" : 6,
+        "4" : 5
       },
       "selectedMeals" : {
-
+        "0" : 0,
+        "1" : 0,
+        "5" : 0,
+        "6" : 0
       }
     },
     {
@@ -137,25 +152,16 @@
       }
     },
     {
-      "completed" : true,
+      "completed" : false,
       "completedStages" : [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5
+
       ],
       "day" : 7,
       "intensities" : {
-        "2" : 3
+
       },
       "selectedMeals" : {
-        "0" : 0,
-        "1" : 0,
-        "3" : 0,
-        "4" : 0,
-        "5" : 0
+
       }
     },
     {
@@ -185,25 +191,16 @@
       }
     },
     {
-      "completed" : true,
+      "completed" : false,
       "completedStages" : [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5
+
       ],
       "day" : 10,
       "intensities" : {
-        "2" : 8
+
       },
       "selectedMeals" : {
-        "0" : 0,
-        "1" : 0,
-        "3" : 0,
-        "4" : 0,
-        "5" : 0
+
       }
     },
     {
@@ -220,73 +217,42 @@
       }
     },
     {
-      "completed" : true,
+      "completed" : false,
       "completedStages" : [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5
+
       ],
       "day" : 12,
       "intensities" : {
-        "2" : 6
+
       },
       "selectedMeals" : {
-        "0" : 0,
-        "1" : 0,
-        "3" : 0,
-        "4" : 0,
-        "5" : 1
+
       }
     },
     {
-      "completed" : true,
+      "completed" : false,
       "completedStages" : [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6
+
       ],
       "day" : 13,
       "intensities" : {
-        "2" : 6,
-        "3" : 6
+
       },
       "selectedMeals" : {
-        "0" : 0,
-        "1" : 0,
-        "4" : 0,
-        "5" : 0,
-        "6" : 0
+
       }
     },
     {
-      "completed" : true,
+      "completed" : false,
       "completedStages" : [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6
+
       ],
       "day" : 14,
       "intensities" : {
-        "2" : 6,
-        "3" : 5
+
       },
       "selectedMeals" : {
-        "0" : 0,
-        "1" : 0,
-        "4" : 0,
-        "5" : 0,
-        "6" : 0
+
       }
     }
   ],
@@ -319,12 +285,141 @@
   "equippedItems" : {
 
   },
-  "exportedAt" : "2026-10-16T09:32:57Z",
+  "exportedAt" : "2026-10-18T12:04:52Z",
+  "lastSport" : null,
   "level" : 0,
   "ownedItems" : [
 
   ],
+  "planArchives" : [
+    {
+      "allDaysCompleted" : false,
+      "cycleNumber" : 1,
+      "days" : [
+        {
+          "completed" : true,
+          "completedStages" : [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "day" : 7,
+          "intensities" : {
+            "2" : 3
+          },
+          "selectedMeals" : {
+            "0" : 0,
+            "1" : 0,
+            "3" : 0,
+            "4" : 0,
+            "5" : 0
+          }
+        },
+        {
+          "completed" : true,
+          "completedStages" : [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "day" : 10,
+          "intensities" : {
+            "2" : 8
+          },
+          "selectedMeals" : {
+            "0" : 0,
+            "1" : 0,
+            "3" : 0,
+            "4" : 0,
+            "5" : 0
+          }
+        },
+        {
+          "completed" : true,
+          "completedStages" : [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "day" : 12,
+          "intensities" : {
+            "2" : 6
+          },
+          "selectedMeals" : {
+            "0" : 0,
+            "1" : 0,
+            "3" : 0,
+            "4" : 0,
+            "5" : 1
+          }
+        },
+        {
+          "completed" : true,
+          "completedStages" : [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "day" : 13,
+          "intensities" : {
+            "2" : 6,
+            "3" : 6
+          },
+          "selectedMeals" : {
+            "0" : 0,
+            "1" : 0,
+            "4" : 0,
+            "5" : 0,
+            "6" : 0
+          }
+        },
+        {
+          "completed" : true,
+          "completedStages" : [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "day" : 14,
+          "intensities" : {
+            "2" : 6,
+            "3" : 5
+          },
+          "selectedMeals" : {
+            "0" : 0,
+            "1" : 0,
+            "4" : 0,
+            "5" : 0,
+            "6" : 0
+          }
+        }
+      ],
+      "endDate" : "2026-10-18T12:04:46Z",
+      "planNumber" : 2,
+      "recovered" : true,
+      "sport" : "Basquet",
+      "startDate" : "2026-10-13T08:32:06Z"
+    }
+  ],
   "planStartDate" : "2026-10-13T08:32:06Z",
+  "programCompleted" : false,
   "questionnaireAnswers" : {
     "1" : "15",
     "10" : "8.0",
@@ -383,7 +478,7 @@
     "total" : 68
   },
   "remindersEnabled" : null,
-  "schemaVersion" : 1,
+  "schemaVersion" : 2,
   "sleepHistory" : [
     {
       "date" : "2026-09-29T16:26:05Z",
@@ -428,6 +523,14 @@
     {
       "date" : "2026-10-16T09:32:57Z",
       "rating" : 0
+    },
+    {
+      "date" : "2026-10-17T16:38:13Z",
+      "rating" : 1
+    },
+    {
+      "date" : "2026-10-18T12:04:52Z",
+      "rating" : 1
     }
   ],
   "soundEnabled" : null,
@@ -440,7 +543,8 @@
     "2026-10-10T22:00:00Z",
     "2026-10-11T22:00:00Z",
     "2026-10-12T22:00:00Z",
-    "2026-10-14T22:00:00Z"
+    "2026-10-14T22:00:00Z",
+    "2026-10-16T22:00:00Z"
   ],
   "streakCount" : 1,
   "username" : "GonzaloSchiavo"
