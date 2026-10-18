@@ -788,6 +788,56 @@
   min-width: 0;
 }
 
+
+/* Resum de l'estat actual abans d'editar. */
+.editor__resum {
+  padding: 14px 16px;
+  margin-bottom: 16px;
+  background-color: var(--bg-header);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+}
+
+.editor__resum-titol {
+  margin: 0 0 10px;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--btn-bg);
+}
+
+.editor__resum-llista {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 8px 16px;
+}
+
+.editor__resum-fila {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 0.92rem;
+}
+
+.editor__resum-etiqueta {
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.editor__resum-valor {
+  color: var(--text-white);
+  font-weight: 800;
+}
+
+.editor__ajuda {
+  grid-column: 1 / -1;
+  margin: -6px 0 8px;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
 /* [hidden] ha de guanyar a display:flex de .sheet. */
 .sheet[hidden],
 .sheet-backdrop[hidden] {

@@ -1265,6 +1265,34 @@ window.MHBSFUT = (function () {
     cos.appendChild(estatToken);
     avisaToken();
 
+    /* Resum del que hi ha ara a l'APP, perquè sigui clar què es canvia. */
+    var resumActual = el('div', 'editor__resum');
+    afegeix(resumActual, 'h3', 'editor__resum-titol', 'Estat actual a l\'APP');
+    var resumLinies = el('div', 'editor__resum-llista');
+    function linia(etiqueta, valor) {
+      var fila = el('div', 'editor__resum-fila');
+      afegeix(fila, 'span', 'editor__resum-etiqueta', etiqueta);
+      afegeix(fila, 'span', 'editor__resum-valor', valor);
+      return fila;
+    }
+    var sport = dades.sport === 'Basquet' ? 'Bàsquet' : 'Futbol';
+    var plaNum = (dades.assignedPlanPerSport || {})[dades.sport || 'Futbol'] || dades.assignedPlan || 1;
+    var diesFets = (Array.isArray(dades.days) ? dades.days : []).filter(function (dy) { return dy && dy.completed; }).length;
+    var ratxa = (dades.streakCompletedDates || []).length;
+    var cicle = Number(dades.cycleNumber) >= 1 ? dades.cycleNumber : 1;
+    var compl = Number(dades.completedCycles) || 0;
+    resumLinies.appendChild(linia('Esport', sport));
+    resumLinies.appendChild(linia('Pla', plaNum + ' de 4'));
+    resumLinies.appendChild(linia('Cicle', cicle + ' · ' + compl + ' completats'));
+    resumLinies.appendChild(linia('Dies completats', diesFets + ' de 14'));
+    resumLinies.appendChild(linia('Ratxa', ratxa + ' dies'));
+    resumLinies.appendChild(linia('Punts', (dades.coins !== undefined && dades.coins !== null) ? dades.coins : 500));
+    resumLinies.appendChild(linia('Qüestionari', dades.questionnaireCompleted ? 'Completat' : 'Pendent'));
+    resumLinies.appendChild(linia('Programa', dades.programCompleted === true ? 'Completat' : 'En curs'));
+    resumActual.appendChild(resumLinies);
+    cos.appendChild(resumActual);
+
+
     /* Formulari. */
     var formulari = el('div', 'editor__form');
 
@@ -1315,12 +1343,15 @@ window.MHBSFUT = (function () {
       (dades.coins !== undefined && dades.coins !== null) ? dades.coins : 500,
       { min: '0', step: '1' });
 
-    formulari.appendChild(camp('Esport', esport));
+    formulari.appendChild(camp('Esport (app)', esport));
     formulari.appendChild(camp('Pla (1-4)', pla));
+    afegeix(formulari, 'p', 'editor__ajuda', 'El número de pla que l\'APP li mostrarà. 1 = bàsic, 4 = avançat.');
     formulari.appendChild(camp('Data d\'inici del pla', inici));
-    formulari.appendChild(camp('Cicle', cicle));
+    afegeix(formulari, 'p', 'editor__ajuda', 'Si la canvies, els dies que queden per davant es desmarquen sols.');
+    formulari.appendChild(camp('Cicle actual', cicle));
     formulari.appendChild(camp('Cicles completats', completats));
-    formulari.appendChild(camp('Punts', punts));
+    afegeix(formulari, 'p', 'editor__ajuda', 'Quants plans de 14 dies ha acabat. 0-3 = segueix; 4 = programa acabat.');
+    formulari.appendChild(camp('Punts (coins)', punts));
 
     var qCompletat = casella('questionnaireCompleted', 'Qüestionari completat',
       dades.questionnaireCompleted);
@@ -1346,9 +1377,9 @@ window.MHBSFUT = (function () {
     var ratxa = el('textarea', 'input-field editor__area');
     ratxa.name = 'streakCompletedDates';
     ratxa.rows = 5;
-    ratxa.placeholder = 'Una data per línia, format AAAA-MM-DD';
+    ratxa.placeholder = '2026-10-01\n2026-10-02\n2026-10-03';
     ratxa.value = (dades.streakCompletedDates || []).map(isoAData).filter(Boolean).join('\n');
-    var campRatxa = camp('Ratxa (dates completades)', ratxa);
+    var campRatxa = camp('Ratxa: dies completats (una data per línia)', ratxa);
     campRatxa.classList.add('editor__camp--ample');
     formulari.appendChild(campRatxa);
 
@@ -1449,7 +1480,8 @@ window.MHBSFUT = (function () {
 
     cos.appendChild(formulari);
 
-    var nota = 'Els canvis s\'aplicaran quan l\'APP de l\'alumne s\'obri o passi a primer pla. ' +
+    var nota = 'Aquests canvis s\'escriuran al fitxer de l\'alumne al repositori. ' +
+      'L\'APP els aplicarà quan s\'obri o torni a primer pla (sense reinstal·lar). ' +
       'Si desmarques un dia, els passos intermedis que ja tenia es conserven. ' +
       'Si reposis la data d\'inici, desmarca els dies que quedin per davant.';
     if (dades.adminRevision) {
