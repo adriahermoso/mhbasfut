@@ -553,6 +553,27 @@ window.MHBSFUT = (function () {
     return Math.round((b - a) / 86400000);
   }
 
+  /* Ratxa senzilla per a l'editor: N dates seguides acabant avui, a migdia
+     UTC perquè el dia no balli amb el fus horari en passar a Date a l'APP. */
+  function diesDeRatxa(dies) {
+    var dates = [];
+    for (var i = 0; i < dies; i++) dates.push(sumaDies(avuiData(), -i) + 'T12:00:00Z');
+    return dates;
+  }
+
+  /* Data d'inici perquè avui sigui el dia 'dia' del pla (dia 1 = avui), a
+     mitjanit UTC com la resta de dates del pla. */
+  function iniciPerDia(dia) {
+    return sumaDies(avuiData(), -(dia - 1)) + 'T00:00:00Z';
+  }
+
+  /* Dia del pla que tocaria avui segons la data d'inici desada (1 = avui). */
+  function diaDelPla(planStartDate) {
+    var iso = isoAData(planStartDate);
+    if (!iso) return 1;
+    return Math.max(1, diferenciaDies(iso, avuiData()) + 1);
+  }
+
   function rachaMaxima(datesISO) {
     var uniq = {};
     (datesISO || []).forEach(function (d) { if (d) uniq[d] = 1; });
@@ -1277,12 +1298,14 @@ window.MHBSFUT = (function () {
     }
     var sport = dades.sport === 'Basquet' ? 'Bàsquet' : 'Futbol';
     var plaNum = (dades.assignedPlanPerSport || {})[dades.sport || 'Futbol'] || dades.assignedPlan || 1;
+    var diaPla = diaDelPla(dades.planStartDate);
     var diesFets = (Array.isArray(dades.days) ? dades.days : []).filter(function (dy) { return dy && dy.completed; }).length;
-    var ratxa = (dades.streakCompletedDates || []).length;
+    var ratxa = Number(dades.streakCount) || 0;
     var cicle = Number(dades.cycleNumber) >= 1 ? dades.cycleNumber : 1;
     var compl = Number(dades.completedCycles) || 0;
     resumLinies.appendChild(linia('Esport', sport));
     resumLinies.appendChild(linia('Pla', plaNum + ' de 4'));
+    resumLinies.appendChild(linia('Dia del pla', diaPla > 14 ? String(diaPla) : diaPla + ' de 14'));
     resumLinies.appendChild(linia('Cicle', cicle + ' · ' + compl + ' completats'));
     resumLinies.appendChild(linia('Dies completats', diesFets + ' de 14'));
     resumLinies.appendChild(linia('Ratxa', ratxa + ' dies'));
@@ -1334,7 +1357,10 @@ window.MHBSFUT = (function () {
 
     var pla = input('planNumber', 'number', (dades.assignedPlanPerSport || {})[esport.value] ||
       dades.assignedPlan || 1, { min: '1', max: '4', step: '1' });
-    var inici = input('planStartDate', 'date', isoAData(dades.planStartDate) || '');
+    /* Camps senzills: l'admin pensa en dies, no en dates. El dia i la ratxa
+       es tradueixen al format de l'APP (data d'inici i dates de ratxa) en desar. */
+    var dia = input('dayNumber', 'number', diaPla, { min: '1', max: '99', step: '1' });
+    var ratxaDies = input('streakDays', 'number', ratxa, { min: '0', max: '400', step: '1' });
     var cicle = input('cycleNumber', 'number', Number(dades.cycleNumber) >= 1 ? dades.cycleNumber : 1,
       { min: '1', step: '1' });
     var completats = input('completedCycles', 'number', Number(dades.completedCycles) || 0,
@@ -1346,42 +1372,15 @@ window.MHBSFUT = (function () {
     formulari.appendChild(camp('Esport (app)', esport));
     formulari.appendChild(camp('Pla (1-4)', pla));
     afegeix(formulari, 'p', 'editor__ajuda', 'El número de pla que l\'APP li mostrarà. 1 = bàsic, 4 = avançat.');
-    formulari.appendChild(camp('Data d\'inici del pla', inici));
-    afegeix(formulari, 'p', 'editor__ajuda', 'Si la canvies, els dies que queden per davant es desmarquen sols.');
-    formulari.appendChild(camp('Cicle actual', cicle));
-    formulari.appendChild(camp('Cicles completats', completats));
-    afegeix(formulari, 'p', 'editor__ajuda', 'Quants plans de 14 dies ha acabat. 0-3 = segueix; 4 = programa acabat.');
+    formulari.appendChild(camp('Dia actual del pla', dia));
+    afegeix(formulari, 'p', 'editor__ajuda', 'Avui comptarà com aquest dia del pla (1-14). Posa 1 perquè torni a començar avui.');
+    formulari.appendChild(camp('Dies de ratxa', ratxaDies));
+    afegeix(formulari, 'p', 'editor__ajuda', 'Quants dies seguits amb activitat vols que tingui, comptats des d\'avui cap enrere. 0 = sense ratxa.');
     formulari.appendChild(camp('Punts (coins)', punts));
 
     var qCompletat = casella('questionnaireCompleted', 'Qüestionari completat',
       dades.questionnaireCompleted);
     formulari.appendChild(qCompletat.fila);
-    var programa = casella('programCompleted', 'Programa completat', dades.programCompleted === true);
-    formulari.appendChild(programa.fila);
-
-    /* Ratxa: una data ISO per línia. Es desa a migdia UTC perquè el dia no
-       balli amb el fus horari en passar a Date a l'APP. */
-    function datesRatxa() {
-      var dates = [];
-      ratxa.value.split('\n').forEach(function (linia) {
-        var t = linia.trim();
-        if (!t) return;
-        if (!/^\d{4}-\d{2}-\d{2}$/.test(t)) {
-          throw new Error('Data de ratxa invàlida: «' + t + '». Forma: AAAA-MM-DD.');
-        }
-        dates.push(t + 'T12:00:00Z');
-      });
-      return dates;
-    }
-
-    var ratxa = el('textarea', 'input-field editor__area');
-    ratxa.name = 'streakCompletedDates';
-    ratxa.rows = 5;
-    ratxa.placeholder = '2026-10-01\n2026-10-02\n2026-10-03';
-    ratxa.value = (dades.streakCompletedDates || []).map(isoAData).filter(Boolean).join('\n');
-    var campRatxa = camp('Ratxa: dies completats (una data per línia)', ratxa);
-    campRatxa.classList.add('editor__camp--ample');
-    formulari.appendChild(campRatxa);
 
     var dies = el('fieldset', 'editor__dies-camp');
     afegeix(dies, 'legend', 'editor__etiqueta', 'Dies completats');
@@ -1398,6 +1397,18 @@ window.MHBSFUT = (function () {
     }
     dies.appendChild(diesGrid);
     formulari.appendChild(dies);
+
+    /* Els camps poc habituals queden plegats perquè el formulari sigui clar. */
+    var avancat = el('details', 'editor__avancat');
+    afegeix(avancat, 'summary', 'editor__avancat-resum', 'Opcions avançades del cicle');
+    var avancatForm = el('div', 'editor__form');
+    avancatForm.appendChild(camp('Cicle actual', cicle));
+    avancatForm.appendChild(camp('Cicles completats', completats));
+    afegeix(avancatForm, 'p', 'editor__ajuda', 'Quants plans de 14 dies ha acabat. 0-3 = segueix; 4 = programa acabat.');
+    var programa = casella('programCompleted', 'Programa completat', dades.programCompleted === true);
+    avancatForm.appendChild(programa.fila);
+    avancat.appendChild(avancatForm);
+    formulari.appendChild(avancat);
 
     var peu = el('div', 'editor__peu');
     var botoDesa = el('button', 'editor__desa', 'Desa els canvis');
@@ -1432,7 +1443,6 @@ window.MHBSFUT = (function () {
         sport: esport.value,
         questionnaireCompleted: qCompletat.input.checked,
         programCompleted: programa.input.checked,
-        streakCompletedDates: datesRatxa(),
         days: {}
       };
       for (var d = 1; d <= 14; d++) {
@@ -1440,13 +1450,20 @@ window.MHBSFUT = (function () {
       }
       var vPla = numValid(pla, 'Pla', 1, 4);
       if (vPla !== null) overrides.planNumber = vPla;
+      /* El dia i la ratxa només es toquen si l'admin els ha canviat: si no,
+         es respecta el que ja tenia l'alumne. */
+      var vDia = numValid(dia, 'Dia actual', 1, 99);
+      if (vDia !== null && vDia !== diaPla) overrides.planStartDate = iniciPerDia(vDia);
+      var vRatxa = numValid(ratxaDies, 'Dies de ratxa', 0, 400);
+      if (vRatxa !== null && vRatxa !== ratxa) {
+        overrides.streakCompletedDates = diesDeRatxa(vRatxa);
+      }
       var vCicle = numValid(cicle, 'Cicle', 1);
       if (vCicle !== null) overrides.cycleNumber = vCicle;
       var vCompletats = numValid(completats, 'Cicles completats', 0);
       if (vCompletats !== null) overrides.completedCycles = vCompletats;
       var vPunts = numValid(punts, 'Punts', 0);
       if (vPunts !== null) overrides.coins = vPunts;
-      if (inici.value) overrides.planStartDate = inici.value + 'T00:00:00Z';
       return overrides;
     }
 
@@ -1467,9 +1484,13 @@ window.MHBSFUT = (function () {
       pintaMissatge(false, 'Desant…');
       alDesar(slug, overrides).then(function (r) {
         botoDesa.disabled = false;
-        /* En cas correcte, `alDesar` redibuixa la fitxa i el missatge es
-           repinta des de `editorMissatge`; només cal atendre l'error. */
-        if (r && r.error) pintaMissatge(true, r.error);
+        if (r && r.error) {
+          pintaMissatge(true, r.error);
+          return;
+        }
+        pintaMissatge(false, 'Canvis desats al repositori' +
+          (r && r.revisio ? ' (revisió ' + r.revisio + ')' : '') +
+          '. S\'aplicaran quan l\'APP de l\'alumne s\'obri o faci sync.');
       });
     });
 
@@ -1482,8 +1503,8 @@ window.MHBSFUT = (function () {
 
     var nota = 'Aquests canvis s\'escriuran al fitxer de l\'alumne al repositori. ' +
       'L\'APP els aplicarà quan s\'obri o torni a primer pla (sense reinstal·lar). ' +
-      'Si desmarques un dia, els passos intermedis que ja tenia es conserven. ' +
-      'Si reposis la data d\'inici, desmarca els dies que quedin per davant.';
+      'Els camps que no canviïs es queden com estan. ' +
+      'Si baixes el dia actual, desmarca els dies que quedin per davant.';
     if (dades.adminRevision) {
       nota += ' Última edició manual: ' + dades.adminRevision + '.';
     }
@@ -1630,7 +1651,8 @@ window.MHBSFUT = (function () {
       if (!raw) return;
       sheetCos.textContent = '';
       sheetCos.appendChild(buildEditor(username, raw, desaAjustos));
-      sheetSub.textContent = 'Edita ' + username + '.json: pla, cicle, ratxa, punts i dies completats.';
+      sheetSub.textContent = 'Edita les dades de ' + username +
+        '. Els canvis arribaran al mòbil quan l\'APP s\'obri (sense reinstal·lar).';
       sheetFons.hidden = false;
       sheet.hidden = false;
       document.body.classList.add('is-sheet-void');
@@ -1655,6 +1677,9 @@ window.MHBSFUT = (function () {
 
     var dadesActuals = [];
     var alumneActiu = null;
+    /* Cert mentre l'enllaç inicial (#estudiant/X) encara no s'ha trobat a les
+       dades: evita que el primer fitxer que arribi robi la selecció. */
+    var pendentHash = false;
     /* JSON tal qual de cada alumne, per al panell d'ajustos. */
     var rawPerAlumne = {};
 
@@ -1674,7 +1699,9 @@ window.MHBSFUT = (function () {
        s'escorregeix l'URL amb replaceState, que no dispara hashchange. */
     function alumneMostrat() {
       if (!dadesActuals.length) return null;
-      var alumne = buscaAlumne(alumneActiu) || dadesActuals[0];
+      var alumne = buscaAlumne(alumneActiu);
+      if (!alumne && pendentHash) return null;
+      alumne = alumne || dadesActuals[0];
       if (alumne.username !== alumneActiu) {
         alumneActiu = alumne.username;
         window.history.replaceState(null, '', '#estudiant/' + alumneActiu);
@@ -1790,6 +1817,12 @@ window.MHBSFUT = (function () {
         dibuixa();
 
         if (rebuts === CONFIG.alumnes.length) {
+          /* Si l'enllaç inicial apuntava a algú que no existeix, ara es pot
+             deixar caure la selecció al primer alumne. */
+          if (pendentHash) {
+            pendentHash = false;
+            dibuixa();
+          }
           if (!carregats.length) {
             /* Cap fitxer llegit de tot: es conserva l'ajuda de diagnosi encara
                que el rail ja mostri tots els alumnes configurats. */
@@ -1816,6 +1849,13 @@ window.MHBSFUT = (function () {
     }
 
     window.addEventListener('hashchange', aplicaHash);
+
+    /* L'enllaç compartit pot portar #estudiant/X: es té en compte abans de
+       carregar res perquè la fitxa que es pinti sigui la de l'enllaç. */
+    if (window.location.hash.indexOf('#estudiant/') === 0) {
+      alumneActiu = window.location.hash.slice('#estudiant/'.length);
+      pendentHash = true;
+    }
     carrega();
   }
 
@@ -1834,6 +1874,9 @@ window.MHBSFUT = (function () {
        (p. ex. MHBSFUT.normalitza('EloiRomero', snapshot)). */
     normalitza: normalitza,
     isoAData: isoAData,
-    novaRevisio: novaRevisio
+    novaRevisio: novaRevisio,
+    diesDeRatxa: diesDeRatxa,
+    iniciPerDia: iniciPerDia,
+    diaDelPla: diaDelPla
   };
 })();

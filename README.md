@@ -82,9 +82,17 @@ partir de l'esquema 2. La consola els adapta al seu model de presentació amb
 
 El botó **Ajustos manuals** de la capçalera obre una barra inferior (sheet)
 flotant sobre la fitxa de l'alumne actiu, sense tocar les dades que es
-mostren: pla (1-4), esport, data d'inici, cicle, cicles completats,
-qüestionari/programa completat, punts, dies completats i les dates de la
-ratxa. Es tanca amb la ×, clicant el fons o prement Esc.
+mostren. El formulari és senzill a propòsit: esport, pla (1-4), **dia actual
+del pla** (1-14), **dies de ratxa**, punts, dies completats i qüestionari
+completat; les opcions del cicle (cicle actual, cicles completats, programa
+completat) queden dins d'**Opcions avançades del cicle**, plegades. Es tanca
+amb la ×, clicant el fons o prement Esc.
+
+Els camps es guarden amb el format que entén l'APP sense tocar-ne el codi:
+«dia actual N» es converteix en la data d'inici corresponent i «N dies de
+ratxa» en N dates consecutives acabant avui. El dia i la ratxa només
+s'escriuen si l'admin els canvia; la resta de camps sempre s'envien amb el
+que mostri el formulari.
 
 Per desar cal un **token personal de GitHub** (*fine-grained PAT*) amb permís
 de continguts d'escriptura sobre aquest repositori. El token es desa a

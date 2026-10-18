@@ -981,10 +981,6 @@ body.is-sheet-void {
   min-width: 0;
 }
 
-.editor__camp--ample {
-  grid-column: 1 / -1;
-}
-
 .editor__etiqueta {
   font-size: 0.75rem;
   font-weight: 700;
@@ -997,14 +993,6 @@ body.is-sheet-void {
   height: 44px;
   padding: 0 14px;
   font-size: 0.95rem;
-}
-
-.editor__area {
-  height: auto;
-  min-height: 108px;
-  padding: 12px 14px;
-  line-height: 1.5;
-  resize: vertical;
 }
 
 .editor__dies-camp {
@@ -1023,6 +1011,31 @@ body.is-sheet-void {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(88px, 1fr));
   gap: 8px;
+}
+
+.editor__avancat {
+  grid-column: 1 / -1;
+  margin-top: 2px;
+  padding-top: 12px;
+  border-top: 1px solid var(--card-border);
+}
+
+.editor__avancat-resum {
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.editor__avancat-resum:hover,
+.editor__avancat[open] .editor__avancat-resum {
+  color: var(--text-white);
+}
+
+.editor__avancat .editor__form {
+  margin-top: 12px;
 }
 
 .editor__casella {
