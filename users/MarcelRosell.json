@@ -223,16 +223,11 @@
   ],
   "streakCount": 0,
   "username": "MarcelRosell",
-  "adminRevision": "2026-10-18T17:01:15Z",
+  "adminRevision": "2026-10-19T07:33:05Z",
   "adminOverrides": {
     "sport": "Futbol",
-    "questionnaireCompleted": false,
+    "questionnaireCompleted": true,
     "programCompleted": false,
-    "streakCompletedDates": [
-      "2026-10-11T12:00:00Z",
-      "2026-10-17T12:00:00Z",
-      "2026-10-18T12:00:00Z"
-    ],
     "days": {
       "1": {
         "completed": true
@@ -278,9 +273,19 @@
       }
     },
     "planNumber": 1,
+    "streakCompletedDates": [
+      "2026-10-19T12:00:00Z",
+      "2026-10-18T12:00:00Z",
+      "2026-10-17T12:00:00Z",
+      "2026-10-16T12:00:00Z",
+      "2026-10-15T12:00:00Z",
+      "2026-10-14T12:00:00Z",
+      "2026-10-13T12:00:00Z",
+      "2026-10-12T12:00:00Z",
+      "2026-10-11T12:00:00Z"
+    ],
     "cycleNumber": 1,
     "completedCycles": 0,
-    "coins": 500,
-    "planStartDate": "2026-10-12T00:00:00Z"
+    "coins": 500
   }
 }
