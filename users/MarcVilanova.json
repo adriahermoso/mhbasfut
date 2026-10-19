@@ -1,5 +1,5 @@
 {
-  "adminRevision": "2026-10-19T12:27:31Z",
+  "adminRevision": "2026-10-19T12:27:38Z",
   "appVersion": "1.5",
   "assignedPlan": 2,
   "assignedPlanPerSport": {
@@ -567,7 +567,7 @@
   "username": "MarcVilanova",
   "adminOverrides": {
     "sport": "Futbol",
-    "questionnaireCompleted": true,
+    "questionnaireCompleted": false,
     "programCompleted": false,
     "days": {
       "1": {
