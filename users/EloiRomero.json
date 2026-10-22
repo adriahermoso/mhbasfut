@@ -216,11 +216,14 @@
       }
     },
     {
-      "completed" : false,
+      "completed" : true,
       "completedStages" : [
         0,
         1,
-        2
+        2,
+        3,
+        4,
+        5
       ],
       "day" : 10,
       "intensities" : {
@@ -228,7 +231,10 @@
       },
       "selectedMeals" : {
         "0" : 0,
-        "1" : 0
+        "1" : 0,
+        "3" : 1,
+        "4" : 1,
+        "5" : 2
       }
     },
     {
@@ -309,7 +315,7 @@
   "equippedItems" : {
     "pelo" : 0
   },
-  "exportedAt" : "2026-10-22T11:42:59Z",
+  "exportedAt" : "2026-10-22T11:48:02Z",
   "lastSport" : null,
   "level" : 0,
   "ownedItems" : [
@@ -454,8 +460,9 @@
   "soundEnabled" : null,
   "sport" : "Basquet",
   "streakCompletedDates" : [
-    "2026-10-20T22:00:00Z"
+    "2026-10-20T22:00:00Z",
+    "2026-10-21T22:00:00Z"
   ],
-  "streakCount" : 1,
+  "streakCount" : 2,
   "username" : "EloiRomero"
 }
