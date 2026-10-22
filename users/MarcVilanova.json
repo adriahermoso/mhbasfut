@@ -8,7 +8,7 @@
   "characterName" : "CharacterName",
   "coins" : 0,
   "completedCycles" : 0,
-  "currentDay" : 3,
+  "currentDay" : 5,
   "cycleNumber" : 2,
   "days" : [
     {
@@ -49,18 +49,27 @@
       }
     },
     {
-      "completed" : false,
+      "completed" : true,
       "completedStages" : [
         0,
-        1
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
       ],
       "day" : 3,
       "intensities" : {
-
+        "2" : 9,
+        "3" : 8
       },
       "selectedMeals" : {
         "0" : 1,
-        "1" : 1
+        "1" : 1,
+        "4" : 1,
+        "5" : 0,
+        "6" : 2
       }
     },
     {
@@ -79,14 +88,14 @@
     {
       "completed" : false,
       "completedStages" : [
-
+        0
       ],
       "day" : 5,
       "intensities" : {
 
       },
       "selectedMeals" : {
-
+        "0" : 0
       }
     },
     {
@@ -235,12 +244,16 @@
     {
       "date" : "2026-10-19T12:22:52Z",
       "rating" : 1
+    },
+    {
+      "date" : "2026-10-22T22:47:15Z",
+      "rating" : 3
     }
   ],
   "equippedItems" : {
 
   },
-  "exportedAt" : "2026-10-21T10:54:57Z",
+  "exportedAt" : "2026-10-22T22:47:15Z",
   "lastSport" : "Futbol",
   "level" : 0,
   "ownedItems" : [
@@ -922,7 +935,8 @@
     "2026-10-17T12:00:00Z",
     "2026-10-18T12:00:00Z",
     "2026-10-18T22:00:00Z",
-    "2026-10-19T12:00:00Z"
+    "2026-10-19T12:00:00Z",
+    "2026-10-20T22:00:00Z"
   ],
   "streakCount" : 0,
   "username" : "MarcVilanova"
