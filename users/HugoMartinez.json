@@ -8,7 +8,7 @@
   "characterName" : "CharacterName",
   "coins" : 0,
   "completedCycles" : 0,
-  "currentDay" : 1,
+  "currentDay" : 5,
   "cycleNumber" : 1,
   "days" : [
     {
@@ -38,89 +38,53 @@
     {
       "completed" : false,
       "completedStages" : [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5
+
       ],
       "day" : 2,
       "intensities" : {
-        "2" : 5
+
       },
       "selectedMeals" : {
-        "0" : 1,
-        "1" : 1,
-        "3" : 0,
-        "4" : 1,
-        "5" : 0
+
       }
     },
     {
       "completed" : false,
       "completedStages" : [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5
+
       ],
       "day" : 3,
       "intensities" : {
-        "2" : 7
+
       },
       "selectedMeals" : {
-        "0" : 0,
-        "1" : 1,
-        "3" : 0,
-        "4" : 1,
-        "5" : 0
+
       }
     },
     {
       "completed" : false,
       "completedStages" : [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5
+
       ],
       "day" : 4,
       "intensities" : {
-        "2" : 4
+
       },
       "selectedMeals" : {
-        "0" : 0,
-        "1" : 0,
-        "3" : 1,
-        "4" : 1,
-        "5" : 1
+
       }
     },
     {
       "completed" : false,
       "completedStages" : [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5
+
       ],
       "day" : 5,
       "intensities" : {
-        "2" : 1
+
       },
       "selectedMeals" : {
-        "0" : 1,
-        "1" : 0,
-        "3" : 2,
-        "4" : 1,
-        "5" : 0
+
       }
     },
     {
@@ -139,45 +103,27 @@
     {
       "completed" : false,
       "completedStages" : [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5
+
       ],
       "day" : 7,
       "intensities" : {
-        "2" : 3
+
       },
       "selectedMeals" : {
-        "0" : 0,
-        "1" : 0,
-        "3" : 0,
-        "4" : 0,
-        "5" : 0
+
       }
     },
     {
       "completed" : false,
       "completedStages" : [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5
+
       ],
       "day" : 8,
       "intensities" : {
-        "2" : 3
+
       },
       "selectedMeals" : {
-        "0" : 0,
-        "1" : 0,
-        "3" : 0,
-        "4" : 0,
-        "5" : 0
+
       }
     },
     {
@@ -283,12 +229,16 @@
     {
       "date" : "2026-10-14T14:33:40Z",
       "rating" : 3
+    },
+    {
+      "date" : "2026-10-19T16:06:48Z",
+      "rating" : 3
     }
   ],
   "equippedItems" : {
 
   },
-  "exportedAt" : "2026-10-19T16:06:43Z",
+  "exportedAt" : "2026-10-23T12:02:49Z",
   "lastSport" : null,
   "level" : 0,
   "ownedItems" : [
@@ -417,6 +367,149 @@
       "recovered" : true,
       "sport" : "Futbol",
       "startDate" : "2026-10-12T11:05:47Z"
+    },
+    {
+      "allDaysCompleted" : false,
+      "cycleNumber" : 1,
+      "days" : [
+        {
+          "completed" : false,
+          "completedStages" : [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "day" : 2,
+          "intensities" : {
+            "2" : 5
+          },
+          "selectedMeals" : {
+            "0" : 1,
+            "1" : 1,
+            "3" : 0,
+            "4" : 1,
+            "5" : 0
+          }
+        },
+        {
+          "completed" : false,
+          "completedStages" : [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "day" : 3,
+          "intensities" : {
+            "2" : 7
+          },
+          "selectedMeals" : {
+            "0" : 0,
+            "1" : 1,
+            "3" : 0,
+            "4" : 1,
+            "5" : 0
+          }
+        },
+        {
+          "completed" : false,
+          "completedStages" : [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "day" : 4,
+          "intensities" : {
+            "2" : 4
+          },
+          "selectedMeals" : {
+            "0" : 0,
+            "1" : 0,
+            "3" : 1,
+            "4" : 1,
+            "5" : 1
+          }
+        },
+        {
+          "completed" : false,
+          "completedStages" : [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "day" : 5,
+          "intensities" : {
+            "2" : 1
+          },
+          "selectedMeals" : {
+            "0" : 1,
+            "1" : 0,
+            "3" : 2,
+            "4" : 1,
+            "5" : 0
+          }
+        },
+        {
+          "completed" : false,
+          "completedStages" : [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "day" : 7,
+          "intensities" : {
+            "2" : 3
+          },
+          "selectedMeals" : {
+            "0" : 0,
+            "1" : 0,
+            "3" : 0,
+            "4" : 0,
+            "5" : 0
+          }
+        },
+        {
+          "completed" : false,
+          "completedStages" : [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "day" : 8,
+          "intensities" : {
+            "2" : 3
+          },
+          "selectedMeals" : {
+            "0" : 0,
+            "1" : 0,
+            "3" : 0,
+            "4" : 0,
+            "5" : 0
+          }
+        }
+      ],
+      "endDate" : "2026-10-19T16:06:46Z",
+      "planNumber" : 2,
+      "recovered" : true,
+      "sport" : "Futbol",
+      "startDate" : "2026-10-19T00:00:00Z"
     }
   ],
   "planStartDate" : "2026-10-19T00:00:00Z",
@@ -540,6 +633,14 @@
     {
       "date" : "2026-10-15T15:48:47Z",
       "rating" : 2
+    },
+    {
+      "date" : "2026-10-19T16:06:46Z",
+      "rating" : 2
+    },
+    {
+      "date" : "2026-10-23T12:02:49Z",
+      "rating" : 2
     }
   ],
   "soundEnabled" : null,
@@ -560,6 +661,6 @@
     "2026-10-18T12:00:00Z",
     "2026-10-19T12:00:00Z"
   ],
-  "streakCount" : 14,
+  "streakCount" : 0,
   "username" : "HugoMartinez"
 }
