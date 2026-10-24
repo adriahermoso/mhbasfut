@@ -8,7 +8,7 @@
   "characterName" : "CharacterName",
   "coins" : 0,
   "completedCycles" : 0,
-  "currentDay" : 6,
+  "currentDay" : 7,
   "cycleNumber" : 2,
   "days" : [
     {
@@ -110,29 +110,41 @@
       }
     },
     {
-      "completed" : false,
+      "completed" : true,
       "completedStages" : [
-        0
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
       ],
       "day" : 6,
       "intensities" : {
-
+        "2" : 9
       },
       "selectedMeals" : {
-        "0" : 0
+        "0" : 0,
+        "1" : 1,
+        "3" : 1,
+        "4" : 1,
+        "5" : 1
       }
     },
     {
       "completed" : false,
       "completedStages" : [
-
+        0,
+        1,
+        2
       ],
       "day" : 7,
       "intensities" : {
-
+        "2" : 9
       },
       "selectedMeals" : {
-
+        "0" : 0,
+        "1" : 0
       }
     },
     {
@@ -264,7 +276,7 @@
   "equippedItems" : {
 
   },
-  "exportedAt" : "2026-10-24T10:26:26Z",
+  "exportedAt" : "2026-10-24T22:40:14Z",
   "lastSport" : "Futbol",
   "level" : 0,
   "ownedItems" : [
@@ -956,8 +968,9 @@
     "2026-10-18T22:00:00Z",
     "2026-10-19T12:00:00Z",
     "2026-10-20T22:00:00Z",
-    "2026-10-22T22:00:00Z"
+    "2026-10-22T22:00:00Z",
+    "2026-10-23T22:00:00Z"
   ],
-  "streakCount" : 1,
+  "streakCount" : 2,
   "username" : "MarcVilanova"
 }
