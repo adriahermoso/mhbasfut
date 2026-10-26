@@ -206,6 +206,10 @@ final class AdminSyncTests: XCTestCase {
         XCTAssertNil(GitHubSyncService.uploadTarget(username: "  Admin  "))
         XCTAssertNil(GitHubSyncService.uploadTarget(username: ""))
         XCTAssertNil(GitHubSyncService.uploadTarget(username: nil))
+        // Profesores: también sin destino, nunca aparecen en la web.
+        for i in 1...5 {
+            XCTAssertNil(GitHubSyncService.uploadTarget(username: "professor\(i)"))
+        }
         // Alumnos reales: pasan tal cual, respetando mayúsculas para GitHub.
         XCTAssertEqual(GitHubSyncService.uploadTarget(username: "MarcelRosell"), "MarcelRosell")
         XCTAssertEqual(GitHubSyncService.uploadTarget(username: "HectorVelasco"), "HectorVelasco")
@@ -247,7 +251,10 @@ final class AdminSyncTests: XCTestCase {
         XCTAssertTrue(StudentAccounts.isAdmin(username: "Admin"))
         XCTAssertTrue(StudentAccounts.isAdmin(username: "admin"))
         XCTAssertTrue(StudentAccounts.isAdmin(username: " Admin "))
+        XCTAssertTrue(StudentAccounts.isAdmin(username: "professor3"))
+        XCTAssertTrue(StudentAccounts.isAdmin(username: "PROFESSOR5"))
         XCTAssertFalse(StudentAccounts.isAdmin(username: "MarcelRosell"))
+        XCTAssertFalse(StudentAccounts.isAdmin(username: "professor9"))
         XCTAssertFalse(StudentAccounts.isAdmin(username: nil))
         XCTAssertFalse(StudentAccounts.isAdmin(username: ""))
     }

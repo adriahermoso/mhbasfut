@@ -299,9 +299,11 @@ public final class GitHubSyncService: ObservableObject {
     }
 
     /// Único punto de decisión sobre qué se sube. Devuelve el nombre de
-    /// fichero, o `nil` si no se sube nada. Invitado y modo `Admin` devuelven
-    /// siempre `nil`, así que no hay NINGUNA llamada a GitHub desde esas
-    /// sesiones y `users/Admin.json` nunca se crea ni se lista en la web.
+    /// fichero, o `nil` si no se sube nada. Invitado y rol de profesor
+    /// (Admin y `professor1`…`professor5`) devuelven siempre `nil`, así que
+    /// no hay NINGUNA llamada a GitHub desde esas sesiones y ni
+    /// `users/Admin.json` ni `users/professorN.json` se crean ni se listan
+    /// en la web.
     nonisolated public static func uploadTarget(username: String?) -> String? {
         guard !isGuestSession else { return nil }
         guard let raw = username, !StudentAccounts.isAdmin(username: raw) else { return nil }
@@ -551,6 +553,21 @@ public enum StudentAccounts {
         // cualquier otro (para poder entrar) pero `uploadTarget` bloquea
         // todas sus subidas, así que nunca genera `users/Admin.json`.
         StudentAccounts.adminUsername: Credential(salt: "bC4dE7fG0hJ3kL6mN9pQ2rS5tU8vW1xY", hash: "b313646e566ec22206a476da98cae760cc905622b2e8bf78438a6964331a58a2"),
+        // Profesores reales: entran igual que la cuenta Admin y también
+        // bloquean toda subida, así que la web no muestra ningún dato suyo.
+        "professor1": Credential(salt: "kLyISCeCUow5PZ35pPoZN5j052LkG6uV", hash: "4a2fadf696337083a08cea00da27d90ba2316cf58ae8b3c47b363bea4a5e139a"),
+        "professor2": Credential(salt: "g5bri3OKi8Xwk0yzBBkdcaTcNM92lvpd", hash: "33eee279ff6918ae5377a4a2f9d37c2d1306f36f47c758b16952b5019a580f5f"),
+        "professor3": Credential(salt: "PWnciLJGjoi7pTtTdQQfql1zPQbIUhPG", hash: "bcf4981aff2fcf456e462d4b378610591ac8ed66fde284bcb6b0a82ffe3c64be"),
+        "professor4": Credential(salt: "URQ42UBjnQ7sqJy8oOmvJFyd8vtHi2dX", hash: "3fb431661234733518c330d9770a26b283046b698150397ec42c366212f4a6a3"),
+        "professor5": Credential(salt: "hytJxVKkexolzK72yLaX3JZIJ0ttbVj7", hash: "4e10b24c28ed00faacd272a195f2b5712abe3c2297cee619d65278ca768f03bc"),
+    ]
+
+    /// Usuarios con rol de profesor: la cuenta especial `Admin` más los
+    /// profesores reales (`professor1`…`professor5`). Validan como cualquier
+    /// otra cuenta, pero `uploadTarget` los bloquea: no existe
+    /// `users/professorN.json` ni aparecen en la web.
+    public static let professorUsernames: [String] = [
+        adminUsername, "professor1", "professor2", "professor3", "professor4", "professor5",
     ]
 
     /// SHA-256 en hexadecimal de `salt|usuario|contraseña`. Pública para
@@ -590,12 +607,15 @@ public enum StudentAccounts {
         verify(username: username, password: password) != nil
     }
 
-    /// `true` si el usuario es la cuenta especial Admin. Tolera espacios y
-    /// mayúsculas/minúsculas.
+    /// `true` si el usuario tiene rol de profesor (cualquiera de
+    /// `professorUsernames`: la especial Admin y los profesores reales).
+    /// Tolera espacios y mayúsculas/minúsculas.
     public static func isAdmin(username: String?) -> Bool {
         guard let raw = username else { return false }
-        return raw.trimmingCharacters(in: .whitespacesAndNewlines)
-            .caseInsensitiveCompare(adminUsername) == .orderedSame
+        let trimmed = raw.trimmingCharacters(in: .whitespacesAndNewlines)
+        return professorUsernames.contains {
+            $0.caseInsensitiveCompare(trimmed) == .orderedSame
+        }
     }
 
     /// Comparación de digests sin cortes tempranos por longitud.
