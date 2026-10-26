@@ -1,0 +1,870 @@
+{
+  "pla": "Pla 3 — Desenvolupament (Bàsquet)",
+  "descripcio": "Programa de 14 dies per a adolescents amb bona condició física que entrenen diverses vegades per setmana. Aquest nivell és semblant al d'un jugador de bàsquet federat. Objectiu: augmentar la potència, l'agilitat i la velocitat, capacitats molt importants en el bàsquet.",
+  "dies": [
+    {
+      "dia": 1,
+      "titol": "Sessió física + tècnica",
+      "tipus": "entrenament",
+      "esmorzar": {
+        "opcions": [
+          {"nom": "Iogurt natural amb avena i plàtan", "imatge": "iogurt-natural-amb-avena-i-platan.webp"},
+          {"nom": "Torrades amb tomàquet i oli d’oliva + un got de llet + una fruita", "imatge": "torrades-amb-tomaquet-i-oli-doliva-llet-fruita.webp"},
+          {"nom": "Cereals integrals amb llet + una peça de fruita", "imatge": "cereals-integrals-amb-llet-fruita.webp"}
+        ]
+      },
+      "mig_mati": {
+        "opcions": [
+          {"nom": "Entrepà petit de formatge + una mandarina", "imatge": "entrepa-petit-de-formatge-una-mandarina.webp"},
+          {"nom": "Poma + un grapat de fruits secs", "imatge": "poma-fruits-secs.webp"},
+          {"nom": "Una fruita", "imatge": "una-fruita.webp"}
+        ]
+      },
+      "sessions": [
+        {
+          "hora": "7.00 – 7.30",
+          "nom": "Activació",
+          "contingut": [
+            {"exercici": "Trot", "series_repeticions": "8 minuts", "descripcio": "Trot a intensitat baixa."},
+            {"exercici": "Mobilitat dinàmica", "series_repeticions": "5 min", "descripcio": "Mobilitat dinàmica de tot el cos."},
+            {"exercici": "Exercicis d'equilibri", "series_repeticions": "", "descripcio": "Exercicis d'equilibri."}
+          ]
+        },
+        {
+          "hora": "11.00",
+          "nom": "Pati",
+          "contingut": [
+            {"exercici": "Hidratació i moviment", "series_repeticions": "", "descripcio": "Hidratar-se, caminar i menjar fruita i fruits secs."}
+          ]
+        },
+        {
+          "hora": "17.15 – 18.30",
+          "nom": "Sessió física",
+          "escalfament": [
+            {"exercici": "Carrera suau", "series_repeticions": "7 min", "descripcio": "Carrera a intensitat baixa."},
+            {"exercici": "Desplaçaments defensius", "series_repeticions": "3 × 20 s", "descripcio": "Desplaçaments defensius."}
+          ],
+          "part_principal": [
+            {"exercici": "Esquats", "series_repeticions": "3 × 10", "descripcio": "Esquat amb pes corporal."},
+            {"exercici": "Gambades", "series_repeticions": "3 × 10", "descripcio": "Gambades alternades."},
+            {"exercici": "Salts verticals", "series_repeticions": "3 × 8", "descripcio": "Salts verticals controlats."},
+            {"exercici": "Salts laterals", "series_repeticions": "3 × 8", "descripcio": "Salts laterals controlats."},
+            {"exercici": "Esprints de 15 metres", "series_repeticions": "6 repeticions", "descripcio": "Esprints a intensitat elevada."},
+            {"exercici": "Planxa frontal", "series_repeticions": "3 × 20 s", "descripcio": "Planxa frontal."},
+            {"exercici": "Planxa lateral", "series_repeticions": "3 × 15 s per costat", "descripcio": "Planxa lateral."}
+          ]
+        },
+        {
+          "hora": "19.00 – 19.45",
+          "nom": "Tècnica de bàsquet",
+          "contingut": [
+            {"exercici": "Bot entre 4 obstacles", "series_repeticions": "4 recorreguts", "descripcio": "Bot entre obstacles."},
+            {"exercici": "Canvis de ritme", "series_repeticions": "4 × 20 s", "descripcio": "Canvis de ritme botant."},
+            {"exercici": "Entrades", "series_repeticions": "12 (6 amb cada mà)", "descripcio": "Entrades a cistella."},
+            {"exercici": "Tirs", "series_repeticions": "20 (4 des de 5 posicions)", "descripcio": "Tirs des de diferents posicions."}
+          ]
+        },
+        {
+          "hora": "22.00",
+          "nom": "Recuperació",
+          "contingut": [
+            {"exercici": "Recuperació", "series_repeticions": "", "descripcio": "Estiraments, sopar equilibrat i dormir entre 8 i 9 hores."}
+          ]
+        }
+      ],
+      "dinar": {
+        "opcions": [
+          {"nom": "Arròs amb pollastre + amanida + fruita", "imatge": "arros-amb-pollastre-amanida.webp"},
+          {"nom": "Pasta amb tomàquet i tonyina + verdura + fruita", "imatge": "pasta-amb-tomaquet-i-tonyina-verdura-fruita.webp"},
+          {"nom": "Patata amb peix + amanida + fruita", "imatge": "patata-amb-peix-amanida-fruita.webp"}
+        ]
+      },
+      "berenar": {
+        "opcions": [
+          {"nom": "Iogurt", "imatge": "iogurt.webp"},
+          {"nom": "Pa amb formatge fresc + fruita", "imatge": "pa-amb-formatge-fresc-fruita.webp"},
+          {"nom": "Fruita + un grapat de fruits secs", "imatge": "fruita-fruits-secs.webp"}
+        ]
+      },
+      "sopar": {
+        "opcions": [
+          {"nom": "Truita de patata + amanida + fruita", "imatge": "truita-de-patata-amanida-fruita.webp"},
+          {"nom": "Peix al forn + verdures + pa + fruita", "imatge": "peix-al-forn-verdures-pa-fruita.webp"},
+          {"nom": "Pollastre amb patata + verdura", "imatge": "pollastre-patata-verdures.webp"}
+        ]
+      }
+    },
+    {
+      "dia": 2,
+      "titol": "Sessió física + bàsquet",
+      "tipus": "entrenament",
+      "esmorzar": {
+        "opcions": [
+          {"nom": "Pa amb tomàquet i oli d’oliva + llet + fruita", "imatge": "pa-amb-tomaquet-i-oli-doliva-llet-fruita.webp"},
+          {"nom": "Iogurt amb civada i maduixes", "imatge": "iogurt-amb-civada-i-maduixes.webp"},
+          {"nom": "Truita francesa + pa + una fruita", "imatge": "truita-francesa-pa-fruita.webp"}
+        ]
+      },
+      "mig_mati": {
+        "opcions": [
+          {"nom": "Pera + fruits secs", "imatge": "pera-fruits-secs.webp"},
+          {"nom": "Entrepà petit de pernil cuit", "imatge": "entrepa-petit-de-pernil-cuit.webp"},
+          {"nom": "Iogurt + plàtan", "imatge": "iogurt-platan.webp"}
+        ]
+      },
+      "sessions": [
+        {
+          "hora": "7.00 – 7.25",
+          "nom": "Activació",
+          "contingut": [
+            {"exercici": "Trote", "series_repeticions": "6 min", "descripcio": "Trot a intensitat baixa."},
+            {"exercici": "Mobilitat dinàmica", "series_repeticions": "", "descripcio": "Mobilitat dinàmica."},
+            {"exercici": "Esquats", "series_repeticions": "2 × 10", "descripcio": "Esquats controlats."},
+            {"exercici": "Elevacions de talons", "series_repeticions": "2 × 10", "descripcio": "Elevacions de talons."}
+          ]
+        },
+        {
+          "hora": "17.15 – 18.20",
+          "nom": "Sessió física",
+          "part_principal": [
+            {"exercici": "Esquats", "series_repeticions": "3 × 10", "descripcio": "Esquat amb pes corporal."},
+            {"exercici": "Gambades", "series_repeticions": "3 × 10", "descripcio": "Gambades alternades."},
+            {"exercici": "Ponts de glutis", "series_repeticions": "3 × 10", "descripcio": "Eleva el maluc."},
+            {"exercici": "Elevacions de talons", "series_repeticions": "3 × 10", "descripcio": "Elevacions de talons."},
+            {"exercici": "Salts verticals", "series_repeticions": "3 × 8", "descripcio": "Salts verticals."},
+            {"exercici": "Acceleracions", "series_repeticions": "4 × 15 m", "descripcio": "Acceleracions."},
+            {"exercici": "Recepcions controlades", "series_repeticions": "3 × 8", "descripcio": "Aterratges controlats."}
+          ]
+        },
+        {
+          "hora": "19.00 – 19.45",
+          "nom": "Bàsquet",
+          "contingut": [
+            {"exercici": "Bot amb canvi de mà", "series_repeticions": "3 × 2 min", "descripcio": "Bot amb canvis de mà."},
+            {"exercici": "Canvis de direcció amb pilota", "series_repeticions": "3 × 6", "descripcio": "Canvis de direcció botant."},
+            {"exercici": "Entrades", "series_repeticions": "15 (8 dreta 7 esquerra)", "descripcio": "Entrades a cistella."},
+            {"exercici": "Tirs", "series_repeticions": "20 (4 des de 5 posicions)", "descripcio": "Tirs des de diferents posicions."}
+          ]
+        }
+      ],
+      "dinar": {
+        "opcions": [
+          {"nom": "Llenties amb verdures i arròs + fruita", "imatge": "llenties-amb-verdures-i-arros-fruita.webp"},
+          {"nom": "Cigrons amb verdures + ou + pa + fruita", "imatge": "cigrons-amb-verdures-ou-pa-fruita.webp"},
+          {"nom": "Arròs amb verdures i pollastre + fruita", "imatge": "arros-amb-pollastre-verdures-fruita.webp"}
+        ]
+      },
+      "berenar": {
+        "opcions": [
+          {"nom": "Iogurt natural + fruita", "imatge": "iogurt-fruita.webp"},
+          {"nom": "Torrades amb formatge fresc", "imatge": "torrades-amb-formatge-fresc.webp"},
+          {"nom": "Plàtan + fruits secs", "imatge": "platan-fruits-secs.webp"}
+        ]
+      },
+      "sopar": {
+        "opcions": [
+          {"nom": "Peix + patata + verdures", "imatge": "peix-patata-verdures.webp"},
+          {"nom": "Truita francesa + amanida + pa", "imatge": "truita-francesa-amanida-pa.webp"},
+          {"nom": "Pollastre amb arròs + verdures", "imatge": "arros-amb-pollastre-i-verdures.webp"}
+        ]
+      }
+    },
+    {
+      "dia": 3,
+      "titol": "Coordinació",
+      "tipus": "entrenament",
+      "esmorzar": {
+        "opcions": [
+          {"nom": "Iogurt natural amb avena i plàtan", "imatge": "iogurt-natural-amb-avena-i-platan.webp"},
+          {"nom": "Torrades amb tomàquet i oli d’oliva + un got de llet + una fruita", "imatge": "torrades-amb-tomaquet-i-oli-doliva-llet-fruita.webp"},
+          {"nom": "Cereals integrals amb llet + una peça de fruita", "imatge": "cereals-integrals-amb-llet-fruita.webp"}
+        ]
+      },
+      "mig_mati": {
+        "opcions": [
+          {"nom": "Entrepà petit de formatge + una mandarina", "imatge": "entrepa-petit-de-formatge-una-mandarina.webp"},
+          {"nom": "Poma + un grapat de fruits secs", "imatge": "poma-fruits-secs.webp"},
+          {"nom": "Una fruita", "imatge": "una-fruita.webp"}
+        ]
+      },
+      "sessions": [
+        {
+          "hora": "7.15 – 7.30",
+          "nom": "Activació",
+          "contingut": [
+            {"exercici": "Caminada ràpida", "series_repeticions": "", "descripcio": "Caminada a ritme elevat."},
+            {"exercici": "Mobilitat de turmells, malucs i genolls", "series_repeticions": "5 min", "descripcio": "Mobilitat articular."}
+          ]
+        },
+        {
+          "hora": "17.30 – 18.20",
+          "nom": "Coordinació",
+          "part_principal": [
+            {"exercici": "Trote", "series_repeticions": "8 min", "descripcio": "Trot a intensitat baixa."},
+            {"exercici": "Acceleracions", "series_repeticions": "4 × 15 m", "descripcio": "Acceleracions."},
+            {"exercici": "Desplaçaments defensius", "series_repeticions": "3 × 8", "descripcio": "Desplaçaments defensius."},
+            {"exercici": "Canvis de direcció", "series_repeticions": "3 × 6", "descripcio": "Canvis de direcció."},
+            {"exercici": "Salts laterals", "series_repeticions": "3 × 8", "descripcio": "Salts laterals."},
+            {"exercici": "Recepcions de salt", "series_repeticions": "3 × 8", "descripcio": "Aterratges controlats."}
+          ]
+        },
+        {
+          "hora": "19.00 – 19.40",
+          "nom": "Bàsquet",
+          "contingut": [
+            {"exercici": "Bot amb canvi de ritme", "series_repeticions": "3 × 2 min", "descripcio": "Bot amb canvis de ritme."},
+            {"exercici": "Entrades després d'acceleració", "series_repeticions": "", "descripcio": "Entrades després d'acceleració."},
+            {"exercici": "Tirs", "series_repeticions": "25 (5 des de 5 posicions)", "descripcio": "Tirs des de diferents posicions."}
+          ]
+        }
+      ],
+      "dinar": {
+        "opcions": [
+          {"nom": "Arròs amb pollastre + amanida + fruita", "imatge": "arros-amb-pollastre-amanida.webp"},
+          {"nom": "Pasta amb tomàquet i tonyina + verdura + fruita", "imatge": "pasta-amb-tomaquet-i-tonyina-verdura-fruita.webp"},
+          {"nom": "Patata amb peix + amanida + fruita", "imatge": "patata-amb-peix-amanida-fruita.webp"}
+        ]
+      },
+      "berenar": {
+        "opcions": [
+          {"nom": "Iogurt", "imatge": "iogurt.webp"},
+          {"nom": "Pa amb formatge fresc + fruita", "imatge": "pa-amb-formatge-fresc-fruita.webp"},
+          {"nom": "Fruita + un grapat de fruits secs", "imatge": "fruita-fruits-secs.webp"}
+        ]
+      },
+      "sopar": {
+        "opcions": [
+          {"nom": "Truita de patata + amanida + fruita", "imatge": "truita-de-patata-amanida-fruita.webp"},
+          {"nom": "Peix al forn + verdures + pa + fruita", "imatge": "peix-al-forn-verdures-pa-fruita.webp"},
+          {"nom": "Pollastre amb patata + verdura", "imatge": "pollastre-patata-verdures.webp"}
+        ]
+      }
+    },
+    {
+      "dia": 4,
+      "titol": "Recuperació activa",
+      "tipus": "recuperacio",
+      "esmorzar": {
+        "opcions": [
+          {"nom": "Pa amb tomàquet i oli d’oliva + llet + fruita", "imatge": "pa-amb-tomaquet-i-oli-doliva-llet-fruita.webp"},
+          {"nom": "Iogurt amb civada i maduixes", "imatge": "iogurt-amb-civada-i-maduixes.webp"},
+          {"nom": "Truita francesa + pa + una fruita", "imatge": "truita-francesa-pa-fruita.webp"}
+        ]
+      },
+      "mig_mati": {
+        "opcions": [
+          {"nom": "Pera + fruits secs", "imatge": "pera-fruits-secs.webp"},
+          {"nom": "Entrepà petit de pernil cuit", "imatge": "entrepa-petit-de-pernil-cuit.webp"},
+          {"nom": "Iogurt + plàtan", "imatge": "iogurt-platan.webp"}
+        ]
+      },
+      "sessions": [
+        {
+          "hora": "18.00 – 18.35",
+          "nom": "Recuperació activa",
+          "contingut": [
+            {"exercici": "Caminar", "series_repeticions": "15 min", "descripcio": "Caminada a intensitat baixa."},
+            {"exercici": "Mobilitat de turmells", "series_repeticions": "", "descripcio": "Mobilitat de turmells."},
+            {"exercici": "Mobilitat de malucs", "series_repeticions": "", "descripcio": "Mobilitat de malucs."},
+            {"exercici": "Mobilitat de genolls", "series_repeticions": "", "descripcio": "Mobilitat de genolls."},
+            {"exercici": "Estiraments suaus", "series_repeticions": "", "descripcio": "Estiraments suaus."}
+          ]
+        }
+      ],
+      "dinar": {
+        "opcions": [
+          {"nom": "Llenties amb verdures i arròs + fruita", "imatge": "llenties-amb-verdures-i-arros-fruita.webp"},
+          {"nom": "Cigrons amb verdures + ou + pa + fruita", "imatge": "cigrons-amb-verdures-ou-pa-fruita.webp"},
+          {"nom": "Arròs amb verdures i pollastre + fruita", "imatge": "arros-amb-pollastre-verdures-fruita.webp"}
+        ]
+      },
+      "berenar": {
+        "opcions": [
+          {"nom": "Iogurt natural + fruita", "imatge": "iogurt-fruita.webp"},
+          {"nom": "Torrades amb formatge fresc", "imatge": "torrades-amb-formatge-fresc.webp"},
+          {"nom": "Plàtan + fruits secs", "imatge": "platan-fruits-secs.webp"}
+        ]
+      },
+      "sopar": {
+        "opcions": [
+          {"nom": "Peix + patata + verdures", "imatge": "peix-patata-verdures.webp"},
+          {"nom": "Truita francesa + amanida + pa", "imatge": "truita-francesa-amanida-pa.webp"},
+          {"nom": "Pollastre amb arròs + verdures", "imatge": "arros-amb-pollastre-i-verdures.webp"}
+        ]
+      }
+    },
+    {
+      "dia": 5,
+      "titol": "Força",
+      "tipus": "entrenament",
+      "esmorzar": {
+        "opcions": [
+          {"nom": "Iogurt natural amb avena i plàtan", "imatge": "iogurt-natural-amb-avena-i-platan.webp"},
+          {"nom": "Torrades amb tomàquet i oli d’oliva + un got de llet + una fruita", "imatge": "torrades-amb-tomaquet-i-oli-doliva-llet-fruita.webp"},
+          {"nom": "Cereals integrals amb llet + una peça de fruita", "imatge": "cereals-integrals-amb-llet-fruita.webp"}
+        ]
+      },
+      "mig_mati": {
+        "opcions": [
+          {"nom": "Entrepà petit de formatge + una mandarina", "imatge": "entrepa-petit-de-formatge-una-mandarina.webp"},
+          {"nom": "Poma + un grapat de fruits secs", "imatge": "poma-fruits-secs.webp"},
+          {"nom": "Una fruita", "imatge": "una-fruita.webp"}
+        ]
+      },
+      "sessions": [
+        {
+          "hora": "7.00 – 7.25",
+          "nom": "Activació",
+          "contingut": [
+            {"exercici": "Trote suau", "series_repeticions": "6 min", "descripcio": "Trot a intensitat baixa."},
+            {"exercici": "Mobilitat de cames i malucs", "series_repeticions": "5 min", "descripcio": "Mobilitat de cames i malucs."},
+            {"exercici": "Activació de cames", "series_repeticions": "2 × 10 elevacions de genoll", "descripcio": "Elevacions de genoll."}
+          ]
+        },
+        {
+          "hora": "17.15 – 18.25",
+          "nom": "Força",
+          "part_principal": [
+            {"exercici": "Esquats", "series_repeticions": "3 × 12", "descripcio": "Esquat amb pes corporal."},
+            {"exercici": "Gambades", "series_repeticions": "3 × 10", "descripcio": "Gambades alternades."},
+            {"exercici": "Ponts de glutis", "series_repeticions": "3 × 12", "descripcio": "Eleva el maluc."},
+            {"exercici": "Elevacions de talons", "series_repeticions": "3 × 12", "descripcio": "Elevacions de talons."},
+            {"exercici": "Planxa", "series_repeticions": "3 × 30 s", "descripcio": "Planxa frontal."},
+            {"exercici": "Salts verticals", "series_repeticions": "3 × 8", "descripcio": "Salts verticals."}
+          ]
+        },
+        {
+          "hora": "19.00 – 19.40",
+          "nom": "Bàsquet",
+          "contingut": [
+            {"exercici": "Bot amb mà dreta i esquerra", "series_repeticions": "2 min per mà", "descripcio": "Bot amb cada mà."},
+            {"exercici": "Canvis de direcció amb pilota", "series_repeticions": "3 × 6", "descripcio": "Canvis de direcció botant."},
+            {"exercici": "Entrades", "series_repeticions": "15 (8 dreta 7 esquerra)", "descripcio": "Entrades a cistella."},
+            {"exercici": "Tirs", "series_repeticions": "20 (4 des de 5 posicions)", "descripcio": "Tirs des de diferents posicions."}
+          ]
+        }
+      ],
+      "dinar": {
+        "opcions": [
+          {"nom": "Arròs amb pollastre + amanida + fruita", "imatge": "arros-amb-pollastre-amanida.webp"},
+          {"nom": "Pasta amb tomàquet i tonyina + verdura + fruita", "imatge": "pasta-amb-tomaquet-i-tonyina-verdura-fruita.webp"},
+          {"nom": "Patata amb peix + amanida + fruita", "imatge": "patata-amb-peix-amanida-fruita.webp"}
+        ]
+      },
+      "berenar": {
+        "opcions": [
+          {"nom": "Iogurt", "imatge": "iogurt.webp"},
+          {"nom": "Pa amb formatge fresc + fruita", "imatge": "pa-amb-formatge-fresc-fruita.webp"},
+          {"nom": "Fruita + un grapat de fruits secs", "imatge": "fruita-fruits-secs.webp"}
+        ]
+      },
+      "sopar": {
+        "opcions": [
+          {"nom": "Truita de patata + amanida + fruita", "imatge": "truita-de-patata-amanida-fruita.webp"},
+          {"nom": "Peix al forn + verdures + pa + fruita", "imatge": "peix-al-forn-verdures-pa-fruita.webp"},
+          {"nom": "Pollastre amb patata + verdura", "imatge": "pollastre-patata-verdures.webp"}
+        ]
+      }
+    },
+    {
+      "dia": 6,
+      "titol": "Velocitat + control",
+      "tipus": "entrenament",
+      "esmorzar": {
+        "opcions": [
+          {"nom": "Pa amb tomàquet i oli d’oliva + llet + fruita", "imatge": "pa-amb-tomaquet-i-oli-doliva-llet-fruita.webp"},
+          {"nom": "Iogurt amb civada i maduixes", "imatge": "iogurt-amb-civada-i-maduixes.webp"},
+          {"nom": "Truita francesa + pa + una fruita", "imatge": "truita-francesa-pa-fruita.webp"}
+        ]
+      },
+      "mig_mati": {
+        "opcions": [
+          {"nom": "Pera + fruits secs", "imatge": "pera-fruits-secs.webp"},
+          {"nom": "Entrepà petit de pernil cuit", "imatge": "entrepa-petit-de-pernil-cuit.webp"},
+          {"nom": "Iogurt + plàtan", "imatge": "iogurt-platan.webp"}
+        ]
+      },
+      "sessions": [
+        {
+          "hora": "17.30 – 18.25",
+          "nom": "Velocitat + control",
+          "part_principal": [
+            {"exercici": "Trote", "series_repeticions": "8 min", "descripcio": "Trot a intensitat baixa."},
+            {"exercici": "Acceleracions", "series_repeticions": "5 × 15 m", "descripcio": "Acceleracions."},
+            {"exercici": "Desplaçaments laterals", "series_repeticions": "3 × 8", "descripcio": "Desplaçaments laterals."},
+            {"exercici": "Canvis de direcció", "series_repeticions": "3 × 6", "descripcio": "Canvis de direcció."},
+            {"exercici": "Salts laterals", "series_repeticions": "3 × 8", "descripcio": "Salts laterals."},
+            {"exercici": "Recepcions", "series_repeticions": "3 × 8", "descripcio": "Aterratges controlats."}
+          ]
+        }
+      ],
+      "dinar": {
+        "opcions": [
+          {"nom": "Llenties amb verdures i arròs + fruita", "imatge": "llenties-amb-verdures-i-arros-fruita.webp"},
+          {"nom": "Cigrons amb verdures + ou + pa + fruita", "imatge": "cigrons-amb-verdures-ou-pa-fruita.webp"},
+          {"nom": "Arròs amb verdures i pollastre + fruita", "imatge": "arros-amb-pollastre-verdures-fruita.webp"}
+        ]
+      },
+      "berenar": {
+        "opcions": [
+          {"nom": "Iogurt natural + fruita", "imatge": "iogurt-fruita.webp"},
+          {"nom": "Torrades amb formatge fresc", "imatge": "torrades-amb-formatge-fresc.webp"},
+          {"nom": "Plàtan + fruits secs", "imatge": "platan-fruits-secs.webp"}
+        ]
+      },
+      "sopar": {
+        "opcions": [
+          {"nom": "Peix + patata + verdures", "imatge": "peix-patata-verdures.webp"},
+          {"nom": "Truita francesa + amanida + pa", "imatge": "truita-francesa-amanida-pa.webp"},
+          {"nom": "Pollastre amb arròs + verdures", "imatge": "arros-amb-pollastre-i-verdures.webp"}
+        ]
+      }
+    },
+    {
+      "dia": 7,
+      "titol": "Descans",
+      "tipus": "descans",
+      "esmorzar": {
+        "opcions": [
+          {"nom": "Iogurt natural amb avena i plàtan", "imatge": "iogurt-natural-amb-avena-i-platan.webp"},
+          {"nom": "Torrades amb tomàquet i oli d’oliva + un got de llet + una fruita", "imatge": "torrades-amb-tomaquet-i-oli-doliva-llet-fruita.webp"},
+          {"nom": "Cereals integrals amb llet + una peça de fruita", "imatge": "cereals-integrals-amb-llet-fruita.webp"}
+        ]
+      },
+      "mig_mati": {
+        "opcions": [
+          {"nom": "Entrepà petit de formatge + una mandarina", "imatge": "entrepa-petit-de-formatge-una-mandarina.webp"},
+          {"nom": "Poma + un grapat de fruits secs", "imatge": "poma-fruits-secs.webp"},
+          {"nom": "Una fruita", "imatge": "una-fruita.webp"}
+        ]
+      },
+      "sessions": [
+        {
+          "hora": "",
+          "nom": "Dia de descans",
+          "contingut": [
+            {"exercici": "Descans complet", "series_repeticions": "", "descripcio": "Dia de descans. Prioritza el son, la hidratació i una alimentació adequada."}
+          ]
+        }
+      ],
+      "dinar": {
+        "opcions": [
+          {"nom": "Arròs amb pollastre + amanida + fruita", "imatge": "arros-amb-pollastre-amanida.webp"},
+          {"nom": "Pasta amb tomàquet i tonyina + verdura + fruita", "imatge": "pasta-amb-tomaquet-i-tonyina-verdura-fruita.webp"},
+          {"nom": "Patata amb peix + amanida + fruita", "imatge": "patata-amb-peix-amanida-fruita.webp"}
+        ]
+      },
+      "berenar": {
+        "opcions": [
+          {"nom": "Iogurt", "imatge": "iogurt.webp"},
+          {"nom": "Pa amb formatge fresc + fruita", "imatge": "pa-amb-formatge-fresc-fruita.webp"},
+          {"nom": "Fruita + un grapat de fruits secs", "imatge": "fruita-fruits-secs.webp"}
+        ]
+      },
+      "sopar": {
+        "opcions": [
+          {"nom": "Truita de patata + amanida + fruita", "imatge": "truita-de-patata-amanida-fruita.webp"},
+          {"nom": "Peix al forn + verdures + pa + fruita", "imatge": "peix-al-forn-verdures-pa-fruita.webp"},
+          {"nom": "Pollastre amb patata + verdura", "imatge": "pollastre-patata-verdures.webp"}
+        ]
+      }
+    },
+    {
+      "dia": 8,
+      "titol": "Força + acceleracions",
+      "tipus": "entrenament",
+      "esmorzar": {
+        "opcions": [
+          {"nom": "Pa amb tomàquet i oli d’oliva + llet + fruita", "imatge": "pa-amb-tomaquet-i-oli-doliva-llet-fruita.webp"},
+          {"nom": "Iogurt amb civada i maduixes", "imatge": "iogurt-amb-civada-i-maduixes.webp"},
+          {"nom": "Truita francesa + pa + una fruita", "imatge": "truita-francesa-pa-fruita.webp"}
+        ]
+      },
+      "mig_mati": {
+        "opcions": [
+          {"nom": "Pera + fruits secs", "imatge": "pera-fruits-secs.webp"},
+          {"nom": "Entrepà petit de pernil cuit", "imatge": "entrepa-petit-de-pernil-cuit.webp"},
+          {"nom": "Iogurt + plàtan", "imatge": "iogurt-platan.webp"}
+        ]
+      },
+      "sessions": [
+        {
+          "hora": "7.15 – 7.30",
+          "nom": "Activació molt suau",
+          "contingut": [
+            {"exercici": "Estiraments", "series_repeticions": "8 min", "descripcio": "Estiraments suaus."}
+          ]
+        },
+        {
+          "hora": "17.15 – 18.25",
+          "nom": "Força + acceleracions",
+          "part_principal": [
+            {"exercici": "Esquats", "series_repeticions": "3 × 10", "descripcio": "Esquat amb pes corporal."},
+            {"exercici": "Gambades", "series_repeticions": "3 × 10", "descripcio": "Gambades alternades."},
+            {"exercici": "Ponts de glutis", "series_repeticions": "3 × 12", "descripcio": "Eleva el maluc."},
+            {"exercici": "Elevacions de talons", "series_repeticions": "3 × 12", "descripcio": "Elevacions de talons."},
+            {"exercici": "Salts verticals", "series_repeticions": "3 × 8", "descripcio": "Salts verticals."},
+            {"exercici": "Acceleracions", "series_repeticions": "4 × 15 m", "descripcio": "Acceleracions."},
+            {"exercici": "Recepcions", "series_repeticions": "3 × 8", "descripcio": "Aterratges controlats."}
+          ]
+        }
+      ],
+      "dinar": {
+        "opcions": [
+          {"nom": "Llenties amb verdures i arròs + fruita", "imatge": "llenties-amb-verdures-i-arros-fruita.webp"},
+          {"nom": "Cigrons amb verdures + ou + pa + fruita", "imatge": "cigrons-amb-verdures-ou-pa-fruita.webp"},
+          {"nom": "Arròs amb verdures i pollastre + fruita", "imatge": "arros-amb-pollastre-verdures-fruita.webp"}
+        ]
+      },
+      "berenar": {
+        "opcions": [
+          {"nom": "Iogurt natural + fruita", "imatge": "iogurt-fruita.webp"},
+          {"nom": "Torrades amb formatge fresc", "imatge": "torrades-amb-formatge-fresc.webp"},
+          {"nom": "Plàtan + fruits secs", "imatge": "platan-fruits-secs.webp"}
+        ]
+      },
+      "sopar": {
+        "opcions": [
+          {"nom": "Peix + patata + verdures", "imatge": "peix-patata-verdures.webp"},
+          {"nom": "Truita francesa + amanida + pa", "imatge": "truita-francesa-amanida-pa.webp"},
+          {"nom": "Pollastre amb arròs + verdures", "imatge": "arros-amb-pollastre-i-verdures.webp"}
+        ]
+      }
+    },
+    {
+      "dia": 9,
+      "titol": "Control neuromuscular + bàsquet",
+      "tipus": "entrenament",
+      "esmorzar": {
+        "opcions": [
+          {"nom": "Iogurt natural amb avena i plàtan", "imatge": "iogurt-natural-amb-avena-i-platan.webp"},
+          {"nom": "Torrades amb tomàquet i oli d’oliva + un got de llet + una fruita", "imatge": "torrades-amb-tomaquet-i-oli-doliva-llet-fruita.webp"},
+          {"nom": "Cereals integrals amb llet + una peça de fruita", "imatge": "cereals-integrals-amb-llet-fruita.webp"}
+        ]
+      },
+      "mig_mati": {
+        "opcions": [
+          {"nom": "Entrepà petit de formatge + una mandarina", "imatge": "entrepa-petit-de-formatge-una-mandarina.webp"},
+          {"nom": "Poma + un grapat de fruits secs", "imatge": "poma-fruits-secs.webp"},
+          {"nom": "Una fruita", "imatge": "una-fruita.webp"}
+        ]
+      },
+      "sessions": [
+        {
+          "hora": "17.45 – 18.30",
+          "nom": "Control neuromuscular",
+          "part_principal": [
+            {"exercici": "Trote", "series_repeticions": "8 min", "descripcio": "Trot a intensitat baixa."},
+            {"exercici": "Salts laterals", "series_repeticions": "3 × 8", "descripcio": "Salts laterals."},
+            {"exercici": "Recepcions", "series_repeticions": "3 × 8", "descripcio": "Aterratges controlats."},
+            {"exercici": "Canvis de direcció", "series_repeticions": "3 × 8", "descripcio": "Canvis de direcció."},
+            {"exercici": "Acceleracions", "series_repeticions": "4 × 15 m", "descripcio": "Acceleracions."}
+          ]
+        },
+        {
+          "hora": "19.00 – 19.40",
+          "nom": "Bàsquet",
+          "contingut": [
+            {"exercici": "Bot amb mà dreta i esquerra", "series_repeticions": "2 min per mà", "descripcio": "Bot amb cada mà."},
+            {"exercici": "Canvi de ritme amb pilota", "series_repeticions": "4 × 20 s", "descripcio": "Canvis de ritme botant."},
+            {"exercici": "Entrades", "series_repeticions": "15 (8 dreta 7 esquerra)", "descripcio": "Entrades a cistella."},
+            {"exercici": "Tirs", "series_repeticions": "20 (4 des de 5 posicions)", "descripcio": "Tirs des de diferents posicions."}
+          ]
+        }
+      ],
+      "dinar": {
+        "opcions": [
+          {"nom": "Arròs amb pollastre + amanida + fruita", "imatge": "arros-amb-pollastre-amanida.webp"},
+          {"nom": "Pasta amb tomàquet i tonyina + verdura + fruita", "imatge": "pasta-amb-tomaquet-i-tonyina-verdura-fruita.webp"},
+          {"nom": "Patata amb peix + amanida + fruita", "imatge": "patata-amb-peix-amanida-fruita.webp"}
+        ]
+      },
+      "berenar": {
+        "opcions": [
+          {"nom": "Iogurt", "imatge": "iogurt.webp"},
+          {"nom": "Pa amb formatge fresc + fruita", "imatge": "pa-amb-formatge-fresc-fruita.webp"},
+          {"nom": "Fruita + un grapat de fruits secs", "imatge": "fruita-fruits-secs.webp"}
+        ]
+      },
+      "sopar": {
+        "opcions": [
+          {"nom": "Truita de patata + amanida + fruita", "imatge": "truita-de-patata-amanida-fruita.webp"},
+          {"nom": "Peix al forn + verdures + pa + fruita", "imatge": "peix-al-forn-verdures-pa-fruita.webp"},
+          {"nom": "Pollastre amb patata + verdura", "imatge": "pollastre-patata-verdures.webp"}
+        ]
+      }
+    },
+    {
+      "dia": 10,
+      "titol": "Recuperació activa",
+      "tipus": "recuperacio",
+      "esmorzar": {
+        "opcions": [
+          {"nom": "Pa amb tomàquet i oli d’oliva + llet + fruita", "imatge": "pa-amb-tomaquet-i-oli-doliva-llet-fruita.webp"},
+          {"nom": "Iogurt amb civada i maduixes", "imatge": "iogurt-amb-civada-i-maduixes.webp"},
+          {"nom": "Truita francesa + pa + una fruita", "imatge": "truita-francesa-pa-fruita.webp"}
+        ]
+      },
+      "mig_mati": {
+        "opcions": [
+          {"nom": "Pera + fruits secs", "imatge": "pera-fruits-secs.webp"},
+          {"nom": "Entrepà petit de pernil cuit", "imatge": "entrepa-petit-de-pernil-cuit.webp"},
+          {"nom": "Iogurt + plàtan", "imatge": "iogurt-platan.webp"}
+        ]
+      },
+      "sessions": [
+        {
+          "hora": "18.00 – 18.35",
+          "nom": "Recuperació activa",
+          "contingut": [
+            {"exercici": "Caminada", "series_repeticions": "", "descripcio": "Caminada suau."},
+            {"exercici": "Mobilitat de turmells i malucs", "series_repeticions": "5 min", "descripcio": "Mobilitat de turmells i malucs."},
+            {"exercici": "Estiraments suaus", "series_repeticions": "", "descripcio": "Estiraments suaus."}
+          ]
+        }
+      ],
+      "dinar": {
+        "opcions": [
+          {"nom": "Llenties amb verdures i arròs + fruita", "imatge": "llenties-amb-verdures-i-arros-fruita.webp"},
+          {"nom": "Cigrons amb verdures + ou + pa + fruita", "imatge": "cigrons-amb-verdures-ou-pa-fruita.webp"},
+          {"nom": "Arròs amb verdures i pollastre + fruita", "imatge": "arros-amb-pollastre-verdures-fruita.webp"}
+        ]
+      },
+      "berenar": {
+        "opcions": [
+          {"nom": "Iogurt natural + fruita", "imatge": "iogurt-fruita.webp"},
+          {"nom": "Torrades amb formatge fresc", "imatge": "torrades-amb-formatge-fresc.webp"},
+          {"nom": "Plàtan + fruits secs", "imatge": "platan-fruits-secs.webp"}
+        ]
+      },
+      "sopar": {
+        "opcions": [
+          {"nom": "Peix + patata + verdures", "imatge": "peix-patata-verdures.webp"},
+          {"nom": "Truita francesa + amanida + pa", "imatge": "truita-francesa-amanida-pa.webp"},
+          {"nom": "Pollastre amb arròs + verdures", "imatge": "arros-amb-pollastre-i-verdures.webp"}
+        ]
+      }
+    },
+    {
+      "dia": 11,
+      "titol": "Força",
+      "tipus": "entrenament",
+      "esmorzar": {
+        "opcions": [
+          {"nom": "Iogurt natural amb avena i plàtan", "imatge": "iogurt-natural-amb-avena-i-platan.webp"},
+          {"nom": "Torrades amb tomàquet i oli d’oliva + un got de llet + una fruita", "imatge": "torrades-amb-tomaquet-i-oli-doliva-llet-fruita.webp"},
+          {"nom": "Cereals integrals amb llet + una peça de fruita", "imatge": "cereals-integrals-amb-llet-fruita.webp"}
+        ]
+      },
+      "mig_mati": {
+        "opcions": [
+          {"nom": "Entrepà petit de formatge + una mandarina", "imatge": "entrepa-petit-de-formatge-una-mandarina.webp"},
+          {"nom": "Poma + un grapat de fruits secs", "imatge": "poma-fruits-secs.webp"},
+          {"nom": "Una fruita", "imatge": "una-fruita.webp"}
+        ]
+      },
+      "sessions": [
+        {
+          "hora": "17.15 – 18.25",
+          "nom": "Força",
+          "part_principal": [
+            {"exercici": "Esquats", "series_repeticions": "3 × 12", "descripcio": "Esquat amb pes corporal."},
+            {"exercici": "Gambades", "series_repeticions": "3 × 10", "descripcio": "Gambades alternades."},
+            {"exercici": "Ponts de glutis", "series_repeticions": "3 × 12", "descripcio": "Eleva el maluc."},
+            {"exercici": "Elevacions de talons", "series_repeticions": "3 × 12", "descripcio": "Elevacions de talons."},
+            {"exercici": "Planxa", "series_repeticions": "3 × 30 s", "descripcio": "Planxa frontal."},
+            {"exercici": "Salts verticals", "series_repeticions": "3 × 8", "descripcio": "Salts verticals."}
+          ]
+        }
+      ],
+      "dinar": {
+        "opcions": [
+          {"nom": "Arròs amb pollastre + amanida + fruita", "imatge": "arros-amb-pollastre-amanida.webp"},
+          {"nom": "Pasta amb tomàquet i tonyina + verdura + fruita", "imatge": "pasta-amb-tomaquet-i-tonyina-verdura-fruita.webp"},
+          {"nom": "Patata amb peix + amanida + fruita", "imatge": "patata-amb-peix-amanida-fruita.webp"}
+        ]
+      },
+      "berenar": {
+        "opcions": [
+          {"nom": "Iogurt", "imatge": "iogurt.webp"},
+          {"nom": "Pa amb formatge fresc + fruita", "imatge": "pa-amb-formatge-fresc-fruita.webp"},
+          {"nom": "Fruita + un grapat de fruits secs", "imatge": "fruita-fruits-secs.webp"}
+        ]
+      },
+      "sopar": {
+        "opcions": [
+          {"nom": "Truita de patata + amanida + fruita", "imatge": "truita-de-patata-amanida-fruita.webp"},
+          {"nom": "Peix al forn + verdures + pa + fruita", "imatge": "peix-al-forn-verdures-pa-fruita.webp"},
+          {"nom": "Pollastre amb patata + verdura", "imatge": "pollastre-patata-verdures.webp"}
+        ]
+      }
+    },
+    {
+      "dia": 12,
+      "titol": "Entrenament amb l'equip",
+      "tipus": "club",
+      "esmorzar": {
+        "opcions": [
+          {"nom": "Pa amb tomàquet i oli d’oliva + llet + fruita", "imatge": "pa-amb-tomaquet-i-oli-doliva-llet-fruita.webp"},
+          {"nom": "Iogurt amb civada i maduixes", "imatge": "iogurt-amb-civada-i-maduixes.webp"},
+          {"nom": "Truita francesa + pa + una fruita", "imatge": "truita-francesa-pa-fruita.webp"}
+        ]
+      },
+      "mig_mati": {
+        "opcions": [
+          {"nom": "Pera + fruits secs", "imatge": "pera-fruits-secs.webp"},
+          {"nom": "Entrepà petit de pernil cuit", "imatge": "entrepa-petit-de-pernil-cuit.webp"},
+          {"nom": "Iogurt + plàtan", "imatge": "iogurt-platan.webp"}
+        ]
+      },
+      "sessions": [
+        {
+          "hora": "",
+          "nom": "Entrenament amb l'equip",
+          "contingut": [
+            {"exercici": "Entrenament amb l'equip", "series_repeticions": "", "descripcio": "Realitzar únicament l’entrenament habitual amb l’equip. No afegir treball físic complementari."}
+          ]
+        }
+      ],
+      "dinar": {
+        "opcions": [
+          {"nom": "Llenties amb verdures i arròs + fruita", "imatge": "llenties-amb-verdures-i-arros-fruita.webp"},
+          {"nom": "Cigrons amb verdures + ou + pa + fruita", "imatge": "cigrons-amb-verdures-ou-pa-fruita.webp"},
+          {"nom": "Arròs amb verdures i pollastre + fruita", "imatge": "arros-amb-pollastre-verdures-fruita.webp"}
+        ]
+      },
+      "berenar": {
+        "opcions": [
+          {"nom": "Iogurt natural + fruita", "imatge": "iogurt-fruita.webp"},
+          {"nom": "Torrades amb formatge fresc", "imatge": "torrades-amb-formatge-fresc.webp"},
+          {"nom": "Plàtan + fruits secs", "imatge": "platan-fruits-secs.webp"}
+        ]
+      },
+      "sopar": {
+        "opcions": [
+          {"nom": "Peix + patata + verdures", "imatge": "peix-patata-verdures.webp"},
+          {"nom": "Truita francesa + amanida + pa", "imatge": "truita-francesa-amanida-pa.webp"},
+          {"nom": "Pollastre amb arròs + verdures", "imatge": "arros-amb-pollastre-i-verdures.webp"}
+        ]
+      }
+    },
+    {
+      "dia": 13,
+      "titol": "Recuperació activa",
+      "tipus": "recuperacio",
+      "esmorzar": {
+        "opcions": [
+          {"nom": "Iogurt natural amb avena i plàtan", "imatge": "iogurt-natural-amb-avena-i-platan.webp"},
+          {"nom": "Torrades amb tomàquet i oli d’oliva + un got de llet + una fruita", "imatge": "torrades-amb-tomaquet-i-oli-doliva-llet-fruita.webp"},
+          {"nom": "Cereals integrals amb llet + una peça de fruita", "imatge": "cereals-integrals-amb-llet-fruita.webp"}
+        ]
+      },
+      "mig_mati": {
+        "opcions": [
+          {"nom": "Entrepà petit de formatge + una mandarina", "imatge": "entrepa-petit-de-formatge-una-mandarina.webp"},
+          {"nom": "Poma + un grapat de fruits secs", "imatge": "poma-fruits-secs.webp"},
+          {"nom": "Una fruita", "imatge": "una-fruita.webp"}
+        ]
+      },
+      "sessions": [
+        {
+          "hora": "18.00 – 18.35",
+          "nom": "Recuperació activa",
+          "contingut": [
+            {"exercici": "Caminar", "series_repeticions": "15 min", "descripcio": "Caminada a intensitat baixa."},
+            {"exercici": "Mobilitat de turmells", "series_repeticions": "", "descripcio": "Mobilitat de turmells."},
+            {"exercici": "Mobilitat de malucs", "series_repeticions": "", "descripcio": "Mobilitat de malucs."},
+            {"exercici": "Estiraments suaus", "series_repeticions": "", "descripcio": "Estiraments suaus."}
+          ]
+        }
+      ],
+      "dinar": {
+        "opcions": [
+          {"nom": "Arròs amb pollastre + amanida + fruita", "imatge": "arros-amb-pollastre-amanida.webp"},
+          {"nom": "Pasta amb tomàquet i tonyina + verdura + fruita", "imatge": "pasta-amb-tomaquet-i-tonyina-verdura-fruita.webp"},
+          {"nom": "Patata amb peix + amanida + fruita", "imatge": "patata-amb-peix-amanida-fruita.webp"}
+        ]
+      },
+      "berenar": {
+        "opcions": [
+          {"nom": "Iogurt", "imatge": "iogurt.webp"},
+          {"nom": "Pa amb formatge fresc + fruita", "imatge": "pa-amb-formatge-fresc-fruita.webp"},
+          {"nom": "Fruita + un grapat de fruits secs", "imatge": "fruita-fruits-secs.webp"}
+        ]
+      },
+      "sopar": {
+        "opcions": [
+          {"nom": "Truita de patata + amanida + fruita", "imatge": "truita-de-patata-amanida-fruita.webp"},
+          {"nom": "Peix al forn + verdures + pa + fruita", "imatge": "peix-al-forn-verdures-pa-fruita.webp"},
+          {"nom": "Pollastre amb patata + verdura", "imatge": "pollastre-patata-verdures.webp"}
+        ]
+      }
+    },
+    {
+      "dia": 14,
+      "titol": "Sessió completa + bàsquet",
+      "tipus": "entrenament",
+      "esmorzar": {
+        "opcions": [
+          {"nom": "Pa amb tomàquet i oli d’oliva + llet + fruita", "imatge": "pa-amb-tomaquet-i-oli-doliva-llet-fruita.webp"},
+          {"nom": "Iogurt amb civada i maduixes", "imatge": "iogurt-amb-civada-i-maduixes.webp"},
+          {"nom": "Truita francesa + pa + una fruita", "imatge": "truita-francesa-pa-fruita.webp"}
+        ]
+      },
+      "mig_mati": {
+        "opcions": [
+          {"nom": "Pera + fruits secs", "imatge": "pera-fruits-secs.webp"},
+          {"nom": "Entrepà petit de pernil cuit", "imatge": "entrepa-petit-de-pernil-cuit.webp"},
+          {"nom": "Iogurt + plàtan", "imatge": "iogurt-platan.webp"}
+        ]
+      },
+      "sessions": [
+        {
+          "hora": "17.15 – 18.25",
+          "nom": "Sessió completa",
+          "part_principal": [
+            {"exercici": "Trote", "series_repeticions": "8 min", "descripcio": "Trot a intensitat baixa."},
+            {"exercici": "Esquats", "series_repeticions": "3 × 10", "descripcio": "Esquat amb pes corporal."},
+            {"exercici": "Gambades", "series_repeticions": "3 × 10", "descripcio": "Gambades alternades."},
+            {"exercici": "Ponts de glutis", "series_repeticions": "3 × 10", "descripcio": "Eleva el maluc."},
+            {"exercici": "Elevacions de talons", "series_repeticions": "3 × 12", "descripcio": "Elevacions de talons."},
+            {"exercici": "Salts verticals", "series_repeticions": "3 × 8", "descripcio": "Salts verticals."},
+            {"exercici": "Acceleracions", "series_repeticions": "4 × 15 m", "descripcio": "Acceleracions."},
+            {"exercici": "Recepcions", "series_repeticions": "3 × 8", "descripcio": "Aterratges controlats."}
+          ]
+        },
+        {
+          "hora": "19.00 – 19.45",
+          "nom": "Bàsquet",
+          "contingut": [
+            {"exercici": "Bot", "series_repeticions": "", "descripcio": "Bot controlat."},
+            {"exercici": "Canvis de direcció", "series_repeticions": "", "descripcio": "Canvis de direcció."},
+            {"exercici": "Entrades", "series_repeticions": "", "descripcio": "Entrades a cistella."},
+            {"exercici": "Tirs", "series_repeticions": "", "descripcio": "Tirs a cistella."}
+          ]
+        }
+      ],
+      "dinar": {
+        "opcions": [
+          {"nom": "Llenties amb verdures i arròs + fruita", "imatge": "llenties-amb-verdures-i-arros-fruita.webp"},
+          {"nom": "Cigrons amb verdures + ou + pa + fruita", "imatge": "cigrons-amb-verdures-ou-pa-fruita.webp"},
+          {"nom": "Arròs amb verdures i pollastre + fruita", "imatge": "arros-amb-pollastre-verdures-fruita.webp"}
+        ]
+      },
+      "berenar": {
+        "opcions": [
+          {"nom": "Iogurt natural + fruita", "imatge": "iogurt-fruita.webp"},
+          {"nom": "Torrades amb formatge fresc", "imatge": "torrades-amb-formatge-fresc.webp"},
+          {"nom": "Plàtan + fruits secs", "imatge": "platan-fruits-secs.webp"}
+        ]
+      },
+      "sopar": {
+        "opcions": [
+          {"nom": "Peix + patata + verdures", "imatge": "peix-patata-verdures.webp"},
+          {"nom": "Truita francesa + amanida + pa", "imatge": "truita-francesa-amanida-pa.webp"},
+          {"nom": "Pollastre amb arròs + verdures", "imatge": "arros-amb-pollastre-i-verdures.webp"}
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,489 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "category": "Dades personals i esportives",
+      "question": "Quina és la teva edat?",
+      "type": "field",
+      "placeholder": "Ex. 16 anys",
+      "answers": []
+    },
+    {
+      "id": 2,
+      "category": "Dades personals i esportives",
+      "question": "Quin és el teu sexe?",
+      "type": "options",
+      "answers": [
+        "Masculí",
+        "Femení",
+        "Altre / Prefereixo no dir-ho"
+      ]
+    },
+    {
+      "id": 3,
+      "category": "Dades personals i esportives",
+      "question": "Quina és la teva alçada i el teu pes?",
+      "type": "fields",
+      "fields": [
+        {
+          "key": "height",
+          "label": "Alçada (cm)",
+          "placeholder": "Ex. 175"
+        },
+        {
+          "key": "weight",
+          "label": "Pes (kg)",
+          "placeholder": "Ex. 68"
+        }
+      ],
+      "answers": []
+    },
+    {
+      "id": 4,
+      "category": "Dades personals i esportives",
+      "question": "Quina modalitat de futbol practiques principalment?",
+      "type": "options",
+      "answers": [
+        "Futbol 11",
+        "Futbol 7",
+        "Futbol Sala"
+      ]
+    },
+    {
+      "id": 5,
+      "category": "Dades personals i esportives",
+      "question": "A quina categoria competeixes actualment?",
+      "type": "options",
+      "answers": [
+        "Infantil (12-13 anys)",
+        "Cadet (14-15 anys)",
+        "Juvenil (16-18 anys)",
+        "Amateur / Sènior"
+      ]
+    },
+    {
+      "id": 6,
+      "category": "Dades personals i esportives",
+      "question": "Quants anys d'experiència tens jugant a futbol?",
+      "type": "options",
+      "answers": [
+        "Menys d'1 any",
+        "1 a 3 anys",
+        "4 a 6 anys",
+        "Més de 6 anys"
+      ]
+    },
+    {
+      "id": 7,
+      "category": "Dades personals i esportives",
+      "question": "Quants dies entrenes amb el teu equip per setmana?",
+      "type": "slider",
+      "min": 1,
+      "max": 7,
+      "step": 1,
+      "unit": "dies/setmana",
+      "answers": []
+    },
+    {
+      "id": 8,
+      "category": "Dades personals i esportives",
+      "question": "Quantes hores d'entrenament fas a la setmana aproximadament?",
+      "type": "slider",
+      "min": 1,
+      "max": 15,
+      "step": 1,
+      "unit": "hores",
+      "answers": []
+    },
+    {
+      "id": 9,
+      "category": "Dades personals i esportives",
+      "question": "Quin és el teu objectiu esportiu principal?",
+      "type": "options",
+      "answers": [
+        "Millorar el rendiment físic i la velocitat",
+        "Prevenir lesions i reforçar la musculatura",
+        "Arribar al màxim nivell competitiu",
+        "Mantenir-me en forma i gaudir de l'esport"
+      ]
+    },
+    {
+      "id": 10,
+      "category": "Son i descans",
+      "question": "Quantes hores dorms cada nit de mitjana?",
+      "type": "slider",
+      "min": 4.0,
+      "max": 12.0,
+      "step": 0.5,
+      "unit": "hores",
+      "answers": []
+    },
+    {
+      "id": 11,
+      "category": "Son i descans",
+      "question": "Com valores la qualitat del teu son habitualment?",
+      "type": "slider",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "unit": "/ 5",
+      "answers": []
+    },
+    {
+      "id": 12,
+      "category": "Son i descans",
+      "question": "A quina hora acostumes a anar a dormir i a llevar-te?",
+      "type": "fields",
+      "fields": [
+        {
+          "key": "bedtime",
+          "label": "Hora d'anar a dormir",
+          "placeholder": "Ex. 23:00"
+        },
+        {
+          "key": "waketime",
+          "label": "Hora de llevar-se",
+          "placeholder": "Ex. 07:30"
+        }
+      ],
+      "answers": []
+    },
+    {
+      "id": 13,
+      "category": "Son i descans",
+      "question": "Com és la teva sensació de descans en despertar-te?",
+      "type": "options",
+      "answers": [
+        "Molt descansat i amb molta energia",
+        "Prou descansat per afrontar el dia",
+        "Una mica cansat / fatiga lleu",
+        "Molt cansat i sense energia"
+      ]
+    },
+    {
+      "id": 14,
+      "category": "Nutrició i hidratació",
+      "question": "Quants àpats fas al llarg del dia?",
+      "type": "options",
+      "answers": [
+        "2 àpats",
+        "3 àpats",
+        "4 àpats",
+        "5 o més àpats"
+      ]
+    },
+    {
+      "id": 15,
+      "category": "Nutrició i hidratació",
+      "question": "Amb quina freqüència consumeixes fruita i verdura?",
+      "type": "options",
+      "answers": [
+        "Diàriament (3 o més racions)",
+        "Diàriament (1 o 2 racions)",
+        "Alguns dies a la setmana",
+        "Rarament o mai"
+      ]
+    },
+    {
+      "id": 16,
+      "category": "Nutrició i hidratació",
+      "question": "Quanta aigua beus diàriament aproximadament?",
+      "type": "slider",
+      "min": 0.5,
+      "max": 4.0,
+      "step": 0.5,
+      "unit": "litres",
+      "answers": []
+    },
+    {
+      "id": 17,
+      "category": "Nutrició i hidratació",
+      "question": "Esmorzes o menges adequadament abans d'anar a entrenar?",
+      "type": "options",
+      "answers": [
+        "Sempre un esmorzar complet",
+        "La majoria de vegades",
+        "De vegades / només quelcom ràpid",
+        "Gairebé mai entreno en dejú"
+      ]
+    },
+    {
+      "id": 18,
+      "category": "Nutrició i hidratació",
+      "question": "Fas un àpat o refrigeri recuperador després de l'entrenament?",
+      "type": "options",
+      "answers": [
+        "Sempre (proteïna + carbohidrats)",
+        "Sovint",
+        "De vegades",
+        "Gairebé mai"
+      ]
+    },
+    {
+      "id": 19,
+      "category": "Recuperació muscular",
+      "question": "Quin nivell de dolor o sobrecàrrega muscular sents habitualment?",
+      "type": "slider",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "unit": "/ 10",
+      "answers": []
+    },
+    {
+      "id": 20,
+      "category": "Recuperació muscular",
+      "question": "Quant de temps dediques a fer estiraments després d'entrenar?",
+      "type": "options",
+      "answers": [
+        "Més de 15 minuts",
+        "Entre 5 i 15 minuts",
+        "Menys de 5 minuts",
+        "No faig estiraments"
+      ]
+    },
+    {
+      "id": 21,
+      "category": "Recuperació muscular",
+      "question": "Utilitzes foam roller, banys de contrast o massatges de recuperació?",
+      "type": "options",
+      "answers": [
+        "Sí, habitualment (rutina fixa)",
+        "Ocasionalment (1-2 cops per setmana)",
+        "Rarament",
+        "No ho utilitzo mai"
+      ]
+    },
+    {
+      "id": 22,
+      "category": "Recuperació muscular",
+      "question": "Quants dies de descans total fas a la setmana?",
+      "type": "slider",
+      "min": 0,
+      "max": 4,
+      "step": 1,
+      "unit": "dies",
+      "answers": []
+    },
+    {
+      "id": 23,
+      "category": "Salut mental i benestar",
+      "question": "Quin és el teu nivell d'estrès habitual (estudis, vida diària)?",
+      "type": "slider",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "unit": "/ 10",
+      "answers": []
+    },
+    {
+      "id": 24,
+      "category": "Salut mental i benestar",
+      "question": "Quina és la teva motivació per anar a entrenar i jugar partits?",
+      "type": "slider",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "unit": "/ 10",
+      "answers": []
+    },
+    {
+      "id": 25,
+      "category": "Salut mental i benestar",
+      "question": "Com valoraries el teu estat d'ànim general durant la setmana?",
+      "type": "slider",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "unit": "/ 10",
+      "answers": []
+    },
+    {
+      "id": 26,
+      "category": "Salut mental i benestar",
+      "question": "Quina sensació de cansament o esgotament mental tens habitualment?",
+      "type": "options",
+      "answers": [
+        "Gens, em sento fresc i enfocat",
+        "Lleu, en dies puntuals",
+        "Moderat, m'afecta el rendiment de vegades",
+        "Elevat, em sento sobrecarregat sovint"
+      ]
+    },
+    {
+      "id": 27,
+      "category": "Hàbits saludables",
+      "question": "Quant temps passes davant de pantalles abans de dormir?",
+      "type": "slider",
+      "min": 0.0,
+      "max": 4.0,
+      "step": 0.5,
+      "unit": "hores",
+      "answers": []
+    },
+    {
+      "id": 28,
+      "category": "Hàbits saludables",
+      "question": "Quantes begudes energètiques o refrescos ensucrats prens a la setmana?",
+      "type": "options",
+      "answers": [
+        "Cap (0 a la setmana)",
+        "1 o 2 a la setmana",
+        "3 a 5 a la setmana",
+        "Diàriament (més de 5)"
+      ]
+    },
+    {
+      "id": 29,
+      "category": "Hàbits saludables",
+      "question": "Compleixes amb regularitat els teus horaris de son?",
+      "type": "options",
+      "answers": [
+        "Sempre, mantinc horaris molt fixos",
+        "Gairebé sempre entre setmana",
+        "Variable segons el dia",
+        "Molt irregular"
+      ]
+    },
+    {
+      "id": 30,
+      "category": "Prevenció de lesions",
+      "question": "Fas un escalfament complet abans dels entrenaments o partits?",
+      "type": "options",
+      "answers": [
+        "Sí, complet (mobilitat, cursa, activació)",
+        "Sovint, però breu (menys de 5 minuts)",
+        "Només toco pilota directament",
+        "No faig escalfament previ"
+      ]
+    },
+    {
+      "id": 31,
+      "category": "Prevenció de lesions",
+      "question": "Realitzes tornada a la calma en acabar l'activitat?",
+      "type": "options",
+      "answers": [
+        "Sí, sempre (trot suau, respiració)",
+        "Només després de partits o dies intensos",
+        "De vegades",
+        "Gairebé mai"
+      ]
+    },
+    {
+      "id": 32,
+      "category": "Prevenció de lesions",
+      "question": "Fas exercicis preventius específics (propiocepció, força, estabilitat)?",
+      "type": "options",
+      "answers": [
+        "Sí, 2 o més cops per setmana",
+        "Un cop per setmana",
+        "Només quan noto alguna molèstia",
+        "Mai en faig"
+      ]
+    },
+    {
+      "id": 33,
+      "category": "Prevenció de lesions",
+      "question": "Has tingut alguna lesió durant aquesta temporada o l'anterior?",
+      "type": "options",
+      "answers": [
+        "No, cap lesió",
+        "Sí, molèsties musculars lleus",
+        "Sí, una lesió que em va aturar",
+        "Sí, múltiples lesions repetides"
+      ]
+    },
+    {
+      "id": 34,
+      "category": "Prevenció de lesions",
+      "question": "Quina ha estat la principal zona del cos afectada per molèsties o lesions?",
+      "type": "options",
+      "answers": [
+        "Cap molèstia recent",
+        "Isquiotibials / Quàdriceps",
+        "Turmell / Peu",
+        "Genoll / Lligaments",
+        "Adductors / Púbis",
+        "Altra zona muscular / articular"
+      ]
+    },
+    {
+      "id": 35,
+      "category": "Prevenció de lesions",
+      "question": "Quants dies totals de baixa esportiva vas tenir per lesió?",
+      "type": "options",
+      "answers": [
+        "0 dies (sense baixa)",
+        "1 a 7 dies (menys d'una setmana)",
+        "1 a 3 setmanes",
+        "1 a 2 mesos",
+        "Més de 2 mesos"
+      ]
+    },
+    {
+      "id": 36,
+      "category": "Proves físiques",
+      "question": "Salt vertical (Test de Sargent)",
+      "type": "field",
+      "placeholder": "Ex. 35",
+      "explanation": "Aquesta prova avalua la potència explosiva del tren inferior (cames). Consisteix a saltar verticalment el més alt possible des d'una posició estàtica, mesurant la diferència entre la marca d'abast màxim de l'atleta estant dempeus i la marca més alta assolida durant el salt enlaire. Unitat de mesura: centímetres (cm).",
+      "imageName": "excersise_salt_vertical",
+      "inputType": "decimal",
+      "minValue": 0,
+      "maxValue": 100,
+      "answers": []
+    },
+    {
+      "id": 37,
+      "category": "Proves físiques",
+      "question": "Salt horitzontal a una cama",
+      "type": "field",
+      "placeholder": "Ex. 180",
+      "explanation": "Aquest exercici mesura la força unilateral, la potència explosiva i l'equilibri de l'atleta. Consisteix a fer un salt cap endavant impulsant-se amb una sola cama, intentant cobrir la màxima distància possible i aterrant de manera controlada sobre la mateixa cama. Unitat de mesura: centímetres (cm) o metres (m).",
+      "imageName": "excersise_salt_horitzontal_a_una_cama",
+      "inputType": "decimal",
+      "minValue": 0,
+      "maxValue": 300,
+      "answers": []
+    },
+    {
+      "id": 38,
+      "category": "Proves físiques",
+      "question": "Esprint de 30 metres",
+      "type": "field",
+      "placeholder": "Ex. 4.50",
+      "explanation": "Prova dissenyada per avaluar la velocitat màxima d'acceleració i la potència anaeròbica. L'atleta arrenca des d'una posició estàtica i ha de recórrer una distància de 30 metres en línia recta en el menor temps possible, arribant a la seva velocitat màxima. Unitat de mesura: segons (s) i centèsimes de segon.",
+      "imageName": "excersise_sprint_30m",
+      "inputType": "decimal",
+      "minValue": 0,
+      "maxValue": 10,
+      "answers": []
+    },
+    {
+      "id": 39,
+      "category": "Proves físiques",
+      "question": "Esquats bàsics (60 segons)",
+      "type": "field",
+      "placeholder": "Ex. 45",
+      "explanation": "Aquest test avalua la resistència muscular i la força de la part inferior del cos (cuixes, glutis i panxells). L'objectiu de la prova és realitzar el màxim nombre possible d'esquats complets, mantenint una tècnica correcta i el tronc recte, durant un temps límit d'un minut. Unitat de mesura: nombre de repeticions (quantitat d'esquats completats).",
+      "imageName": "excersise_squat_60s",
+      "inputType": "integer",
+      "minValue": 0,
+      "maxValue": 100,
+      "answers": []
+    },
+    {
+      "id": 40,
+      "category": "Proves físiques",
+      "question": "Test d'agilitat en T (4 cons)",
+      "type": "field",
+      "placeholder": "Ex. 11.50",
+      "explanation": "Aquesta prova mesura l'agilitat i els canvis de direcció. Col·loca els cons en forma de T com al dibuix: S (sortida, a baix), A (centre), B (fons), C (esquerra) i D (dreta). Surt de S, esprinta fins a A, desplaça't lateralment fins a B, després fins a C, torna a A i retrocedeix fins a S. Unitat de mesura: segons (s) i centèsimes de segon.",
+      "diagram": "t_test",
+      "inputType": "decimal",
+      "minValue": 0,
+      "maxValue": 25,
+      "answers": []
+    }
+  ]
+}
