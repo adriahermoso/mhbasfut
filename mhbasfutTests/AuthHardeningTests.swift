@@ -60,7 +60,8 @@ final class AuthHardeningTests: XCTestCase {
     // MARK: - Tabla de credenciales: solo hashes
 
     func testCredentialTableStoresHashesNotPasswords() {
-        XCTAssertEqual(StudentAccounts.credentials.count, 8)
+        // 7 alumnos + Admin + 5 profesores.
+        XCTAssertEqual(StudentAccounts.credentials.count, 13)
         for (username, credential) in StudentAccounts.credentials {
             XCTAssertEqual(credential.hash.count, 64, "El hash de \(username) debe ser SHA-256 en hexadecimal")
             XCTAssertTrue(credential.hash.allSatisfy { "0123456789abcdef".contains($0) })
@@ -87,6 +88,30 @@ final class AuthHardeningTests: XCTestCase {
         XCTAssertEqual(StudentAccounts.canonicalUsername("GONZALOSCHIAVO"), "GonzaloSchiavo")
         XCTAssertNil(StudentAccounts.canonicalUsername("desconocido"))
         XCTAssertNil(StudentAccounts.verify(username: "EloiRomero", password: "mala"))
+    }
+
+    // MARK: - Cuentas de profesor (sin datos en GitHub)
+
+    /// `professor1`…`professor5`: contraseña simple (la misma que el
+    /// usuario), validación normal y CERO subidas — no se crea ningún
+    /// `users/professorN.json`, así que la web no muestra nada suyo.
+    func testProfessorAccountsSignInButNeverUpload() {
+        for i in 1...5 {
+            let username = "professor\(i)"
+            XCTAssertEqual(StudentAccounts.verify(username: username, password: username), username)
+            // Mayúsculas y espacios no estorban al entrar.
+            XCTAssertEqual(StudentAccounts.verify(username: " PROFESSOR\(i) ", password: username), username)
+            // Cualquier otra contraseña → rechazo.
+            XCTAssertNil(StudentAccounts.verify(username: username, password: "otra"))
+            // Rol de profesor y, sobre todo, ningún destino de subida.
+            XCTAssertTrue(StudentAccounts.isAdmin(username: username))
+            XCTAssertNil(GitHubSyncService.uploadTarget(username: username))
+            XCTAssertNil(GitHubSyncService.uploadTarget(username: "  \(username)  "))
+        }
+        // Los alumnos reales siguen subiendo con normalidad.
+        XCTAssertEqual(GitHubSyncService.uploadTarget(username: "MarcelRosell"), "MarcelRosell")
+        // Una cuenta inventada no existe.
+        XCTAssertNil(StudentAccounts.verify(username: "professor9", password: "professor9"))
     }
 
     // MARK: - Bloqueo local
