@@ -14,3 +14,13 @@ __pycache__/
 
 # Node / eines
 node_modules/
+
+# Xcode
+.build/
+build/
+xcuserdata/
+
+# Credencial de sincronització: mai versionar.
+GitHubToken.plist
+github_pat.txt
+Secrets.xcconfig
