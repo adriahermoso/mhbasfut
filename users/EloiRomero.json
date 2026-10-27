@@ -352,7 +352,7 @@
   "equippedItems" : {
     "pelo" : 0
   },
-  "exportedAt" : "2026-10-26T21:54:42Z",
+  "exportedAt" : "2026-10-27T19:07:30Z",
   "lastSport" : null,
   "level" : 0,
   "ownedItems" : [
@@ -503,6 +503,10 @@
     },
     {
       "date" : "2026-10-26T21:54:42Z",
+      "rating" : 1
+    },
+    {
+      "date" : "2026-10-27T19:07:30Z",
       "rating" : 1
     }
   ],
