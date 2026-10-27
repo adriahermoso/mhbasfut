@@ -8,7 +8,7 @@
   "characterName" : "CharacterName",
   "coins" : 0,
   "completedCycles" : 1,
-  "currentDay" : 4,
+  "currentDay" : 9,
   "cycleNumber" : 2,
   "days" : [
     {
@@ -65,16 +65,25 @@
       }
     },
     {
-      "completed" : false,
+      "completed" : true,
       "completedStages" : [
-        0
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
       ],
       "day" : 4,
       "intensities" : {
-
+        "2" : 5
       },
       "selectedMeals" : {
-        "0" : 0
+        "0" : 0,
+        "1" : 0,
+        "3" : 0,
+        "4" : 0,
+        "5" : 0
       }
     },
     {
@@ -132,14 +141,14 @@
     {
       "completed" : false,
       "completedStages" : [
-
+        0
       ],
       "day" : 9,
       "intensities" : {
 
       },
       "selectedMeals" : {
-
+        "0" : 0
       }
     },
     {
@@ -236,12 +245,16 @@
     {
       "date" : "2026-10-18T12:04:54Z",
       "rating" : 2
+    },
+    {
+      "date" : "2026-10-22T21:19:45Z",
+      "rating" : 2
     }
   ],
   "equippedItems" : {
 
   },
-  "exportedAt" : "2026-10-22T21:19:44Z",
+  "exportedAt" : "2026-10-27T19:08:14Z",
   "lastSport" : "Basquet",
   "level" : 0,
   "ownedItems" : [
@@ -773,6 +786,10 @@
     {
       "date" : "2026-10-22T21:19:44Z",
       "rating" : 1
+    },
+    {
+      "date" : "2026-10-27T19:08:14Z",
+      "rating" : 1
     }
   ],
   "soundEnabled" : null,
@@ -792,7 +809,8 @@
     "2026-10-17T12:00:00Z",
     "2026-10-18T12:00:00Z",
     "2026-10-18T22:00:00Z",
-    "2026-10-19T12:00:00Z"
+    "2026-10-19T12:00:00Z",
+    "2026-10-21T22:00:00Z"
   ],
   "streakCount" : 0,
   "username" : "GonzaloSchiavo"
