@@ -8,7 +8,7 @@
   "characterName" : "CharacterName",
   "coins" : 400,
   "completedCycles" : 1,
-  "currentDay" : 1,
+  "currentDay" : 2,
   "cycleNumber" : 1,
   "days" : [
     {
@@ -41,14 +41,15 @@
     {
       "completed" : false,
       "completedStages" : [
-
+        0
       ],
       "day" : 2,
       "intensities" : {
 
       },
       "selectedMeals" : {
-
+        "0" : 2,
+        "1" : 0
       }
     },
     {
@@ -241,7 +242,7 @@
   "equippedItems" : {
     "pelo" : 0
   },
-  "exportedAt" : "2026-10-27T20:40:07Z",
+  "exportedAt" : "2026-10-28T13:44:59Z",
   "lastSport" : null,
   "level" : 0,
   "ownedItems" : [
@@ -662,6 +663,10 @@
     {
       "date" : "2026-10-27T19:07:30Z",
       "rating" : 1
+    },
+    {
+      "date" : "2026-10-28T13:44:59Z",
+      "rating" : 0
     }
   ],
   "soundEnabled" : null,
