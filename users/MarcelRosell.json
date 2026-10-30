@@ -8,7 +8,7 @@
   "characterName" : "CharacterName",
   "coins" : 0,
   "completedCycles" : 0,
-  "currentDay" : 2,
+  "currentDay" : 12,
   "cycleNumber" : 1,
   "days" : [
     {
@@ -222,7 +222,7 @@
   "equippedItems" : {
 
   },
-  "exportedAt" : "2026-10-20T17:03:11Z",
+  "exportedAt" : "2026-10-30T12:35:59Z",
   "lastSport" : null,
   "level" : 0,
   "ownedItems" : [
@@ -332,6 +332,6 @@
     "2026-10-18T12:00:00Z",
     "2026-10-19T12:00:00Z"
   ],
-  "streakCount" : 14,
+  "streakCount" : 0,
   "username" : "MarcelRosell"
 }
