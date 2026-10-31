@@ -8,7 +8,7 @@
   "characterName" : "CharacterName",
   "coins" : 400,
   "completedCycles" : 1,
-  "currentDay" : 3,
+  "currentDay" : 5,
   "cycleNumber" : 1,
   "days" : [
     {
@@ -269,7 +269,7 @@
   "equippedItems" : {
     "pelo" : 0
   },
-  "exportedAt" : "2026-10-29T13:42:09Z",
+  "exportedAt" : "2026-10-31T14:33:00Z",
   "lastSport" : null,
   "level" : 0,
   "ownedItems" : [
@@ -698,6 +698,10 @@
     {
       "date" : "2026-10-29T13:16:51Z",
       "rating" : 0
+    },
+    {
+      "date" : "2026-10-31T14:33:00Z",
+      "rating" : 1
     }
   ],
   "soundEnabled" : null,
@@ -720,6 +724,6 @@
     "2026-10-27T23:00:00Z",
     "2026-10-28T23:00:00Z"
   ],
-  "streakCount" : 16,
+  "streakCount" : 0,
   "username" : "EloiRomero"
 }
