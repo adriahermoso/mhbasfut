@@ -8,7 +8,7 @@
   "characterName" : "CharacterName",
   "coins" : 0,
   "completedCycles" : 0,
-  "currentDay" : 12,
+  "currentDay" : 14,
   "cycleNumber" : 1,
   "days" : [
     {
@@ -222,7 +222,7 @@
   "equippedItems" : {
 
   },
-  "exportedAt" : "2026-10-30T12:35:59Z",
+  "exportedAt" : "2026-11-01T19:59:08Z",
   "lastSport" : null,
   "level" : 0,
   "ownedItems" : [
