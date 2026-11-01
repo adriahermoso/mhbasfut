@@ -8,7 +8,7 @@
   "characterName" : "CharacterName",
   "coins" : 0,
   "completedCycles" : 0,
-  "currentDay" : 12,
+  "currentDay" : 14,
   "cycleNumber" : 2,
   "days" : [
     {
@@ -206,16 +206,27 @@
       }
     },
     {
-      "completed" : false,
+      "completed" : true,
       "completedStages" : [
-
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
       ],
       "day" : 12,
       "intensities" : {
-
+        "2" : 10,
+        "3" : 9
       },
       "selectedMeals" : {
-
+        "0" : 1,
+        "1" : 0,
+        "4" : 0,
+        "5" : 0,
+        "6" : 0
       }
     },
     {
@@ -234,14 +245,14 @@
     {
       "completed" : false,
       "completedStages" : [
-
+        0
       ],
       "day" : 14,
       "intensities" : {
 
       },
       "selectedMeals" : {
-
+        "0" : 0
       }
     }
   ],
@@ -277,12 +288,16 @@
     {
       "date" : "2026-10-22T22:47:15Z",
       "rating" : 3
+    },
+    {
+      "date" : "2026-10-30T14:38:53Z",
+      "rating" : 0
     }
   ],
   "equippedItems" : {
 
   },
-  "exportedAt" : "2026-10-30T14:38:51Z",
+  "exportedAt" : "2026-11-01T19:53:41Z",
   "lastSport" : "Futbol",
   "level" : 0,
   "ownedItems" : [
@@ -957,6 +972,10 @@
     {
       "date" : "2026-10-30T14:38:51Z",
       "rating" : 1
+    },
+    {
+      "date" : "2026-11-01T19:53:41Z",
+      "rating" : 2
     }
   ],
   "soundEnabled" : null,
@@ -980,7 +999,8 @@
     "2026-10-20T22:00:00Z",
     "2026-10-22T22:00:00Z",
     "2026-10-23T22:00:00Z",
-    "2026-10-24T22:00:00Z"
+    "2026-10-24T22:00:00Z",
+    "2026-10-29T23:00:00Z"
   ],
   "streakCount" : 0,
   "username" : "MarcVilanova"
