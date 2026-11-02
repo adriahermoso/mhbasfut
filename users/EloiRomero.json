@@ -149,16 +149,25 @@
       }
     },
     {
-      "completed" : false,
+      "completed" : true,
       "completedStages" : [
-        0
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
       ],
       "day" : 7,
       "intensities" : {
-
+        "2" : 8
       },
       "selectedMeals" : {
-        "0" : 0
+        "0" : 0,
+        "1" : 0,
+        "3" : 1,
+        "4" : 0,
+        "5" : 2
       }
     },
     {
@@ -294,7 +303,7 @@
   "equippedItems" : {
     "pelo" : 0
   },
-  "exportedAt" : "2026-11-02T15:58:59Z",
+  "exportedAt" : "2026-11-02T16:03:42Z",
   "lastSport" : null,
   "level" : 0,
   "ownedItems" : [
@@ -757,8 +766,9 @@
     "2026-10-27T23:00:00Z",
     "2026-10-28T23:00:00Z",
     "2026-10-30T23:00:00Z",
-    "2026-10-31T23:00:00Z"
+    "2026-10-31T23:00:00Z",
+    "2026-11-01T23:00:00Z"
   ],
-  "streakCount" : 2,
+  "streakCount" : 3,
   "username" : "EloiRomero"
 }
