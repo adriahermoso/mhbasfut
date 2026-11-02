@@ -8,7 +8,7 @@
   "characterName" : "CharacterName",
   "coins" : 400,
   "completedCycles" : 1,
-  "currentDay" : 6,
+  "currentDay" : 7,
   "cycleNumber" : 1,
   "days" : [
     {
@@ -127,11 +127,14 @@
       }
     },
     {
-      "completed" : false,
+      "completed" : true,
       "completedStages" : [
         0,
         1,
-        2
+        2,
+        3,
+        4,
+        5
       ],
       "day" : 6,
       "intensities" : {
@@ -139,20 +142,23 @@
       },
       "selectedMeals" : {
         "0" : 0,
-        "1" : 0
+        "1" : 0,
+        "3" : 0,
+        "4" : 0,
+        "5" : 0
       }
     },
     {
       "completed" : false,
       "completedStages" : [
-
+        0
       ],
       "day" : 7,
       "intensities" : {
 
       },
       "selectedMeals" : {
-
+        "0" : 0
       }
     },
     {
@@ -279,12 +285,16 @@
     {
       "date" : "2026-10-29T13:16:55Z",
       "rating" : 0
+    },
+    {
+      "date" : "2026-11-01T17:20:27Z",
+      "rating" : 1
     }
   ],
   "equippedItems" : {
     "pelo" : 0
   },
-  "exportedAt" : "2026-11-01T17:20:17Z",
+  "exportedAt" : "2026-11-02T15:58:59Z",
   "lastSport" : null,
   "level" : 0,
   "ownedItems" : [
@@ -717,6 +727,14 @@
     {
       "date" : "2026-10-31T14:33:00Z",
       "rating" : 1
+    },
+    {
+      "date" : "2026-11-01T17:20:19Z",
+      "rating" : 1
+    },
+    {
+      "date" : "2026-11-02T15:58:59Z",
+      "rating" : 1
     }
   ],
   "soundEnabled" : null,
@@ -738,8 +756,9 @@
     "2026-10-27T12:00:00Z",
     "2026-10-27T23:00:00Z",
     "2026-10-28T23:00:00Z",
-    "2026-10-30T23:00:00Z"
+    "2026-10-30T23:00:00Z",
+    "2026-10-31T23:00:00Z"
   ],
-  "streakCount" : 1,
+  "streakCount" : 2,
   "username" : "EloiRomero"
 }
