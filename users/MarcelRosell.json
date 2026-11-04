@@ -12,16 +12,27 @@
   "cycleNumber" : 2,
   "days" : [
     {
-      "completed" : false,
+      "completed" : true,
       "completedStages" : [
-
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
       ],
       "day" : 1,
       "intensities" : {
-
+        "2" : 7,
+        "3" : 7
       },
       "selectedMeals" : {
-
+        "0" : 2,
+        "1" : 2,
+        "4" : 1,
+        "5" : 1,
+        "6" : 2
       }
     },
     {
@@ -206,12 +217,16 @@
     {
       "date" : "2026-10-17T15:57:14Z",
       "rating" : 0
+    },
+    {
+      "date" : "2026-11-04T06:32:55Z",
+      "rating" : 0
     }
   ],
   "equippedItems" : {
 
   },
-  "exportedAt" : "2026-11-04T06:32:51Z",
+  "exportedAt" : "2026-11-04T06:34:28Z",
   "lastSport" : "Futbol",
   "level" : 0,
   "ownedItems" : [
@@ -504,6 +519,10 @@
     {
       "date" : "2026-10-19T08:01:48Z",
       "rating" : 0
+    },
+    {
+      "date" : "2026-11-04T06:32:53Z",
+      "rating" : 0
     }
   ],
   "soundEnabled" : null,
@@ -522,8 +541,9 @@
     "2026-10-16T12:00:00Z",
     "2026-10-17T12:00:00Z",
     "2026-10-18T12:00:00Z",
-    "2026-10-19T12:00:00Z"
+    "2026-10-19T12:00:00Z",
+    "2026-11-03T23:00:00Z"
   ],
-  "streakCount" : 0,
+  "streakCount" : 1,
   "username" : "MarcelRosell"
 }
