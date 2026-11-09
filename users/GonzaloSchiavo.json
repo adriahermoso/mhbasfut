@@ -8,7 +8,7 @@
   "characterName" : "CharacterName",
   "coins" : 0,
   "completedCycles" : 1,
-  "currentDay" : 5,
+  "currentDay" : 7,
   "cycleNumber" : 3,
   "days" : [
     {
@@ -90,42 +90,62 @@
       }
     },
     {
-      "completed" : false,
+      "completed" : true,
       "completedStages" : [
-
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
       ],
       "day" : 5,
       "intensities" : {
-
+        "2" : 8,
+        "3" : 5
       },
       "selectedMeals" : {
-
+        "0" : 0,
+        "1" : 0,
+        "4" : 0,
+        "5" : 0,
+        "6" : 0
       }
     },
     {
-      "completed" : false,
+      "completed" : true,
       "completedStages" : [
-
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
       ],
       "day" : 6,
       "intensities" : {
-
+        "2" : 6
       },
       "selectedMeals" : {
-
+        "0" : 0,
+        "1" : 0,
+        "3" : 0,
+        "4" : 0,
+        "5" : 0
       }
     },
     {
       "completed" : false,
       "completedStages" : [
-
+        0
       ],
       "day" : 7,
       "intensities" : {
 
       },
       "selectedMeals" : {
-
+        "0" : 0
       }
     },
     {
@@ -260,12 +280,16 @@
     {
       "date" : "2026-11-03T14:22:57Z",
       "rating" : 2
+    },
+    {
+      "date" : "2026-11-07T18:22:20Z",
+      "rating" : 1
     }
   ],
   "equippedItems" : {
 
   },
-  "exportedAt" : "2026-11-07T18:22:06Z",
+  "exportedAt" : "2026-11-09T18:55:46Z",
   "lastSport" : "Basquet",
   "level" : 0,
   "ownedItems" : [
@@ -1049,6 +1073,18 @@
     {
       "date" : "2026-11-05T09:16:11Z",
       "rating" : 0
+    },
+    {
+      "date" : "2026-11-07T18:22:19Z",
+      "rating" : 0
+    },
+    {
+      "date" : "2026-11-08T16:25:20Z",
+      "rating" : 1
+    },
+    {
+      "date" : "2026-11-09T18:55:46Z",
+      "rating" : 1
     }
   ],
   "soundEnabled" : null,
@@ -1073,8 +1109,10 @@
     "2026-10-26T23:00:00Z",
     "2026-10-27T23:00:00Z",
     "2026-11-02T23:00:00Z",
-    "2026-11-04T23:00:00Z"
+    "2026-11-04T23:00:00Z",
+    "2026-11-06T23:00:00Z",
+    "2026-11-07T23:00:00Z"
   ],
-  "streakCount" : 0,
+  "streakCount" : 2,
   "username" : "GonzaloSchiavo"
 }
