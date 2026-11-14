@@ -8,34 +8,20 @@
   "characterName" : "CharacterName",
   "coins" : 0,
   "completedCycles" : 1,
-  "currentDay" : 12,
+  "currentDay" : 1,
   "cycleNumber" : 3,
   "days" : [
     {
-      "completed" : true,
+      "completed" : false,
       "completedStages" : [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9
+
       ],
       "day" : 1,
       "intensities" : {
-        "2" : 9,
-        "3" : 5,
-        "4" : 6,
-        "5" : 6,
-        "6" : 5
+
       },
       "selectedMeals" : {
-        "0" : 0,
-        "1" : 0
+
       }
     },
     {
@@ -52,28 +38,16 @@
       }
     },
     {
-      "completed" : true,
+      "completed" : false,
       "completedStages" : [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7
+
       ],
       "day" : 3,
       "intensities" : {
-        "2" : 5,
-        "3" : 5,
-        "4" : 5
+
       },
       "selectedMeals" : {
-        "0" : 0,
-        "1" : 0,
-        "5" : 0,
-        "6" : 0
+
       }
     },
     {
@@ -90,96 +64,55 @@
       }
     },
     {
-      "completed" : true,
+      "completed" : false,
       "completedStages" : [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6
+
       ],
       "day" : 5,
       "intensities" : {
-        "2" : 8,
-        "3" : 5
+
       },
       "selectedMeals" : {
-        "0" : 0,
-        "1" : 0,
-        "4" : 0,
-        "5" : 0,
-        "6" : 0
+
       }
     },
     {
-      "completed" : true,
+      "completed" : false,
       "completedStages" : [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5
+
       ],
       "day" : 6,
       "intensities" : {
-        "2" : 6
+
       },
       "selectedMeals" : {
-        "0" : 0,
-        "1" : 0,
-        "3" : 0,
-        "4" : 0,
-        "5" : 0
+
       }
     },
     {
-      "completed" : true,
+      "completed" : false,
       "completedStages" : [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5
+
       ],
       "day" : 7,
       "intensities" : {
-        "2" : 4
+
       },
       "selectedMeals" : {
-        "0" : 0,
-        "1" : 0,
-        "3" : 0,
-        "4" : 0,
-        "5" : 0
+
       }
     },
     {
-      "completed" : true,
+      "completed" : false,
       "completedStages" : [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7
+
       ],
       "day" : 8,
       "intensities" : {
-        "2" : 7,
-        "3" : 6,
-        "4" : 5
+
       },
       "selectedMeals" : {
-        "0" : 0,
-        "1" : 0,
-        "5" : 0,
-        "6" : 0
+
       }
     },
     {
@@ -309,12 +242,16 @@
     {
       "date" : "2026-11-10T19:38:41Z",
       "rating" : 1
+    },
+    {
+      "date" : "2026-11-14T13:24:13Z",
+      "rating" : 2
     }
   ],
   "equippedItems" : {
 
   },
-  "exportedAt" : "2026-11-14T13:24:11Z",
+  "exportedAt" : "2026-11-14T13:26:17Z",
   "lastSport" : "Basquet",
   "level" : 0,
   "ownedItems" : [
@@ -961,52 +898,48 @@
       "startDate" : "2026-10-19T13:08:44Z"
     }
   ],
-  "planStartDate" : "2026-11-03T14:22:54Z",
+  "planStartDate" : "2026-11-14T13:24:35Z",
   "programCompleted" : false,
   "questionnaireAnswers" : {
     "1" : "15",
     "10" : "8.0",
-    "11" : "4",
-    "12" : "{\"bedtime\":\"23:00\",\"waketime\":\"7:15\"}",
+    "11" : "3",
+    "12" : "{\"bedtime\":\"23:00\",\"waketime\":\"7:00\"}",
     "13" : "Prou descansat per afrontar el dia",
-    "14" : "4 àpats",
+    "14" : "3 àpats",
     "15" : "Diàriament (1 o 2 racions)",
-    "16" : "4.0",
-    "17" : "La majoria de vegades",
-    "18" : "Sovint",
+    "16" : "2.2",
+    "17" : "De vegades \/ només quelcom ràpid",
+    "18" : "De vegades",
     "19" : "4",
     "2" : "Masculí",
-    "20" : "Entre 5 i 15 minuts",
-    "21" : "Ocasionalment (1-2 cops per setmana)",
-    "22" : "3",
-    "23" : "4",
+    "20" : "Menys de 5 minuts",
+    "21" : "Rarament",
+    "22" : "2",
+    "23" : "6",
     "24" : "6",
     "25" : "6",
-    "26" : "Lleu, en dies puntuals",
+    "26" : "Moderat, m'afecta el rendiment de vegades",
     "27" : "2.0",
-    "28" : "1 o 2 a la setmana",
-    "29" : "Gairebé sempre entre setmana",
+    "28" : "Diàriament (més de 5)",
+    "29" : "Variable segons el dia",
     "3" : "{\"height\":\"180\",\"weight\":\"80\"}",
-    "30" : "Sí, complet (mobilitat, cursa, activació)",
-    "31" : "Sí, sempre (trot suau, respiració)",
-    "32" : "Sí, 2 o més cops per setmana",
-    "33" : "Sí, múltiples lesions repetides",
+    "30" : "Només toco pilota directament",
+    "31" : "De vegades",
+    "32" : "Només quan noto alguna molèstia",
+    "33" : "Sí, una lesió que em va aturar",
     "34" : "Genoll \/ Lligaments",
-    "35" : "0 dies (sense baixa)",
-    "36" : "45",
-    "37" : "237",
-    "38" : "5,15",
-    "39" : "47",
+    "35" : "1 a 2 mesos",
+    "36" : "37",
     "4" : "Bàsquet 5x5",
-    "40" : "12",
     "5" : "Juvenil (16-18 anys)",
     "6" : "4 a 6 anys",
-    "7" : "4",
-    "8" : "7",
-    "9" : "Millorar el rendiment físic i la velocitat"
+    "7" : "5",
+    "8" : "9",
+    "9" : "Arribar al màxim nivell competitiu"
   },
-  "questionnaireCompleted" : true,
-  "questionnaireCompletedDate" : "2026-11-03T14:22:54Z",
+  "questionnaireCompleted" : false,
+  "questionnaireCompletedDate" : null,
   "questionnaireScore" : {
     "date" : "2026-11-03T14:22:53Z",
     "perCategory" : {
@@ -1123,30 +1056,7 @@
   "soundEnabled" : null,
   "sport" : "Basquet",
   "streakCompletedDates" : [
-    "2026-10-06T12:00:00Z",
-    "2026-10-07T12:00:00Z",
-    "2026-10-08T12:00:00Z",
-    "2026-10-09T12:00:00Z",
-    "2026-10-10T12:00:00Z",
-    "2026-10-11T12:00:00Z",
-    "2026-10-12T12:00:00Z",
-    "2026-10-13T12:00:00Z",
-    "2026-10-14T12:00:00Z",
-    "2026-10-15T12:00:00Z",
-    "2026-10-16T12:00:00Z",
-    "2026-10-17T12:00:00Z",
-    "2026-10-18T12:00:00Z",
-    "2026-10-18T22:00:00Z",
-    "2026-10-19T12:00:00Z",
-    "2026-10-21T22:00:00Z",
-    "2026-10-26T23:00:00Z",
-    "2026-10-27T23:00:00Z",
-    "2026-11-02T23:00:00Z",
-    "2026-11-04T23:00:00Z",
-    "2026-11-06T23:00:00Z",
-    "2026-11-07T23:00:00Z",
-    "2026-11-08T23:00:00Z",
-    "2026-11-09T23:00:00Z"
+
   ],
   "streakCount" : 0,
   "username" : "GonzaloSchiavo"
