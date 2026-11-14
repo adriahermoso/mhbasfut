@@ -251,7 +251,7 @@
   "equippedItems" : {
 
   },
-  "exportedAt" : "2026-11-14T13:26:29Z",
+  "exportedAt" : "2026-11-14T13:27:36Z",
   "lastSport" : "Basquet",
   "level" : 0,
   "ownedItems" : [
@@ -931,6 +931,8 @@
     "34" : "Genoll \/ Lligaments",
     "35" : "1 a 2 mesos",
     "36" : "37",
+    "37" : "235",
+    "38" : "4,46",
     "4" : "Bàsquet 5x5",
     "5" : "Juvenil (16-18 anys)",
     "6" : "4 a 6 anys",
