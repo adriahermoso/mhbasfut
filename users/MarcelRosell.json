@@ -1,6 +1,6 @@
 {
   "adminRevision" : "2026-10-19T12:03:09Z",
-  "appVersion" : "1.5",
+  "appVersion" : "1.6",
   "assignedPlan" : 3,
   "assignedPlanPerSport" : {
     "Futbol" : 3
@@ -8,7 +8,7 @@
   "characterName" : "CharacterName",
   "coins" : 0,
   "completedCycles" : 0,
-  "currentDay" : 1,
+  "currentDay" : 11,
   "cycleNumber" : 2,
   "days" : [
     {
@@ -226,7 +226,7 @@
   "equippedItems" : {
 
   },
-  "exportedAt" : "2026-11-04T06:34:28Z",
+  "exportedAt" : "2026-11-14T16:30:03Z",
   "lastSport" : "Futbol",
   "level" : 0,
   "ownedItems" : [
@@ -523,6 +523,10 @@
     {
       "date" : "2026-11-04T06:32:53Z",
       "rating" : 0
+    },
+    {
+      "date" : "2026-11-14T16:30:02Z",
+      "rating" : 0
     }
   ],
   "soundEnabled" : null,
@@ -544,6 +548,6 @@
     "2026-10-19T12:00:00Z",
     "2026-11-03T23:00:00Z"
   ],
-  "streakCount" : 1,
+  "streakCount" : 0,
   "username" : "MarcelRosell"
 }
