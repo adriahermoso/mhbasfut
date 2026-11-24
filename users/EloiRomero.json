@@ -1,91 +1,53 @@
 {
   "adminRevision" : "2026-10-27T20:21:25Z",
   "appVersion" : "1.6",
-  "assignedPlan" : 3,
+  "assignedPlan" : 4,
   "assignedPlanPerSport" : {
-    "Basquet" : 3
+    "Basquet" : 4
   },
   "characterName" : "CharacterName",
   "coins" : 400,
-  "completedCycles" : 1,
-  "currentDay" : 14,
-  "cycleNumber" : 1,
+  "completedCycles" : 2,
+  "currentDay" : 1,
+  "cycleNumber" : 3,
   "days" : [
     {
       "completed" : false,
       "completedStages" : [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9
+
       ],
       "day" : 1,
       "intensities" : {
-        "2" : 7,
-        "3" : 3,
-        "4" : 8,
-        "5" : 6,
-        "6" : 5
+
       },
       "selectedMeals" : {
-        "0" : 0,
-        "1" : 0
+
       }
     },
     {
-      "completed" : true,
+      "completed" : false,
       "completedStages" : [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7
+
       ],
       "day" : 2,
       "intensities" : {
-        "2" : 7,
-        "3" : 8,
-        "4" : 8
+
       },
       "selectedMeals" : {
-        "0" : 2,
-        "1" : 0,
-        "5" : 2,
-        "6" : 1
+
       }
     },
     {
-      "completed" : true,
+      "completed" : false,
       "completedStages" : [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7
+
       ],
       "day" : 3,
       "intensities" : {
-        "2" : 5,
-        "3" : 9,
-        "4" : 8
+
       },
       "selectedMeals" : {
-        "0" : 1,
-        "1" : 1,
-        "5" : 0,
-        "6" : 1
+
       }
     },
     {
@@ -102,72 +64,42 @@
       }
     },
     {
-      "completed" : true,
+      "completed" : false,
       "completedStages" : [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7
+
       ],
       "day" : 5,
       "intensities" : {
-        "2" : 8,
-        "3" : 9,
-        "4" : 9
+
       },
       "selectedMeals" : {
-        "0" : 1,
-        "1" : 0,
-        "5" : 0,
-        "6" : 0
+
       }
     },
     {
-      "completed" : true,
+      "completed" : false,
       "completedStages" : [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5
+
       ],
       "day" : 6,
       "intensities" : {
-        "2" : 3
+
       },
       "selectedMeals" : {
-        "0" : 0,
-        "1" : 0,
-        "3" : 0,
-        "4" : 0,
-        "5" : 0
+
       }
     },
     {
-      "completed" : true,
+      "completed" : false,
       "completedStages" : [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5
+
       ],
       "day" : 7,
       "intensities" : {
-        "2" : 8
+
       },
       "selectedMeals" : {
-        "0" : 0,
-        "1" : 0,
-        "3" : 1,
-        "4" : 0,
-        "5" : 2
+
       }
     },
     {
@@ -197,25 +129,16 @@
       }
     },
     {
-      "completed" : true,
+      "completed" : false,
       "completedStages" : [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5
+
       ],
       "day" : 10,
       "intensities" : {
-        "2" : 8
+
       },
       "selectedMeals" : {
-        "0" : 0,
-        "1" : 0,
-        "3" : 0,
-        "4" : 0,
-        "5" : 0
+
       }
     },
     {
@@ -311,13 +234,17 @@
     {
       "date" : "2026-11-05T02:47:28Z",
       "rating" : 3
+    },
+    {
+      "date" : "2026-11-09T13:36:30Z",
+      "rating" : 2
     }
   ],
   "equippedItems" : {
     "pelo" : 0
   },
-  "exportedAt" : "2026-11-09T13:36:29Z",
-  "lastSport" : null,
+  "exportedAt" : "2026-11-24T15:51:33Z",
+  "lastSport" : "Basquet",
   "level" : 0,
   "ownedItems" : [
     "pelo.0"
@@ -622,10 +549,498 @@
       "recovered" : true,
       "sport" : "Basquet",
       "startDate" : "2026-10-27T00:00:00Z"
+    },
+    {
+      "allDaysCompleted" : false,
+      "cycleNumber" : 1,
+      "days" : [
+        {
+          "completed" : false,
+          "completedStages" : [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "day" : 1,
+          "intensities" : {
+            "2" : 7,
+            "3" : 3,
+            "4" : 8,
+            "5" : 6,
+            "6" : 5
+          },
+          "selectedMeals" : {
+            "0" : 0,
+            "1" : 0
+          }
+        },
+        {
+          "completed" : true,
+          "completedStages" : [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "day" : 2,
+          "intensities" : {
+            "2" : 7,
+            "3" : 8,
+            "4" : 8
+          },
+          "selectedMeals" : {
+            "0" : 2,
+            "1" : 0,
+            "5" : 2,
+            "6" : 1
+          }
+        },
+        {
+          "completed" : true,
+          "completedStages" : [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "day" : 3,
+          "intensities" : {
+            "2" : 5,
+            "3" : 9,
+            "4" : 8
+          },
+          "selectedMeals" : {
+            "0" : 1,
+            "1" : 1,
+            "5" : 0,
+            "6" : 1
+          }
+        },
+        {
+          "completed" : false,
+          "completedStages" : [
+
+          ],
+          "day" : 4,
+          "intensities" : {
+
+          },
+          "selectedMeals" : {
+
+          }
+        },
+        {
+          "completed" : true,
+          "completedStages" : [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "day" : 5,
+          "intensities" : {
+            "2" : 8,
+            "3" : 9,
+            "4" : 9
+          },
+          "selectedMeals" : {
+            "0" : 1,
+            "1" : 0,
+            "5" : 0,
+            "6" : 0
+          }
+        },
+        {
+          "completed" : true,
+          "completedStages" : [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "day" : 6,
+          "intensities" : {
+            "2" : 3
+          },
+          "selectedMeals" : {
+            "0" : 0,
+            "1" : 0,
+            "3" : 0,
+            "4" : 0,
+            "5" : 0
+          }
+        },
+        {
+          "completed" : true,
+          "completedStages" : [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "day" : 7,
+          "intensities" : {
+            "2" : 8
+          },
+          "selectedMeals" : {
+            "0" : 0,
+            "1" : 0,
+            "3" : 1,
+            "4" : 0,
+            "5" : 2
+          }
+        },
+        {
+          "completed" : false,
+          "completedStages" : [
+
+          ],
+          "day" : 8,
+          "intensities" : {
+
+          },
+          "selectedMeals" : {
+
+          }
+        },
+        {
+          "completed" : false,
+          "completedStages" : [
+
+          ],
+          "day" : 9,
+          "intensities" : {
+
+          },
+          "selectedMeals" : {
+
+          }
+        },
+        {
+          "completed" : true,
+          "completedStages" : [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "day" : 10,
+          "intensities" : {
+            "2" : 8
+          },
+          "selectedMeals" : {
+            "0" : 0,
+            "1" : 0,
+            "3" : 0,
+            "4" : 0,
+            "5" : 0
+          }
+        },
+        {
+          "completed" : false,
+          "completedStages" : [
+
+          ],
+          "day" : 11,
+          "intensities" : {
+
+          },
+          "selectedMeals" : {
+
+          }
+        },
+        {
+          "completed" : false,
+          "completedStages" : [
+
+          ],
+          "day" : 12,
+          "intensities" : {
+
+          },
+          "selectedMeals" : {
+
+          }
+        },
+        {
+          "completed" : false,
+          "completedStages" : [
+
+          ],
+          "day" : 13,
+          "intensities" : {
+
+          },
+          "selectedMeals" : {
+
+          }
+        },
+        {
+          "completed" : true,
+          "completedStages" : [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "day" : 14,
+          "intensities" : {
+            "2" : 8,
+            "3" : 8
+          },
+          "selectedMeals" : {
+            "0" : 0,
+            "1" : 0,
+            "4" : 0,
+            "5" : 0,
+            "6" : 0
+          }
+        }
+      ],
+      "endDate" : "2026-11-09T13:36:59Z",
+      "planNumber" : 3,
+      "recovered" : false,
+      "sport" : "Basquet",
+      "startDate" : "2026-10-27T00:00:00Z"
+    },
+    {
+      "allDaysCompleted" : false,
+      "cycleNumber" : 2,
+      "days" : [
+        {
+          "completed" : true,
+          "completedStages" : [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "day" : 1,
+          "intensities" : {
+            "2" : 9,
+            "3" : 3,
+            "4" : 9,
+            "5" : 9,
+            "6" : 9
+          },
+          "selectedMeals" : {
+            "0" : 0,
+            "1" : 0
+          }
+        },
+        {
+          "completed" : false,
+          "completedStages" : [
+
+          ],
+          "day" : 2,
+          "intensities" : {
+
+          },
+          "selectedMeals" : {
+
+          }
+        },
+        {
+          "completed" : false,
+          "completedStages" : [
+
+          ],
+          "day" : 3,
+          "intensities" : {
+
+          },
+          "selectedMeals" : {
+
+          }
+        },
+        {
+          "completed" : false,
+          "completedStages" : [
+
+          ],
+          "day" : 4,
+          "intensities" : {
+
+          },
+          "selectedMeals" : {
+
+          }
+        },
+        {
+          "completed" : false,
+          "completedStages" : [
+
+          ],
+          "day" : 5,
+          "intensities" : {
+
+          },
+          "selectedMeals" : {
+
+          }
+        },
+        {
+          "completed" : false,
+          "completedStages" : [
+
+          ],
+          "day" : 6,
+          "intensities" : {
+
+          },
+          "selectedMeals" : {
+
+          }
+        },
+        {
+          "completed" : false,
+          "completedStages" : [
+
+          ],
+          "day" : 7,
+          "intensities" : {
+
+          },
+          "selectedMeals" : {
+
+          }
+        },
+        {
+          "completed" : false,
+          "completedStages" : [
+
+          ],
+          "day" : 8,
+          "intensities" : {
+
+          },
+          "selectedMeals" : {
+
+          }
+        },
+        {
+          "completed" : false,
+          "completedStages" : [
+
+          ],
+          "day" : 9,
+          "intensities" : {
+
+          },
+          "selectedMeals" : {
+
+          }
+        },
+        {
+          "completed" : false,
+          "completedStages" : [
+
+          ],
+          "day" : 10,
+          "intensities" : {
+
+          },
+          "selectedMeals" : {
+
+          }
+        },
+        {
+          "completed" : false,
+          "completedStages" : [
+
+          ],
+          "day" : 11,
+          "intensities" : {
+
+          },
+          "selectedMeals" : {
+
+          }
+        },
+        {
+          "completed" : false,
+          "completedStages" : [
+
+          ],
+          "day" : 12,
+          "intensities" : {
+
+          },
+          "selectedMeals" : {
+
+          }
+        },
+        {
+          "completed" : false,
+          "completedStages" : [
+
+          ],
+          "day" : 13,
+          "intensities" : {
+
+          },
+          "selectedMeals" : {
+
+          }
+        },
+        {
+          "completed" : false,
+          "completedStages" : [
+
+          ],
+          "day" : 14,
+          "intensities" : {
+
+          },
+          "selectedMeals" : {
+
+          }
+        }
+      ],
+      "endDate" : "2026-11-24T15:51:33Z",
+      "planNumber" : 4,
+      "recovered" : false,
+      "sport" : "Basquet",
+      "startDate" : "2026-11-09T13:36:59Z"
     }
   ],
-  "planStartDate" : "2026-10-27T00:00:00Z",
-  "programCompleted" : true,
+  "planStartDate" : "2026-11-24T15:51:33Z",
+  "programCompleted" : false,
   "questionnaireAnswers" : {
     "1" : "17",
     "10" : "10.0",
@@ -669,9 +1084,9 @@
     "9" : "Arribar al màxim nivell competitiu"
   },
   "questionnaireCompleted" : true,
-  "questionnaireCompletedDate" : "2026-10-13T20:07:05Z",
+  "questionnaireCompletedDate" : "2026-11-24T15:51:33Z",
   "questionnaireScore" : {
-    "date" : "2026-10-13T20:07:02Z",
+    "date" : "2026-11-24T15:51:33Z",
     "perCategory" : {
       "Hàbits saludables" : 5.8,
       "Nutrició i hidratació" : 13.3,
@@ -785,7 +1200,8 @@
     "2026-10-30T23:00:00Z",
     "2026-10-31T23:00:00Z",
     "2026-11-01T23:00:00Z",
-    "2026-11-04T23:00:00Z"
+    "2026-11-04T23:00:00Z",
+    "2026-11-08T23:00:00Z"
   ],
   "streakCount" : 0,
   "username" : "EloiRomero"
