@@ -12,16 +12,30 @@
   "cycleNumber" : 3,
   "days" : [
     {
-      "completed" : false,
+      "completed" : true,
       "completedStages" : [
-
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
       ],
       "day" : 1,
       "intensities" : {
-
+        "2" : 8,
+        "3" : 9,
+        "4" : 9,
+        "5" : 9,
+        "6" : 9
       },
       "selectedMeals" : {
-
+        "0" : 0,
+        "1" : 0
       }
     },
     {
@@ -238,12 +252,16 @@
     {
       "date" : "2026-11-09T13:36:30Z",
       "rating" : 2
+    },
+    {
+      "date" : "2026-11-24T15:51:51Z",
+      "rating" : 1
     }
   ],
   "equippedItems" : {
     "pelo" : 0
   },
-  "exportedAt" : "2026-11-24T15:51:33Z",
+  "exportedAt" : "2026-11-24T15:54:01Z",
   "lastSport" : "Basquet",
   "level" : 0,
   "ownedItems" : [
@@ -1176,6 +1194,10 @@
     {
       "date" : "2026-11-09T13:36:29Z",
       "rating" : 1
+    },
+    {
+      "date" : "2026-11-24T15:51:47Z",
+      "rating" : 1
     }
   ],
   "soundEnabled" : null,
@@ -1201,8 +1223,9 @@
     "2026-10-31T23:00:00Z",
     "2026-11-01T23:00:00Z",
     "2026-11-04T23:00:00Z",
-    "2026-11-08T23:00:00Z"
+    "2026-11-08T23:00:00Z",
+    "2026-11-23T23:00:00Z"
   ],
-  "streakCount" : 0,
+  "streakCount" : 1,
   "username" : "EloiRomero"
 }
